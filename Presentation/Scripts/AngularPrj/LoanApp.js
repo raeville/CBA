@@ -1,1 +1,2 @@
-﻿var LoanApp =  angular.module("LoanApp", ['ngRoute']);
+﻿var LoanApp = angular.module("LoanApp", ['ngRoute']);
+var test;
