@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanApi", "LoanApi\LoanApi.csproj", "{9766F973-97AF-461C-9DA2-B1B36FB95540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanApi.Tests", "LoanApi.Tests\LoanApi.Tests.csproj", "{2214DFF2-2CA2-4B14-9558-8B9A7FC2A910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{15FABA98-C615-4B89-BFDA-F263ABAC1DC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C664A727-68DC-4E28-A15C-DF8B534EE5C3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://atbelarmino.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LoanApi\\LoanApi.csproj
+		SccProjectName1 = LoanApi
+		SccLocalPath1 = LoanApi
+		SccProjectUniqueName2 = LoanApi.Tests\\LoanApi.Tests.csproj
+		SccProjectName2 = LoanApi.Tests
+		SccLocalPath2 = LoanApi.Tests
+		SccProjectUniqueName3 = Presentation\\Presentation.csproj
+		SccProjectName3 = Presentation
+		SccLocalPath3 = Presentation
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9766F973-97AF-461C-9DA2-B1B36FB95540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9766F973-97AF-461C-9DA2-B1B36FB95540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9766F973-97AF-461C-9DA2-B1B36FB95540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9766F973-97AF-461C-9DA2-B1B36FB95540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2214DFF2-2CA2-4B14-9558-8B9A7FC2A910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2214DFF2-2CA2-4B14-9558-8B9A7FC2A910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2214DFF2-2CA2-4B14-9558-8B9A7FC2A910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2214DFF2-2CA2-4B14-9558-8B9A7FC2A910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15FABA98-C615-4B89-BFDA-F263ABAC1DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FABA98-C615-4B89-BFDA-F263ABAC1DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FABA98-C615-4B89-BFDA-F263ABAC1DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FABA98-C615-4B89-BFDA-F263ABAC1DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

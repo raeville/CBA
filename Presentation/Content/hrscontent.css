@@ -1,0 +1,168 @@
+﻿
+/*Main page banners -start*/
+
+.admin-sprite, .admin-roster, .admin-analytics, .admin-group, .admin-sharing {
+    background-image:url('../Images/admin.png');
+    background-repeat:no-repeat;
+}
+
+.admin-roster{
+    height:66px;
+    background-position: 50px 0px;
+}
+
+.admin-analytics{
+    height:66px;
+    background-position:50px -140px;
+}
+
+.admin-group{
+    height:66px;
+    background-position:50px -70px;
+}
+
+.admin-sharing{
+    height:66px;
+    background-position:50px -213px;
+}
+
+.admin-caption{    
+    padding-left:10px;
+}
+
+.context-sharing{
+    background-color:#fff;
+    color: #000000;
+}
+#hero {
+    background-image: url('../Images/classroom.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:580px;
+    position:relative;
+}
+#hero:after { 
+    background: rgba(56, 61, 72, 0.52);   
+    bottom: 0;
+    content: '';        
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#hero h1{
+    margin-top: 170px;
+}
+
+#hero h1,
+#hero .lead {
+    color: #fff;
+    position: relative;
+    z-index:888;
+    text-align: center;
+}
+/*Main page banners -end*/
+
+/*Date Picker color -start*/
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year {
+    color:#000000;
+}
+/*Date Picker color -end*/
+
+
+/*About Page*/
+#hero-about {
+    background-image:url('../Images/about.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:580px;
+    position:relative;
+}
+#hero-about:after { 
+    background: rgba(56, 61, 72, 0.52);   
+    bottom: 0;
+    content: '';        
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#hero-about h1{
+    margin-top: 170px;
+}
+
+#hero-about h1,
+#hero-about .lead {
+    color: #fff;
+    position: relative;
+    z-index:888;
+    text-align: center;
+}
+.about-team{
+    background-image:url('../Images/about_team.jpg');
+    background-repeat: no-repeat;
+}
+.about-img{
+   height: 592px;
+   width: 918px;
+   margin: auto;
+}
+
+
+/*Contact Page*/
+#hero-contact {
+    background-image:url('../Images/contact.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:580px;
+    position:relative;
+}
+#hero-contact:after { 
+    background: rgba(56, 61, 72, 0.52);   
+    bottom: 0;
+    content: '';        
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#hero-contact h1{
+    margin-top: 170px;
+}
+
+#hero-contact h1,
+#hero-contact .lead {
+    color: #fff;
+    position: relative;
+    z-index:888;
+    text-align: center;
+}
+
+.contact-sprite, .contact-start, .contact-help, .contact-job, .contact-connect{
+    background-image:url('../Images/contact-icon.png');
+    background-repeat:no-repeat;
+}
+
+.contact-start{
+    height:70px;
+    background-position:235px 3px;
+}
+
+.contact-help{
+    height:70px;
+    background-position:245px -71px;
+}
+
+.contact-job{
+    height:70px;
+    background-position:245px -155px;
+}
+
+.contact-connect{
+    height:70px;
+    background-position:245px -240px;
+}
