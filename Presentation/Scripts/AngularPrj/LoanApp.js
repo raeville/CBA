@@ -10,3 +10,4 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     $routeProvider.otherwise({ redirectTo: '/loanCalculator' });
     $locationProvider.html5Mode(true);
 }]);
+LoanApp.constant(loanApiConsUrl,"http://localhost:50671/");
