@@ -11,9 +11,6 @@
     <link href="Content/jquery-ui.theme.min.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/Site.css" rel="stylesheet" />
-</head>
-<body>
-    <h1></h1>
 
     <!--Scripts-->
     <script src="Scripts/bootstrap.min.js"></script>
@@ -22,6 +19,34 @@
     <script src="Scripts/angular-resource.min.js"></script>
     <script src="Scripts/angular-mocks.js"></script>
     <script src="Scripts/AngularPrj/LoanApp.js"></script>
-    
+
+    <!--Module-->
+    <script src="Scripts/AngularPrj/LoanApp.js"></script>
+
+    <!--Controller-->
+    <script src="Scripts/AngularPrj/controller/LoanCalculator.Controller.js"></script>
+
+</head>
+<body ng-app="LoanApp">
+
+    <!-- this is the navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Loan Application</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/loanCalculator"> Loan Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main">
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+    </div>
+    <footer class="text-center">
+        <p><a href="#About">About</a> <a href="#Terms">Terms of Use</a> <a href="#Contact">Contact Us</a></p>
+    </footer>
 </body>
 </html>
