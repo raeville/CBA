@@ -69,6 +69,7 @@
     <Content Include="Content\jquery-ui.structure.min.css" />
     <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\cfs-logo.gif" />
     <Content Include="Jasmine\lib\boot.js" />
     <Content Include="Jasmine\lib\console.js" />
     <Content Include="Jasmine\lib\jasmine-html.js" />
