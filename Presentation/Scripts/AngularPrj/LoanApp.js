@@ -2,6 +2,8 @@
 ///<reference path="../angular-route.min.js" />
 var LoanApp = angular.module("LoanApp", ['ngRoute']);
 
+LoanApp.constant("loanApiConsUrl", "http://localhost:50671/");
+
 LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/loanCalculator', {
         templateUrl: 'Views/LoanCalculator.html',
@@ -10,4 +12,4 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     $routeProvider.otherwise({ redirectTo: '/loanCalculator' });
     $locationProvider.html5Mode(true);
 }]);
-LoanApp.constant(loanApiConsUrl,"http://localhost:50671/");
+
