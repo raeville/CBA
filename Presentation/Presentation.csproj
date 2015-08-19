@@ -81,7 +81,6 @@
     <Content Include="Jasmine\Spec\SpecHelper.js" />
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
-    <Content Include="Scripts\AngularPrj\ConsConLoanApi.js" />
     <Content Include="Scripts\AngularPrj\LoanApp.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
