@@ -2,66 +2,49 @@
     text-decoration: none;   
 }
 
+.navbar {
+    background-color: #FC0703;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff; 
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #023167;
+    border-color: #023167;
+}
+
 .navbar-header img {
     padding: 10px;
 }
 
-
-.aboutus {
-    padding-left:750px;
-}
-
-.contactus {
-    padding-left:50px;
-}
-
-.side_menu {
-    padding: 10px;
-    width: 20%;
-    height: 600px;
-    float:left;
-}
-
-.mid {
-    width: 100%;
-    height: 602px;
-    background-color: white;
-}
-.content {
-    width: 80%;
-    height: 600px;
-    float:left;
-}
-
-.my_content {
-    margin-top: 10px;
-    width: 850px;
-    height: 550px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
 footer
 {
-    background-color: #f5f5f5;
-    padding: 10px;
+    background-color: #FC0703;
     border-top:1px solid transparent;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd;      
+    padding: 10px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }
+    footer a {
+        color: white;
+        
+    }
+    footer ul {
+        text-align: center;
+    }
 
-footer a
-{
-    color:black;
-    padding-left: 10px;
-}
 
 footer a:hover
 {
-    color: #777777;
+    color: black;
     text-decoration:none;
 }
 
-    footer span {
-        padding-left: 10px;
-        color: black;
-    }
+footer span {
+    color: white;
+    padding-left: 10px;
+}

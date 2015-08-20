@@ -9,9 +9,10 @@
     <!--Styles-->
     <link href="Content/jquery-ui.min.css" rel="stylesheet" />
     <link href="Content/jquery-ui.structure.min.css" rel="stylesheet" />
-    <link href="Content/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="Content/jquery-ui.theme.min.css" rel="stylesheet" />  
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/Site.css" rel="stylesheet" />
+    
 
     <!--Scripts-->
     <script src="Scripts/jquery-1.10.2.min.js"></script>
@@ -30,43 +31,46 @@
 </head>
 <body ng-app="LoanApp">
     <!--header-->
-    <nav class="navbar navbar-default">
+    <header>
+        <nav class="navbar navbar-default">
 
             <div class="navbar-header">
                 <a href="#/home"><img src="Images/cfs-logo.gif" /></a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="" class="aboutus">About Us</a></li>
-                <li><a href="" class="contactus">Contact Us</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Contact Us</a></li>
             </ul>
-    </nav>
+        </nav>
+    </header>
+    
 
     <!-- navigation -->
-    <div class="mid">
-        <div class="list-group side_menu">
-            <a class="list-group-item active">Dashboard</a>
-            <a href="#" class="list-group-item">My Profile</a>
-            <a href="#" class="list-group-item">Loan Types</a>
-            <a href="#" class="list-group-item">Calculator</a>
-            <a href="#" class="list-group-item">Application</a>
-        </div>
-
-        <div id="main" class="content">
-            <!-- this is where content will be injected -->
-            <div class="my_content">
-                <div ng-view></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a class="list-group-item active">Dashboard</a>
+                    <a href="#" class="list-group-item">My Profile</a>
+                    <a href="#" class="list-group-item">Loan Types</a>
+                    <a href="#" class="list-group-item">Calculator</a>
+                    <a href="#" class="list-group-item">Application</a>
+                </div>
             </div>
+
+            <div class="col-md-9">
+                <!-- this is where content will be injected -->
+                
+                <div ng-view></div>
+            </div>            
         </div>
     </div>
-    
-    <!--footer-->
-    <footer class="text-center">
-        <p>
-           <a href="#About">About</a><span>|</span> 
-           <a href="#Terms">Terms of Use</a> <span>|</span> 
-           <a href="#Contact">Contact Us</a>
-
-        </p>
+    <footer id="footer">
+        <ul class="list-inline">
+            <li><a href="#About">About</a><span>|</span> </li>
+            <li><a href="#Terms">Terms of Use</a> <span>|</span> </li>
+            <li><a href="#Contact">Contact Us</a></li>
+        </ul>
     </footer>
 </body>
 </html>
