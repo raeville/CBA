@@ -72,3 +72,7 @@ footer span {
 .close, .close:hover, .close:focus{
     color: white;
 }
+
+.form-horizontal {
+    margin-bottom: 100px;
+}
