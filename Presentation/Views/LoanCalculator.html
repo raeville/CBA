@@ -1,57 +1,65 @@
-﻿<div class="">
-   
-    <div class="container ">
-        <form class="form-horizontal" name="LoanCalculatorForm">
-            <div class="form-group">
-                <label class="col-md-4 control-label">Amount of the Loan</label>
-                <div class="col-md-3">
-                   <input required type="text" class="form-control" name="amountLoan" placeholder="Amount of the Loan" ng-model="amountLoan" />
-                </div>
-
-                <div class="col-md-3 text-left">
-                    <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.required">
-                        Amount of the Loan is Required
-                    </span>
-                </div>
+﻿<div ng-init="init()" class="">
+    <form class="form-horizontal" name="LoanCalculatorForm">
+        <div class="form-group">
+            <label class="col-md-4 control-label">Amount of the Loan</label>
+            <div class="col-md-3">
+                <input required type="text" class="form-control" name="amountLoan" placeholder="Amount of the Loan" ng-model="amountLoan" />
             </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Annual Interest (%)</label>
-                <div class="col-md-3">
-                    <input required type="text" class="form-control" name="annualInterest" placeholder="Annual Interest" ng-model="annualInterest" />
-                </div>
+            <div class="col-md-3 text-left">
+                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.required">
+                    Amount of the Loan is Required
+                </span>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Repayment Period (years)</label>
-                <div class="col-md-3">
-                    <input required type="text" class="form-control" name="repaymentPeriod" placeholder="Repayment Period in years" ng-model="repaymentPeriod" />
-                </div>
-                <div class="col-md-3 text-left">
-                    <span style="color:red" ng-show="">
-
-                    </span>
-                </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Annual Interest (%)</label>
+            <div class="col-md-3">
+                <input required type="text" class="form-control" name="annualInterest" placeholder="Annual Interest" ng-model="annualInterest" />
             </div>
+        </div>
 
-
-            <div class="form-group">
-                <div class="col-md-4 text-right">
-                </div>
-                <div class="col-md-1 text-left">                    
-                    <input type="button" class="btn btn-primary" value="Calculate"
-                           ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
-                           ng-click="show = !show">
-                </div>
-
+        <div class="form-group">
+            <label class="col-md-4 control-label">Repayment Period (years)</label>
+            <div class="col-md-3">
+                <input required type="text" class="form-control" name="repaymentPeriod" placeholder="Repayment Period in years" ng-model="repaymentPeriod" />
             </div>
+            <div class="col-md-3 text-left">
+                <span style="color:red" ng-show="">
 
-            <div class="calculate-results" ng-show="show">
-                <p>Monthly Payment: 555</p>
-                <p>total Payment: 666</p>
-                <p>total interest: 555</p>
+                </span>
             </div>
+        </div>
 
-        </form>
-    </div>
+
+        <div class="form-group">
+            <div class="col-md-4 text-right">
+            </div>
+            <div class="col-md-1 text-left">
+                <input type="button" class="btn btn-primary" value="Calculate"
+                       ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
+                       ng-click="calculateLoan()">
+            </div>
+        </div>
+
+        <div class="form-group" ng-hide="hideResults">
+            <div class="row">
+                <label class="col-md-4 control-label">Monthly Payment: {{monthlyPayment}}</label>               
+                <div class="col-md-3"></div>
+                <div class="col-md-3 text-left"></div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label">Total Payment: {{totalPayment}}</label>
+                <div class="col-md-3"></div>
+                <div class="col-md-3 text-left"></div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label">Total Interest: {{totalInterest}}</label>
+                <div class="col-md-3"></div>
+                <div class="col-md-3 text-left"></div>
+            </div>
+        </div>
+
+    </form>
 </div>	
