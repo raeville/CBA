@@ -4,21 +4,29 @@
 /// <reference path="../lib/jasmine.js" />
 /// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
 
-it('should map routes to controllers', function () {
-    module('LoanApp');
+describe('Routing Config', function () {
+    beforeEach(module('LoanApp'));
 
-    inject(function ($route) {
+    it('should map /home to HomeController', function () {
+        inject(function ($route) {
+            expect($route.routes['/home'].controller).toBe('HomeController');
+            expect($route.routes['/home'].templateUrl).
+              toEqual('Views/Home.html');
+        });
+    });
 
-        expect($route.routes['/home'].controller).toBe('HomeController');
-        expect($route.routes['/home'].templateUrl).
-          toEqual('Views/Home.html');
+    it('should map /loanCalculator to LoanCalculatorController', function () {
+        inject(function ($route) {
+            expect($route.routes['/loanCalculator'].templateUrl).
+              toEqual('Views/LoanCalculator.html');
+            expect($route.routes['/loanCalculator'].controller).
+              toEqual('LoanCalculatorController');
+        });
+    });
 
-        expect($route.routes['/loanCalculator'].templateUrl).
-          toEqual('Views/LoanCalculator.html');
-        expect($route.routes['/loanCalculator'].controller).
-          toEqual('LoanCalculatorController');
-
-        // otherwise redirect to
-        expect($route.routes[null].redirectTo).toEqual('/home')
+    it('should map everything else to HomeController', function () {
+        inject(function ($route) {
+            expect($route.routes[null].redirectTo).toEqual('/home')
+        });
     });
 });
