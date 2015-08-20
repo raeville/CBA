@@ -19,6 +19,10 @@
     padding: 10px;
 }
 
+.loginlink {
+    color: #ffffff;
+}
+
 footer
 {
     background-color: #FC0703;
@@ -40,7 +44,7 @@ footer
 
 footer a:hover
 {
-    color: black;
+    color: #333;
     text-decoration:none;
 }
 
