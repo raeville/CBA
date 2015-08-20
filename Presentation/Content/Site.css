@@ -2,6 +2,11 @@
     text-decoration: none;   
 }
 
+ul li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
 .navbar {
     background-color: #FC0703;
 }
@@ -51,4 +56,19 @@ footer a:hover
 footer span {
     color: white;
     padding-left: 10px;
+}
+
+.modal-header {
+    background-color: #023167;   
+    color: white;
+}
+
+.modal-body button {
+    background-color: #FC0703;
+    border-color: #FC0703;
+    color: white;
+}
+
+.close, .close:hover, .close:focus{
+    color: white;
 }

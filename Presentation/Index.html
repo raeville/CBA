@@ -43,7 +43,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="">About Us</a></li>
                 <li><a href="">Contact Us</a></li>
-                <li><a href=""><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Log In</a></li>
+                <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Log In</a></li>
             </ul>
     </nav>
     </header>
@@ -76,5 +76,28 @@
             <li><a href="#Contact">Contact Us</a></li>
         </ul>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Log In to CFS</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><h4>Email Address: </h4><input type="text" /></li>
+                        <li><h4>Password: </h4><input type="text" /></li>
+                    </ul>
+                    <button type="button" class="btn">Log In</button>
+                </div>
+                <div class="modal-footer text-center">
+                    Don't have an account? <a href="">Register here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
