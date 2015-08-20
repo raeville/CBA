@@ -87,6 +87,7 @@
     <Content Include="Jasmine\src\Song.js" />
     <Content Include="Scripts\AngularPrj\Controller\LoanCalculator.Controller.js" />
     <Content Include="Scripts\AngularPrj\LoanApp.js" />
+    <Content Include="Scripts\AngularPrj\Service\LoanCalculator.Service.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="fonts\glyphicons-halflings-regular.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
