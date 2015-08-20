@@ -76,3 +76,12 @@ footer span {
 .form-horizontal {
     margin-bottom: 100px;
 }
+
+.modal-title img {
+    width: 68px;
+    height: 23px;
+}
+
+ul {
+    -webkit-padding-start: 0px;
+}
