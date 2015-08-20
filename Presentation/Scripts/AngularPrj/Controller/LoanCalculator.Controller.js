@@ -1,5 +1,5 @@
 ﻿LoanApp.controller('LoanCalculatorController', function ($scope, $location, CalculatorService) {
-    $scope.onlyNumbers = /^\d+$/;
+
     $scope.init = function () {
         $scope.hideResults = true;        
     }
