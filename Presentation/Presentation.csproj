@@ -87,6 +87,7 @@
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
     <Content Include="Scripts\AngularPrj\Controller\LoanCalculator.Controller.js" />
+    <Content Include="Scripts\AngularPrj\Directives\LoanApp.Directives.js" />
     <Content Include="Scripts\AngularPrj\LoanApp.js" />
     <Content Include="Scripts\AngularPrj\Service\LoanCalculator.Service.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -130,6 +131,7 @@
     <Content Include="Index.html" />
     <Content Include="Views\LoanCalculator.html" />
     <Content Include="Views\Register.html" />
+    <Content Include="Views\Test.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
