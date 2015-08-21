@@ -5,9 +5,9 @@ var LoanApp = angular.module("LoanApp", ['ngRoute']);
 LoanApp.constant("loanApiConsUrl", "http://localhost:50671/");
 
 LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    $routeProvider.when('/Test', {
-        templateUrl: 'Views/Test.html',
-        controller: 'LoanCalculatorController'
+    $routeProvider.when('/ContactUs', {
+        templateUrl: 'Views/ContactUs.html',
+        controller: ''
     });
     //$routeProvider.when('/home', {
     //    templateUrl: 'Views/Index.html',
@@ -19,9 +19,11 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     });
     $routeProvider.when('/Register', {
         templateUrl: 'Views/Register.html',
-        controller: 'LoanCalculatorController'
+        controller: ''
     });
-    $routeProvider.otherwise({ redirectTo: '/home' });
+    //$routeProvider.otherwise({ redirectTo: '/home' });
     //$locationProvider.html5Mode(true);
 }]);
+
+
 
