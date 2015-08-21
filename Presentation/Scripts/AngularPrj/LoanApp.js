@@ -13,6 +13,9 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         templateUrl: 'Views/LoanCalculator.html',
         controller: 'LoanCalculatorController'
     });
+    $routeProvider.when('/Register', {
+        templateUrl: 'Views/Register.html',
+    });
     $routeProvider.otherwise({ redirectTo: '/home' });
     //$locationProvider.html5Mode(true);
 }]);
