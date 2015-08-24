@@ -83,6 +83,7 @@
     <Content Include="Jasmine\Spec\LoanCalculatorSpec.js" />
     <Content Include="Jasmine\Spec\jasmineTest.js" />
     <Content Include="Jasmine\Spec\PlayerSpec.js" />
+    <Content Include="Jasmine\Spec\RouteConfigSpec.js" />
     <Content Include="Jasmine\Spec\SpecHelper.js" />
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
