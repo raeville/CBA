@@ -7,13 +7,13 @@
 describe('Routing Config', function () {
     beforeEach(module('LoanApp'));
 
-    it('should map /home to HomeController', function () {
-        inject(function ($route) {
-            expect($route.routes['/home'].controller).toBe('HomeController');
-            expect($route.routes['/home'].templateUrl).
-              toEqual('Views/Home.html');
-        });
-    });
+    //it('should map /home to HomeController', function () {
+    //    inject(function ($route) {
+    //        expect($route.routes['/home'].controller).toBe('HomeController');
+    //        expect($route.routes['/home'].templateUrl).
+    //          toEqual('Views/Home.html');
+    //    });
+    //});
 
     it('should map /loanCalculator to LoanCalculatorController', function () {
         inject(function ($route) {
@@ -24,9 +24,9 @@ describe('Routing Config', function () {
         });
     });
 
-    it('should map everything else to HomeController', function () {
-        inject(function ($route) {
-            expect($route.routes[null].redirectTo).toEqual('/home')
-        });
-    });
+    //it('should map everything else to HomeController', function () {
+    //    inject(function ($route) {
+    //        expect($route.routes[null].redirectTo).toEqual('/home')
+    //    });
+    //});
 });
