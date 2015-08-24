@@ -51,7 +51,7 @@
         <div class="form-group">
             <div class="col-md-4 text-right">
             </div>
-            <div class="col-md-3 text-right">
+            <div class="col-md-3 text-left">
                 <input type="button" class="btn btn-primary"  value="Calculate"
                        ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
                        ng-click="calculateLoan()">
@@ -60,17 +60,17 @@
 
         <div class="form-group" ng-hide="hideResults">
             <div class="row">
-                <label class="col-md-4 control-label">Monthly Payment: {{monthlyPayment | currency:"Php ":3}}</label>               
+                <label class="col-md-5">Monthly Payment: <small>{{monthlyPayment | currency:"Php ":3}}</small> </label>               
                 <div class="col-md-3"></div>
                 <div class="col-md-3 text-left"></div>
             </div>
             <div class="row">
-                <label class="col-md-4 control-label">Total Payment: {{totalPayment | currency:"Php ":3}}</label>
+                <label class="col-md-5 ">Total Payment: <small>{{totalPayment | currency:"Php ":3}}</small> </label>
                 <div class="col-md-3"></div>
                 <div class="col-md-3 text-left"></div>
             </div>
             <div class="row">
-                <label class="col-md-4 control-label">Total Interest: {{totalInterest | currency:"Php ":3}}</label>
+                <label class="col-md-5 ">Total Interest: <small>{{totalInterest | currency:"Php ":3}}</small> </label>
                 <div class="col-md-3"></div>
                 <div class="col-md-3 text-left"></div>
             </div>
