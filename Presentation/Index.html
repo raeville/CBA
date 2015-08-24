@@ -46,7 +46,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="">About Us</a></li>
                 <li><a href="#/ContactUs">Contact Us</a></li>
-                <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Log In</a></li>
+                <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Sign In</a></li>
             </ul>
     </nav>
     </header>
@@ -86,17 +86,32 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Log In to  <img src="Images/cfs-logo.gif" /></h4>
+                    <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
                 </div>
-                <div class="modal-body text-center">
-                    <ul>
-                        <li><h5>Email address </h5><input type="text" /></li>
-                        <li><h5>Password </h5><input type="text" /></li>
-                    </ul>
-                    <button type="button" class="btn">Log In</button>
+                <div class="modal-body">
+                    <div class="row">
+                        <label class="col-md-6 col-md-offset-3">Email address</label>
+                    </div>
+                    <div class="row">
+                         <div class="col-md-6 col-md-offset-3"><input required type="text" class="form-control" placeholder="you@example.com" /></div>                        
+                    </div>
+                    <h1></h1>
+                    <div class="row">                        
+                            <label class="col-md-6 col-md-offset-3">Password</label>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3"><input required type="text" class="form-control" /></div>                        
+                    </div>
+                    <h1></h1>
+                    <div class="row">
+                        <div class="text-center">
+                            <button type="button" class="btn signIn_btn">Sign In</button>
+                        </div>
+                        
+                    </div>                
                 </div>
                 <div class="modal-footer">
-                    Don't have an account? <a href="#/Register" onclick="$('#myModal').modal('hide');">Register here</a>
+                    Don't have an account? <a href="" onclick="$('#myModal').modal('hide');">Register here</a>
                 </div>
             </div>
         </div>

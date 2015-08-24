@@ -67,10 +67,15 @@ footer span {
     background-color: #FC0703;
     border-color: #FC0703;
     color: white;
+    font-weight: bold;
 }
 
 .close, .close:hover, .close:focus{
     color: white;
+}
+.btn:hover, .btn:focus {
+    color: white;
+    font-weight: bold;
 }
 
 .form-horizontal {
@@ -84,4 +89,8 @@ footer span {
 
 ul {
     -webkit-padding-start: 0px;
+}
+
+.signIn_btn {
+    width: 100px;
 }
