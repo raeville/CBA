@@ -1,4 +1,4 @@
-namespace LoanApi.Migrations
+namespace LoanApi.CBAContextDbMigrations
 {
     using System;
     using System.Data.Entity;
@@ -9,8 +9,8 @@ namespace LoanApi.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "LoanApi.Models.CBAContextDb";
+            AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"CBAContextDbMigrations";
         }
 
         protected override void Seed(LoanApi.Models.CBAContextDb context)
