@@ -1,4 +1,8 @@
-﻿/*global: describe, it, expect, inject*/
+﻿/// <reference path="../../Scripts/angular.min.js" />
+/// <reference path="../../Scripts/angular-mocks.js" />
+/// <reference path="../../Scripts/angular-route.min.js" />
+/// <reference path="../lib/jasmine.js" />
+/// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
 (function () {
     'use strict';
 
