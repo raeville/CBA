@@ -8,10 +8,6 @@ namespace LoanApi.Models
 {
     public class CBAContextDb : DbContext
     {
-        public CBAContextDb(): base("name=DefaultConnection")
-        {
-            
-        }
-        
+        public CBAContextDb(): base("name=DefaultConnection") {}
     }
 }

@@ -32,7 +32,6 @@ namespace LoanApi.Migrations
                     PasswordHash = hashit.HashPassword("P@ssw0rd")
                 };
                 adduser.Create(admin);
-
             }
         }
     }
