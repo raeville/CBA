@@ -69,6 +69,12 @@ footer span {
     color: white;
     font-weight: bold;
 }
+.modal-bodyReg button {
+    background-color: #86d95d;
+    border-color: #86d95d;
+    color: white;
+    font-weight: bold;
+}
 
 .close, .close:hover, .close:focus{
     color: white;
@@ -94,3 +100,9 @@ ul {
 .signIn_btn {
     width: 100px;
 }
+.Reg_btn {
+    width: auto;
+  
+}
+
+
