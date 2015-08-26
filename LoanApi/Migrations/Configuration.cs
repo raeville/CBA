@@ -8,22 +8,22 @@ namespace LoanApi.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using LoanApi.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LoanApi.Models.CBAContextDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<LoanApi.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            MigrationsDirectory = "LoanApi.Models.CBAContextDb";
         }
 
-        protected override void Seed(LoanApi.Models.CBAContextDb context)
+        protected override void Seed(LoanApi.Models.ApplicationDbContext context)
         {
             var hashit = new PasswordHasher();
+
             var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
 
             //Admin
             if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
-            {
+            {             
                 var admin = new ApplicationUser()
                 {
                     UserName = "admin@cba.com",
@@ -31,8 +31,10 @@ namespace LoanApi.Migrations
                     EmailConfirmed = true,
                     PasswordHash = hashit.HashPassword("P@ssw0rd")
                 };
+
                 adduser.Create(admin);
             }
+
         }
     }
 }
