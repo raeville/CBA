@@ -9,7 +9,7 @@ namespace LoanApi.CBAContextDbMigration
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"CBAContextDbMigration";
         }
 
