@@ -170,11 +170,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContextMigrations\201508250855564_Initial.cs" />
-    <Compile Include="ApplicationDbContextMigrations\201508250855564_Initial.Designer.cs">
-      <DependentUpon>201508250855564_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationDbContextMigrations\Configuration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -305,11 +300,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ApplicationDbContextMigrations\201508250855564_Initial.resx">
-      <DependentUpon>201508250855564_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -324,7 +314,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51361</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
