@@ -10,7 +10,8 @@ namespace LoanApi.Models
     {
         public CBAContextDb(): base("name=DefaultConnection")
         {
-
+            
         }
+        
     }
 }

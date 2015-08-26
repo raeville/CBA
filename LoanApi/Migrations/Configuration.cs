@@ -1,4 +1,4 @@
-namespace LoanApi.CBAContextDbMigrations
+namespace LoanApi.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -19,11 +19,11 @@ namespace LoanApi.CBAContextDbMigrations
         protected override void Seed(LoanApi.Models.CBAContextDb context)
         {
             var hashit = new PasswordHasher();
-            var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));            
+            var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
 
             //Admin
             if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
-            {             
+            {
                 var admin = new ApplicationUser()
                 {
                     UserName = "admin@cba.com",
