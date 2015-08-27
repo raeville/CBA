@@ -15,7 +15,13 @@
 
 
     <!--Scripts-->
+ 
     <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/jquery.validate.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
@@ -89,90 +95,91 @@
             <li><a><small>Copyright © 2015 all rights reserved.</small></a></li>
         </ul>
     </footer>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">Email address</label>
+    <form role="form">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input required type="text" class="form-control" placeholder="you@example.com" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">Password</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input required type="text" class="form-control" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <div class="text-center">
-                            <button type="button" class="btn signIn_btn">Sign In</button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">Email address</label>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3"><input required type="email" class="form-control" id="inputEmail" placeholder="you@example.com" /></div>
+                          
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">Password</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3"><input required type="password" class="form-control" /></div>
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <div class="text-center">
+                                <button type="submit" class="btn signIn_btn">Sign In</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    Don't have an account? <a href="" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show')">Register here</a>
+                    <div class="modal-footer">
+                        Don't have an account? <a href="" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show')">Register here</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModalReg" tabindex="1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Create free account to start using <img src="Images/cfs-logo.gif" /></h4>
-                </div>
-                <div class="modal-body modal-bodyReg">
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">Email address</label>
+        <!-- Modal -->
+        <div class="modal fade" id="myModalReg" tabindex="1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Create free account to start using <img src="Images/cfs-logo.gif" /></h4>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input type="text" class="form-control" placeholder="you@example.com" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">Password</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input required type="password" class="form-control" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">Confirm Password</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input required type="password" class="form-control" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <div class="text-center">
-
-                            <button class="form-control btn Reg_btn">
-                                Create Account
-                            </button>
+                    <div class="modal-body modal-bodyReg">
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">Email address</label>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3"><input type="email" class="form-control" id="inputEmail" placeholder="you@example.com" required /></div>
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">Password</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <input required type="password" id="inputPassword" class="form-control" placeholder="Password" />
+                            </div>
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">Confirm Password</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3 form-group">
+                                <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm Password" required />                         
+                            </div>
+                        </div>
+                        <h1></h1>          
+                        <div class="row">
+                            <div class="text-center">
+                                <button type="submit" class="form-control btn Reg_btn">
+                                    Create Account
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    Already have an account? <a href="" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show');">Sign here</a>
+                    <div class="modal-footer">
+                        Already have an account? <a href="" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show');">Sign here</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </form>
 </body>
 </html>
