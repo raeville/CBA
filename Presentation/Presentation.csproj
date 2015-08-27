@@ -84,7 +84,7 @@
     <Content Include="Jasmine\SpecRunner.html" />
     <Content Include="Jasmine\Spec\LoanCalculatorSpec.js" />
     <Content Include="Jasmine\Spec\jasmineTest.js" />
-    <Content Include="Jasmine\Spec\LoginServiceSpec.js" />
+    <Content Include="Jasmine\Spec\AspNetUserServiceSpec.js" />
     <Content Include="Jasmine\Spec\PlayerSpec.js" />
     <Content Include="Jasmine\Spec\RouteConfigSpec.js" />
     <Content Include="Jasmine\Spec\SpecHelper.js" />
@@ -94,7 +94,7 @@
     <Content Include="Scripts\AngularPrj\Directives\LoanApp.Directives.js" />
     <Content Include="Scripts\AngularPrj\LoanApp.js" />
     <Content Include="Scripts\AngularPrj\Service\LoanCalculator.Service.js" />
-    <Content Include="Scripts\AngularPrj\Service\LoginService.js" />
+    <Content Include="Scripts\AngularPrj\Service\AspNetUserService.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="fonts\glyphicons-halflings-regular.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
