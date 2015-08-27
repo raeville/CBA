@@ -2,15 +2,15 @@
 /// <reference path="../../Scripts/angular-mocks.js" />
 /// <reference path="../lib/jasmine.js" />
 /// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
-/// <reference path="../../Scripts/AngularPrj/Service/LoginService.js" />
+/// <reference path="../../Scripts/AngularPrj/Service/AspNetUserService.js" />
 
-describe('log-in service', function () {
+describe('AspNetUser service', function () {
     beforeEach(module('LoanApp'));
 
     var loginService, $httpBackend;
 
     beforeEach(inject(function ($injector) {
-        loginService = $injector.get('loginService');
+        loginService = $injector.get('AspNetUser');
         $httpBackend = $injector.get('$httpBackend');
     }));
 
