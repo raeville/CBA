@@ -20,37 +20,43 @@
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/angular-resource.min.js"></script>
-    <script src="Scripts/angular-mocks.js"></script>    
+    <script src="Scripts/angular-mocks.js"></script>
 
     <!--Module-->
     <script src="Scripts/AngularPrj/LoanApp.js"></script>
 
     <!--Controller-->
     <script src="Scripts/AngularPrj/Controller/LoanCalculator.Controller.js"></script>
-    <script src="Scripts/AngularPrj/Controller/Login.Controller.js"></script>
 
     <!--Directives-->
     <script src="Scripts/AngularPrj/Directives/LoanApp.Directives.js"></script>
 
     <!--Service-->
     <script src="Scripts/AngularPrj/Service/LoanCalculator.Service.js"></script>
-    <script src="Scripts/AngularPrj/Service/AspNetUserService.js"></script>
 
 </head>
 <body ng-app="LoanApp">
     <!--header-->
     <header>
-    <nav class="navbar navbar-default">
-
-            <div class="navbar-header">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header ">
                 <a href="#/home"><img src="Images/cfs-logo.gif" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="">About Us</a></li>
-                <li><a href="#/ContactUs">Contact Us</a></li>
-                <li><a href="" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Sign In</a></li>
-            </ul>
-    </nav>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#/ContactUs">Contact Us</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Sign In</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
 
@@ -68,17 +74,19 @@
             </div>
 
             <div class="col-md-9">
-            <!-- this is where content will be injected -->
-                
+                <!-- this is where content will be injected -->
+
                 <div ng-view></div>
             </div>
         </div>
     </div>
     <footer id="footer">
-        <ul class="list-inline">
-            <li><a href="#About">About</a><span>|</span> </li>
-            <li><a href="#Terms">Terms of Use</a> <span>|</span> </li>
-            <li><a href="#/ContactUs">Contact Us</a></li>
+        <ul class="list-inline text-center">
+            <li><a href="#/FinacialService"><small> <u>Financial Service guide page</u></small></a><span>|</span> </li>
+            <li><a href="#/TermOfUse"><small><u>Terms of use</u></small></a><span>|</span> </li>
+            <li><a href="#/PrivacyPolicy"><small><u>Privacy Us</u></small> </a></li>
+            <br />
+            <li><a><small>Copyright © 2015 all rights reserved.</small></a></li>
         </ul>
     </footer>
 
@@ -113,14 +121,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    Don't have an account? <a href="" onclick="$('#myModal').modal('hide'), $('#myModalSignIn').modal('show')">Register here</a>
+                    Don't have an account? <a href="" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show')">Register here</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModalSignIn" tabindex="1">
+    <div class="modal fade" id="myModalReg" tabindex="1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -139,7 +147,7 @@
                         <label class="col-md-6 col-md-offset-3">Password</label>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input  required type="password" class="form-control" /></div>
+                        <div class="col-md-6 col-md-offset-3"><input required type="password" class="form-control" /></div>
                     </div>
                     <h1></h1>
                     <div class="row">
@@ -151,8 +159,8 @@
                     <h1></h1>
                     <div class="row">
                         <div class="text-center">
-                          
-                            <button class="form-control btn Reg_btn" >
+
+                            <button class="form-control btn Reg_btn">
                                 Create Account
                             </button>
                         </div>
@@ -160,7 +168,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    Already have an account? <a href="" onclick="$('#myModalSignIn').modal('hide'), $('#myModal').modal('show');">Sign here</a>
+                    Already have an account? <a href="" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show');">Sign here</a>
                 </div>
             </div>
         </div>

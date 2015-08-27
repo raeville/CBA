@@ -9,11 +9,25 @@ ul li {
 
 .navbar {
     background-color: #FC0703;
+   
+}
+.navbar-toggle {
+    background-color:#FC0703;
+    padding:17px;
+}
+
+.navbar-default .navbar-toggle:focus{
+     background-color: #FC0703;
+
+}
+.navbar-default .navbar-toggle:hover{
+     background-color: #ff5600;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #ffffff; 
+    color: #ffffff;     
 }
+
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
     background-color: #023167;
@@ -33,10 +47,12 @@ footer
     background-color: #FC0703;
     border-top:1px solid transparent;
     border: 1px solid #ddd;      
-    padding: 10px;
+    padding: 8px;
     bottom: 0;
     position: fixed;
     width: 100%;
+
+  
 }
     footer a {
         color: white;
@@ -44,7 +60,8 @@ footer
     }
     footer ul {
         text-align: center;
-    }
+     
+      }
 
 
 footer a:hover
@@ -104,5 +121,3 @@ ul {
     width: auto;
   
 }
-
-
