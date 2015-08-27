@@ -21,6 +21,18 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         templateUrl: 'Views/Register.html',
         controller: ''
     });
+    $routeProvider.when('/FinacialService', {
+        templateUrl: 'Views/FinacialService.html',
+        controller: ''
+    });
+    $routeProvider.when('/TermOfUse', {
+        templateUrl: 'Views/TermOfUse.html',
+        controller: ''
+    });
+    $routeProvider.when('/PrivacyPolicy', {
+        templateUrl: 'Views/PrivacyPolicy.html',
+        controller: ''
+    });
     //$routeProvider.otherwise({ redirectTo: '/home' });
     //$locationProvider.html5Mode(true);
 }]);
