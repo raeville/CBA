@@ -7,4 +7,17 @@ angular.module("LoanApp").service('AspNetUser', function loginService($http) {
     return {
         authenticate: authenticate
     }
+
+    function registerUser(userData) {
+        var serverBaseUrl = "http://localhost:51361/";
+        var register = serverBaseUrl + 'api/Account/Register';
+        $http({
+            method: 'POST',
+            url: register,
+            data: userData
+        }).done(function (data) {
+            console.log("success!");
+        }).fail(showError);
+    }
+    
 });
