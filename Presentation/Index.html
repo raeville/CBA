@@ -89,7 +89,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" onclick="$('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
                 </div>
                 <div class="modal-body">
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    Don't have an account? <a href="" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show')">Register here</a>
+                    Don't have an account? <a href="" data-dismiss="modal" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show'), $('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Register here</a>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" onclick="$('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Create free account to start using <img src="Images/cfs-logo.gif" /></h4>
                     </div>
                     <div class="form-group">
@@ -168,7 +168,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        Already have an account? <a href="" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show');">Sign here</a>
+                        Already have an account? <a href="" data-dismiss="modal" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show'), $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Sign here</a>
                     </div>
                 </div>
             </div>
