@@ -26,6 +26,17 @@ describe('AspNetUser service', function () {
         $httpBackend.flush();
     });
 
+    it('should have a api/Account/Register api POST call', function () {
+        var data = {
+            "email": "test@cba.com",
+            "password": "password",
+            "confirmPassword": "password"
+        };
+        $httpBackend.expectPOST(apiUrl + 'api/Account/Register/', data).respond(201, '');
+        loginService.registerUser(data);
+        $httpBackend.flush();
+    });
+
     afterEach(function(){
         $httpBackend.verifyNoOutstandingExpectation();
         $httpBackend.verifyNoOutstandingRequest();
