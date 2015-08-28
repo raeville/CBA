@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using LoanApi.Models;
 using LoanApi.Providers;
 using LoanApi.Results;
+using System.Web.Http.Cors;
 
 namespace LoanApi.Controllers
 {
@@ -321,6 +322,7 @@ namespace LoanApi.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
+        [EnableCors(origins: "http://localhost:50389", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
