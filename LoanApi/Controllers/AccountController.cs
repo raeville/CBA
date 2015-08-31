@@ -322,7 +322,6 @@ namespace LoanApi.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        [EnableCors(origins: "http://localhost:50389", headers: "*", methods: "*")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
