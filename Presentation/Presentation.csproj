@@ -91,6 +91,7 @@
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
     <Content Include="Scripts\AngularPrj\Controller\LoanCalculator.Controller.js" />
+    <Content Include="Scripts\AngularPrj\Controller\Registration.Controller.js" />
     <Content Include="Scripts\AngularPrj\Controller\Login.Controller.js" />
     <Content Include="Scripts\AngularPrj\Directives\LoanApp.Directives.js" />
     <Content Include="Scripts\AngularPrj\LoanApp.js" />
