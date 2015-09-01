@@ -14,14 +14,14 @@ namespace LoanApi
     {
         public static void Register(HttpConfiguration config)
         {
-            //Enable cross server access of Web Api
-            EnableCorsAttribute enablecors = new EnableCorsAttribute(origins: "http://localhost:50389", headers: "*", methods: "*");
-            config.EnableCors(enablecors);
-
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
+            //Enable cross server access of Web Api
+            EnableCorsAttribute enablecors = new EnableCorsAttribute(origins: "http://localhost:50389", headers: "*", methods: "*");
+            config.EnableCors(enablecors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
