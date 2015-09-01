@@ -11,9 +11,7 @@
             "password": password
         };
 
-        angular.injector(['ng', 'LoanApp']).get("AspNetUser").login(user).success(function () { console.log(response); })
-  .error(function () { console.log("Error!") });
-
+        AspNetUser.login(user);
     };
     
 });
