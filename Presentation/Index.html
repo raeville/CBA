@@ -34,6 +34,7 @@
     <script src="Scripts/AngularPrj/Directives/LoanApp.Directives.js"></script>
     <!--Service-->
     <script src="Scripts/AngularPrj/Service/LoanCalculator.Service.js"></script>
+    <script src="Scripts/AngularPrj/Service/AspNetUserService.js"></script>
 
 </head>
 <body ng-app="LoanApp">
@@ -123,7 +124,7 @@
     </div>    
 
     <!-- Modal -->
-    <form data-toggle="validator" role="form" name="modalForm">
+    <form data-toggle="validator" role="form" ng-controller="RegistrationController" name="modalForm">
         <div class="modal fade" id="myModalReg" tabindex="1">
             <div class="modal-dialog">
                 <div class="modal-content">
