@@ -9,7 +9,7 @@
         var user = {
             "Email": email,
             "Password": password,
-            "confirmPassword": confirmpassword
+            "ConfirmPassword": confirmpassword
         };
         angular.injector(['ng', 'LoanApp']).get("AspNetUser").registerUser(user).success(function () { console.log(response); })
     .error(function () { console.log("Error!") });
