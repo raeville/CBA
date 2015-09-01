@@ -2,7 +2,7 @@
 ///<reference path="../angular-route.min.js" />
 var LoanApp = angular.module("LoanApp", ['ngRoute']);
 
-LoanApp.constant("loanApiConsUrl", "http://localhost:50671/");
+LoanApp.constant("loanApiConsUrl", "http://localhost:51361/");
 
 LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/ContactUs', {
