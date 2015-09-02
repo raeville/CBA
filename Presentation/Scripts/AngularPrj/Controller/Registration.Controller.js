@@ -16,6 +16,7 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
 
         AspNetUser.registerUser(user).success(function (response) {
             $('#myModalReg').modal('hide');
+
             $location.path("/RegisterSuccessful");
               
             }).error(function (response) {
