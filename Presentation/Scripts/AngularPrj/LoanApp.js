@@ -33,6 +33,10 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         templateUrl: 'Views/PrivacyPolicy.html',
         controller: ''
     });
+    $routeProvider.when('/RegisterSuccessful', {
+        templateUrl: 'Views/RegisterSuccessful.html',
+        controller: ''
+    });
     //$routeProvider.otherwise({ redirectTo: '/home' });
     //$locationProvider.html5Mode(true);
 }]);

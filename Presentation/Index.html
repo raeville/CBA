@@ -123,11 +123,13 @@
                         <h1></h1>
                         <div class="row">
                             <div class="text-center">
-                                <button type="submit" ng-click="signIn()" class="btn signIn_btn">Sign In</button>
+                                <button type="submit" ng-click="signIn()" class="btn signIn_btn">Sign In</button><br />
+                                <span style="color:red">{{IncorrectPassword}}</span>&nbsp&nbsp
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
+                      
                         Don't have an account? <a href="" data-dismiss="modal" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show'), $('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Register here</a>
                     </div>
                 </div>
@@ -157,7 +159,8 @@
                                     <label class="col-md-6 col-md-offset-3">Password</label>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputPassword" name="inputPassword" ng-model="userData.inputPassword" class=" form-control" placeholder="Password" ng-minlength="6" ng-maxlength="20"></div>
+                                    <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputPassword" name="inputPassword" ng-model="userData.inputPassword" class=" form-control" placeholder="Password" ng-minlength="6" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"></div>
+                                   <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
                                     <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.required && modalForm.inputPassword.$dirty">Password is required!</span>
                                     <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="!modalForm.inputPassword.$error.required && (modalForm.inputPassword.$error.minlength || modalForm.inputPassword.$error.maxlength) && modalForm.inputPassword.$dirty">Passwords must be between 6 and 20 characters.</span>
                                 </div>
@@ -177,12 +180,14 @@
 
                                         <button type="submit" class="form-control btn btn-success Reg_btn" ng-click="registerUser()" ng-disabled="!userData.inputEmail || !userData.inputPassword || !userData.inputConfirmPassword || (!modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$error.notMatch && modalForm.inputPassword.$dirty)">
                                             Create Account
-                                        </button>
+                                        </button><br />
+                                        <span style="color:red">{{Message}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
+                           
                             Already have an account? <a href="" data-dismiss="modal" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show'), $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Sign here</a>
                         </div>
                     </div>

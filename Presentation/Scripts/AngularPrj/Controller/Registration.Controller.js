@@ -1,5 +1,5 @@
 ﻿
-LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', function ($scope, AspNetUser) {
+LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location', function ($scope, AspNetUser, $location) {
     // Do something with myService
 
     $scope.registerUser = function () {
@@ -14,12 +14,12 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', function (
             "ConfirmPassword": confirmpassword
         }
 
-        AspNetUser.registerUser(user).
-        success(function (response) {
-            console.log(response);
-        }).
-        error(function () {
-            console.log("Error!")
+        AspNetUser.registerUser(user).success(function (response) {
+            $('#myModalReg').modal('hide');
+            $location.path("/RegisterSuccessful");
+              
+            }).error(function (response) {
+             $scope.Message = response.Message;
         });
     };
 

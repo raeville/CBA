@@ -140,6 +140,7 @@
     <Content Include="Views\LoanCalculator.html" />
     <Content Include="Views\ContactUs.html" />
     <Content Include="Views\PrivacyPolicy.html" />
+    <Content Include="Views\RegisterSuccessful.html" />
     <Content Include="Views\TermOfUse.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
