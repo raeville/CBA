@@ -13,4 +13,5 @@ angular.module("LoanApp").service('AspNetUser', function loginService($http, loa
         login: authenticate,
         registerUser: register
     }
+    
 });
