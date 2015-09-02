@@ -1,7 +1,7 @@
-﻿LoanApp.controller('LoginController', function ($scope, $location, AspNetUser) {
+﻿LoanApp.controller('LoginController',  ['$scope', 'AspNetUser', function ($scope, AspNetUser) {
 
-    var sigIn = function () {
-        var user = [];
+    $scope.signIn = function () {
+        var user = { };
         var username = $scope.user.username;
         var password = $scope.user.password;
 
@@ -11,7 +11,12 @@
             "password": password
         };
 
-        AspNetUser.login(user);
+        AspNetUser.login(user).
+            success(function (response) {
+                console.log(response);
+            }).
+            error(function () {
+                console.log("Error!")
+            });
     };
-    
-});
+}]);
