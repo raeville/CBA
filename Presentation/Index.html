@@ -16,6 +16,11 @@
 
     <!--Scripts-->
     <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/jquery.validate.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
@@ -87,96 +92,107 @@
             <li><a><small>Copyright © 2015 all rights reserved.</small></a></li>
         </ul>
     </footer>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" data-ng-controller="LoginController">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" onclick="$('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">User Name</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input required type="text" name="username" ng-model="user.username" class="form-control" placeholder="you@example.com" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <label class="col-md-6 col-md-offset-3">Password</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3"><input required name="password" ng-model="user.password" type="password" class="form-control" /></div>
-                    </div>
-                    <h1></h1>
-                    <div class="row">
-                        <div class="text-center">
-                            <button type="button" ng-click="signIn()" class="btn signIn_btn">Sign In</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    Don't have an account? <a href="" data-dismiss="modal" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show'), $('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Register here</a>
-                </div>
-            </div>
-        </div>
-    </div>    
-
-    <!-- Modal -->
-    <form data-toggle="validator" role="form" ng-controller="RegistrationController" name="modalForm">
-        <div class="modal fade" id="myModalReg" tabindex="1">
+    <form role="form">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" data-ng-controller="LoginController">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <button type="button" class="close" onclick="$('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Create free account to start using <img src="Images/cfs-logo.gif" /></h4>
+                        <button type="button" class="close" onclick="$('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
                     </div>
-                    <div class="form-group">
-                        <div class="modal-body modal-bodyReg">
-                            <div class="row">
-                                <label class="col-md-6 col-md-offset-3">Email address</label>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3"><input type="email" required id="inputEmail" name="inputEmail" ng-model="userData.inputEmail" class="form-control" placeholder="you@example.com" /></div>
-                                <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.email.$error.required && modalForm.email.$dirty">Email is required!</span>
-                            </div>
-                            <h1></h1>
-                            <div class="row">
-                                <label class="col-md-6 col-md-offset-3">Password</label>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputPassword" name="inputPassword" ng-model="userData.inputPassword" class=" form-control" placeholder="Password" ng-minlength="6" ng-maxlength="20"></div>
-                                <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.required && modalForm.inputPassword.$dirty">Password is required!</span>
-                                <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="!modalForm.inputPassword.$error.required && (modalForm.inputPassword.$error.minlength || modalForm.inputPassword.$error.maxlength) && modalForm.inputPassword.$dirty">Passwords must be between 6 and 20 characters.</span>
-                            </div>
-                            <h1></h1>
-                            <div class="row">
-                                <label class="col-md-6 col-md-offset-3">Confirm Password</label>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputConfirmPassword" name="inputConfirmPassword" class="form-control" ng-model="userData.inputConfirmPassword" valid-password="{{userData.inputPassword===userData.inputConfirmPassword}}" placeholder="Confirm Password" /></div>
-                                <span class="col-md-6 col-md-offset-3" style="color:red" ng-show="modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$dirty">Please confirm password.</span>
-                                <span class="col-md-6 col-md-offset-3" style="color:red" ng-show="!modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$error.notMatch && modalForm.inputPassword.$dirty">Passwords don't match!</span>
-                            </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">User Name</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <input required type="email" name="username" ng-model="user.username" class="form-control" placeholder="you@example.com" id="inputEmail" />
 
-                            <h1></h1>
-                            <div class="row">
-                                <div class="text-center">
-
-                                    <button class="form-control btn Reg_btn" ng-click="registerUser()" ng-disabled="!userData.inputEmail || !userData.inputPassword || !userData.inputConfirmPassword || (!modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$error.notMatch && modalForm.inputPassword.$dirty)">
-                                        Create Account
-                                    </button>
-                                </div>
+                            </div>
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <label class="col-md-6 col-md-offset-3">Password</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <input required name="password" ng-model="user.password" type="password" class="form-control" />
+                            </div>
+                        </div>
+                        <h1></h1>
+                        <div class="row">
+                            <div class="text-center">
+                                <button type="submit" ng-click="signIn()" class="btn signIn_btn">Sign In</button><br />
+                                <span style="color:red">{{IncorrectPassword}}</span>&nbsp&nbsp
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        Already have an account? <a href="" data-dismiss="modal" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show'), $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Sign here</a>
+                      
+                        Don't have an account? <a href="" data-dismiss="modal" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show'), $('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Register here</a>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+        </form>
+        <!-- Modal -->
+        <form data-toggle="validator" role="form" ng-controller="RegistrationController" name="modalForm">
+            <div class="modal fade" id="myModalReg" tabindex="1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <button type="button" class="close" onclick="$('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Create free account to start using <img src="Images/cfs-logo.gif" /></h4>
+                        </div>
+                        <div class="form-group">
+                            <div class="modal-body modal-bodyReg">
+                                <div class="row">
+                                    <label class="col-md-6 col-md-offset-3">Email address</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3"><input type="email" required id="inputEmail" name="inputEmail" ng-model="userData.inputEmail" class="form-control" placeholder="you@example.com" /></div>
+                                    <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.email.$error.required && modalForm.email.$dirty">Email is required!</span>
+                                </div>
+                                <h1></h1>
+                                <div class="row">
+                                    <label class="col-md-6 col-md-offset-3">Password</label>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputPassword" name="inputPassword" ng-model="userData.inputPassword" class=" form-control" placeholder="Password" ng-minlength="6" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"></div>
+                                   <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+                                    <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.required && modalForm.inputPassword.$dirty">Password is required!</span>
+                                    <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="!modalForm.inputPassword.$error.required && (modalForm.inputPassword.$error.minlength || modalForm.inputPassword.$error.maxlength) && modalForm.inputPassword.$dirty">Passwords must be between 6 and 20 characters.</span>
+                                </div>
+                                <h1></h1>
+                                <div class="row">
+                                    <label class="col-md-6 col-md-offset-3">Confirm Password</label>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputConfirmPassword" name="inputConfirmPassword" class="form-control" ng-model="userData.inputConfirmPassword" valid-password="{{userData.inputPassword===userData.inputConfirmPassword}}" placeholder="Confirm Password" /></div>
+                                    <span class="col-md-6 col-md-offset-3" style="color:red" ng-show="modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$dirty">Please confirm password.</span>
+                                    <span class="col-md-6 col-md-offset-3" style="color:red" ng-show="!modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$error.notMatch && modalForm.inputPassword.$dirty">Passwords don't match!</span>
+                                </div>
+
+                                <h1></h1>
+                                <div class="row">
+                                    <div class="text-center">
+
+                                        <button type="submit" class="form-control btn btn-success Reg_btn" ng-click="registerUser()" ng-disabled="!userData.inputEmail || !userData.inputPassword || !userData.inputConfirmPassword || (!modalForm.inputConfirmPassword.$error.required && modalForm.inputConfirmPassword.$error.notMatch && modalForm.inputPassword.$dirty)">
+                                            Create Account
+                                        </button><br />
+                                        <span style="color:red">{{Message}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                           
+                            Already have an account? <a href="" data-dismiss="modal" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show'), $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Sign here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 </body>
 </html>

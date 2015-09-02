@@ -14,9 +14,11 @@
         AspNetUser.login(user).
             success(function (response) {
                 console.log(response);
+
             }).
-            error(function () {
-                console.log("Error!")
+            error(function (response) {
+                console.log(response)
+                $scope.IncorrectPassword = response.error_description;
             });
     };
 }]);
