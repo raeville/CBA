@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using LoanApi.Models;
 using LoanApi.Providers;
 using LoanApi.Results;
+using System.Web.Http.Cors;
 
 namespace LoanApi.Controllers
 {

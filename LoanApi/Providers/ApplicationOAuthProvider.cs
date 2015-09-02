@@ -31,6 +31,9 @@ namespace LoanApi.Providers
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
+            //Add Access-Control-Allow-Origin header to Token request
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
 
             if (user == null)

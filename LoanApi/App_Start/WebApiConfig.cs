@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
+using System.Web.Http.Cors;
 
 namespace LoanApi
 {
@@ -17,6 +18,10 @@ namespace LoanApi
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
+            //Enable cross server access of Web Api
+            EnableCorsAttribute enablecors = new EnableCorsAttribute(origins: "http://localhost:50389", headers: "*", methods: "*");
+            config.EnableCors(enablecors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

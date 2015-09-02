@@ -7,21 +7,33 @@
 describe('AspNetUser service', function () {
     beforeEach(module('LoanApp'));
 
-    var loginService, $httpBackend;
+    var loginService, $httpBackend, apiUrl;
 
-    beforeEach(inject(function ($injector) {
+    beforeEach(inject(function ($injector, loanApiConsUrl) {
         loginService = $injector.get('AspNetUser');
         $httpBackend = $injector.get('$httpBackend');
+        apiUrl = loanApiConsUrl;
     }));
 
-    it('should have a Token api call', function () {
+    it('should have a Token api POST call', function () {
         var data = {
             "email": "test@cba.com",
             "password": "password",
             "grant_type": "password"
         };
-        $httpBackend.expectPOST('/Token/', data).respond(201, '');
-        loginService.authenticate(data);
+        $httpBackend.expectPOST(apiUrl + 'Token/', data).respond(201, '');
+        loginService.login(data);
+        $httpBackend.flush();
+    });
+
+    it('should have a api/Account/Register api POST call', function () {
+        var data = {
+            "email": "test@cba.com",
+            "password": "password",
+            "confirmPassword": "password"
+        };
+        $httpBackend.expectPOST(apiUrl + 'api/Account/Register/', data).respond(201, '');
+        loginService.registerUser(data);
         $httpBackend.flush();
     });
 
