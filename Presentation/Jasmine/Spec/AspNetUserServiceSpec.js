@@ -17,11 +17,12 @@ describe('AspNetUser service', function () {
 
     it('should have a Token api POST call', function () {
         var data = {
-            "email": "test@cba.com",
+            "username": "test@cba.com",
             "password": "password",
             "grant_type": "password"
         };
-        $httpBackend.expectPOST(apiUrl + 'Token/', data).respond(201, '');
+        var expected = "username=test@cba.com&password=password&grant_type=password";
+        $httpBackend.expectPOST(apiUrl + 'Token', expected).respond(201, '');
         loginService.login(data);
         $httpBackend.flush();
     });
