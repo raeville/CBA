@@ -85,6 +85,7 @@
     <Content Include="Jasmine\Spec\LoanCalculatorSpec.js" />
     <Content Include="Jasmine\Spec\jasmineTest.js" />
     <Content Include="Jasmine\Spec\AspNetUserServiceSpec.js" />
+    <Content Include="Jasmine\Spec\LoginControllerSpec.js" />
     <Content Include="Jasmine\Spec\PlayerSpec.js" />
     <Content Include="Jasmine\Spec\RouteConfigSpec.js" />
     <Content Include="Jasmine\Spec\SpecHelper.js" />
