@@ -21,4 +21,8 @@
                 $scope.IncorrectPassword = response.error_description;
             });
     };
+  $scope.ClearMessage = function ()
+    {
+      $scope.IncorrectPassword = "";
+    };
 }]);

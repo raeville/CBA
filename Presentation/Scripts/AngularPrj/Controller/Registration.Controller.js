@@ -16,12 +16,16 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
 
         AspNetUser.registerUser(user).success(function (response) {
             $('#myModalReg').modal('hide');
-
+            $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })
             $location.path("/RegisterSuccessful");
               
-            }).error(function (response) {
-             $scope.Message = response.Message;
+        }).error(function (response) {
+         $scope.Message = response.modelState[""][1];
         });
+    };
+    $scope.ClearMessage = function ()
+    {
+        $scope.Message = "";
     };
 
 }]);
