@@ -2,8 +2,8 @@
 LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', function ($scope, AspNetUser) {
     // Do something with myService
 
-    var registerUser = function () {
-        var user = [];
+    $scope.registerUser = function () {
+        var user = { };
         var email = $scope.userData.inputEmail;
         var password = $scope.userData.inputPassword;
         var confirmpassword = $scope.userData.inputConfirmPassword;
