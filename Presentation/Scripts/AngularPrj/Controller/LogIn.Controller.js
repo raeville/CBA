@@ -13,7 +13,9 @@
 
         AspNetUser.login(user).
             success(function (response) {
+                $('#myModal').modal('hide');
                 console.log(response);
+                
 
             }).
             error(function (response) {
