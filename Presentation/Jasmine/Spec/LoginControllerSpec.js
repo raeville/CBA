@@ -4,7 +4,7 @@
 /// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
 /// <reference path="../../Scripts/AngularPrj/Controller/Login.Controller.js" />
 
-describe('LoginController', function () {
+describe('Login Controller', function () {
     beforeEach(module('LoanApp'));
 
     var loginCtrl;

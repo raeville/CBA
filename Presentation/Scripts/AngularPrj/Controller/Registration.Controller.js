@@ -14,12 +14,12 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             "ConfirmPassword": confirmpassword
         }
 
-        AspNetUser.registerUser(user).success(function (response) {
+        AspNetUser.registerUser(user).then(function (response) {
             $('#myModalReg').modal('hide');
             $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })
             $location.path("/RegisterSuccessful");
               
-        }).error(function (response) {
+        }, function (response) {
          $scope.Message = response.modelState[""][1];
         });
     };
