@@ -12,11 +12,10 @@
         };
 
         AspNetUser.login(user).
-            success(function (response) {
+            then(function (response) {
                 console.log(response);
 
-            }).
-            error(function (response) {
+            }, function (response) {
                 console.log(response)
                 $scope.IncorrectPassword = response.error_description;
             });
