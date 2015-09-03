@@ -14,6 +14,9 @@
         AspNetUser.login(user).
             then(function (response) {
                 console.log(response);
+                $('#myModal').modal('hide');
+                $('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })
+                $location.path("/loanCalculator");
 
             }, function (response) {
                 console.log(response)
