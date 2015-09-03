@@ -1,6 +1,6 @@
-﻿/// <reference path="../../Scripts/angular.min.js" />
+﻿/// <reference path="../lib/jasmine.js" />
+/// <reference path="../../Scripts/angular.min.js" />
 /// <reference path="../../Scripts/angular-mocks.js" />
-/// <reference path="../lib/jasmine.js" />
 /// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
 /// <reference path="../../Scripts/AngularPrj/Controller/Login.Controller.js" />
 
@@ -13,6 +13,7 @@ describe('LoginController', function () {
     var q;
     var deferred;
     var user;
+    var $rootScope;
 
     beforeEach(function () {
         user = {
@@ -20,27 +21,28 @@ describe('LoginController', function () {
             "password": "Password1!"
         }
         service = {
-            login: function () {
+            login:function () {
                 deferred = q.defer();
                 return deferred.promise;
             }
         };
     });
 
-    beforeEach(inject(function ($controller, $rootScope, $q) {
+    beforeEach(inject(function ($rootScope, $controller, $q) {
         q = $q;
-        scope = $rootScope.new();
+        scope = $rootScope.$new();
+        scope.user = user;
         loginCtrl = $controller('LoginController', {
             $scope: scope,
-            mockService: service
+            AspNetUser: service
         });
     }));
 
     it('should post to AspNetUser.login service when signIn is called', function () {
-        spyOn(service, 'login').andCallThrough();
+        spyOn(service, 'login').and.callThrough();
         scope.signIn();
         deferred.resolve(user);
         scope.$root.$digest();
-        expect(apiService.getStatus).toHaveBeenCalled();
+        expect(service.login).toHaveBeenCalled();
     });
 });
