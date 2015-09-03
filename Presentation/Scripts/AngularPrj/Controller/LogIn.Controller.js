@@ -1,4 +1,4 @@
-﻿LoanApp.controller('LoginController',  ['$scope', 'AspNetUser', function ($scope, AspNetUser) {
+﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', function ($scope, AspNetUser, $location) {
 
     $scope.signIn = function () {
         var user = { };
