@@ -10,5 +10,6 @@ namespace LoanApi.Models
     {
         public CBAContextDb(): base("name=DefaultConnection") {}
 
+        public DbSet<CustomerModel> Customers { get; set; }
     }
 }

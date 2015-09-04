@@ -220,9 +220,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="CBAContextDbMigration\201508260931461_Initial.cs" />
-    <Compile Include="CBAContextDbMigration\201508260931461_Initial.Designer.cs">
-      <DependentUpon>201508260931461_Initial.cs</DependentUpon>
+    <Compile Include="CBAContextDbMigration\201509040656440_Init.cs" />
+    <Compile Include="CBAContextDbMigration\201509040656440_Init.Designer.cs">
+      <DependentUpon>201509040656440_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="CBAContextDbMigration\Configuration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -327,8 +327,8 @@
     <EmbeddedResource Include="ApplicationDbContextMigration\201508260931018_Initial.resx">
       <DependentUpon>201508260931018_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CBAContextDbMigration\201508260931461_Initial.resx">
-      <DependentUpon>201508260931461_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="CBAContextDbMigration\201509040656440_Init.resx">
+      <DependentUpon>201509040656440_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

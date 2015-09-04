@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace LoanApi.Models
 {
-    public class Customer : BaseModel
+    [Table("Customer")]
+    public class CustomerModel : BaseModel
     {
+        [Key]
+        [Column(Order = 2)]
         [EmailAddress]
         [MaxLength(20)]
-        [Key]
         public string Email { get; set; }
         [MaxLength(20)]
         public string FirstName { get; set; }
