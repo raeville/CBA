@@ -14,17 +14,17 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             "ConfirmPassword": confirmpassword
         }
 
-        AspNetUser.registerUser(user).then(function (response) {
-            $('#myModalReg').modal('hide');
-            $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })
+        AspNetUser.registerUser(user).success(function (response) {
             $location.path("/RegisterSuccessful");
-              
-        }, function (response) {
-         $scope.Message = response.modelState[""][1];
+            $scope.userData.inputEmail = "";
+            $scope.userData.inputPassword = "";
+            $scope.userData.inputConfirmPassword = "";
+
+        }).error(function (response) {
+            $scope.Message = response.modelState[""][1];
         });
     };
-    $scope.ClearMessage = function ()
-    {
+    $scope.ClearMessage = function () {
         $scope.Message = "";
     };
 
