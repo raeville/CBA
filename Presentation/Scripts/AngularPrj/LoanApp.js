@@ -37,6 +37,10 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         templateUrl: 'Views/RegisterSuccessful.html',
         controller: ''
     });
+    $routeProvider.when('/Index', {
+        templateUrl: 'Views/Index.html',
+        controller: ''
+    });
     //$routeProvider.otherwise({ redirectTo: '/home' });
     //$locationProvider.html5Mode(true);
 }]);
