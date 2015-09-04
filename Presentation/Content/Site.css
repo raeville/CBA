@@ -80,19 +80,6 @@ footer span {
     color: white;
 }
 
-.modal-body button {
-    background-color: #FC0703;
-    border-color: #FC0703;
-    color: white;
-    font-weight: bold;
-}
-.modal-bodyReg button {
-    background-color: #86d95d;
-    border-color: #86d95d;
-    color: white;
-    font-weight: bold;
-}
-
 .close, .close:hover, .close:focus{
     color: white;
 }
@@ -114,12 +101,8 @@ ul {
     -webkit-padding-start: 0px;
 }
 
-.signIn_btn {
-    width: 100px;
-}
-.Reg_btn {
-    width: auto;
-  
+.width_btn {
+    width: auto; 
 }
 .incpass {
     color: red;
