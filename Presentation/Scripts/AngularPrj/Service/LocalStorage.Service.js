@@ -5,6 +5,12 @@
 		},
 		get: function (key, defaultValue) {
 			return $window.localStorage[key] || defaultValue;
+		},
+		remove: function (key) {
+		    delete $window.localStorage[key];
+		},
+		clear: function () {
+		    $window.localStorage = {};
 		}
 	    /// Additional setObject and getObject Functionality
         //,

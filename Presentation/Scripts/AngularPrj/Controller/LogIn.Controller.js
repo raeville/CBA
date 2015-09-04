@@ -33,6 +33,7 @@
     $scope.LogOut = function ()
     {
         $localStorage.$reset();
+        $localstorage.remove('Email');
         $location.path("/Index");
     };
 }]);
