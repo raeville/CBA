@@ -14,13 +14,13 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             "ConfirmPassword": confirmpassword
         }
 
-        AspNetUser.registerUser(user).success(function (response) {
+        AspNetUser.registerUser(user).then(function (response) {
             $location.path("/RegisterSuccessful");
             $scope.userData.inputEmail = "";
             $scope.userData.inputPassword = "";
             $scope.userData.inputConfirmPassword = "";
 
-        }).error(function (response) {
+        }, function (response) {
             $scope.Message = response.modelState[""][1];
         });
     };

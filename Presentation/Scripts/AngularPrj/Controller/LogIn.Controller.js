@@ -10,12 +10,12 @@
             "password": password
         };
 
-        AspNetUser.login(user).success(function (response) {
+        AspNetUser.login(user).then(function (response) {
             $location.path("/loanCalculator");
             $scope.user.username = "";
             $scope.user.password = "";
 
-        }).error(function (response) {
+        }, function (response) {
             $scope.IncorrectPassword = response.error_description;
         });
     };
