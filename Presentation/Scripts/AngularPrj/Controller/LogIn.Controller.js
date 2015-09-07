@@ -22,6 +22,8 @@
                 //* $localstorage.get('Email');
                 //* $localstorage.get('Token');
 
+                $('#myModal').modal('hide');
+
             }
             $scope.user.username = "";
             $scope.user.password = ""
