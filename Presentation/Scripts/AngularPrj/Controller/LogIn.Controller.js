@@ -14,11 +14,11 @@
         AspNetUser.login(user).then(function (response) {
             $location.path("/loanCalculator");
             if ($scope.user.username != "") {
-                //// Set Email and Token to $localstorage
+                //// Set Email and Token in $localstorage
                 $localstorage.set('Email', $scope.user.username);
                 $localstorage.set('Token', response.data.access_token);
               
-                //// Get Email Token to $localstorage
+                //// Get Email Token in $localstorage
                 //* $localstorage.get('Email');
                 //* $localstorage.get('Token');
 
