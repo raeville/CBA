@@ -14,7 +14,7 @@
             $location.path("/loanCalculator");
             if ($scope.user.username != "") {
                 //// Set Email to $localstorage
-                $localstorage.set('Email', $scope.user.username);
+                //$localstorage.set('Email', $scope.user.username);
 
                 //// Get Email to $localstorage
                 //* $localstorage.get('Email');
@@ -23,7 +23,7 @@
             $scope.user.username = "";
             $scope.user.password = ""
 
-        }, function (response) {
+        }).catch(function (response) {
             $scope.IncorrectPassword = response.error_description;
         });
     };

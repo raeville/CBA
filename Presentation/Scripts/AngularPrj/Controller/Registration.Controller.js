@@ -20,7 +20,7 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             $scope.userData.inputPassword = "";
             $scope.userData.inputConfirmPassword = "";
 
-        }, function (response) {
+        }).catch(function (response) {
             $scope.Message = response.modelState[""][1];
         });
     };
