@@ -9,27 +9,32 @@ namespace LoanApi.Controllers
     public class CustomerController : ApiController
     {
         // GET api/customer
-        public IEnumerable<string> Get()
+        [Authorize]
+        public object Get()
         {
-            return new string[] { "value1", "value2" };
+            return new { Name = "Name" };
         }
 
+        [Authorize]
         // GET api/customer/5
-        public string Get(int id)
+        public object Get(int id)
         {
-            return "value";
+            return new { Name = "Name" };
         }
 
+        [Authorize]
         // POST api/customer
         public void Post([FromBody]string value)
         {
         }
 
+        [Authorize]
         // PUT api/customer/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
+        [Authorize]
         // DELETE api/customer/5
         public void Delete(int id)
         {
