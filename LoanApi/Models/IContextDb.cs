@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LoanApi.Models
 {
-    interface IContextDb
+    interface IContextDb : IDisposable
     {
+        IQueryable<T> Query<T>() where T : class;
     }
 }
