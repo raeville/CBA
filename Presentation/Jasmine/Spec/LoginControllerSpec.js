@@ -3,6 +3,7 @@
 /// <reference path="../../Scripts/angular-mocks.js" />
 /// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
 /// <reference path="../../Scripts/AngularPrj/Controller/Login.Controller.js" />
+/// <reference path="../../Scripts/AngularPrj/Service/LocalStorage.Service.js" />
 
 describe('Login Controller', function () {
     beforeEach(module('LoanApp'));
@@ -10,6 +11,7 @@ describe('Login Controller', function () {
     var loginCtrl;
     var scope;
     var service;
+    var localStorage;
     var q;
     var deferred;
     var user;
@@ -28,15 +30,16 @@ describe('Login Controller', function () {
         };
     });
 
-    beforeEach(inject(function ($rootScope, $controller, $q) {
+    beforeEach(inject(['$rootScope', '$controller', '$q', '$localstorage', function ($rootScope, $controller, $q, $localstorage) {
         q = $q;
         scope = $rootScope.$new();
         scope.user = user;
         loginCtrl = $controller('LoginController', {
             $scope: scope,
-            AspNetUser: service
+            AspNetUser: service,
+            $localStorage: $localstorage
         });
-    }));
+    }]));
 
     it('should post to AspNetUser.login service when signIn is called', function () {
         spyOn(service, 'login').and.callThrough();

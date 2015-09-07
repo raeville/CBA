@@ -1,4 +1,4 @@
-﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', function ($scope, AspNetUser, $location) {
+﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', function ($scope, AspNetUser, $location, $localstorage) {
 
     $scope.signIn = function () {
         var user = {};
@@ -14,7 +14,7 @@
             $location.path("/loanCalculator");
             if ($scope.user.username != "") {
                 //// Set Email to $localstorage
-                //$localstorage.set('Email', $scope.user.username);
+                $localstorage.set('Email', $scope.user.username);
 
                 //// Get Email to $localstorage
                 //* $localstorage.get('Email');
@@ -32,7 +32,7 @@
     };
     $scope.LogOut = function ()
     {
-        $localStorage.$reset();
+        $localstorage.$reset();
         $localstorage.remove('Email');
         $location.path("/Index");
     };
