@@ -37,6 +37,7 @@
 
     <!--Directives-->
     <script src="Scripts/AngularPrj/Directives/LoanApp.Directives.js"></script>
+    <script src="Scripts/AngularPrj/Directives/GetMyEmail.Directives.js"></script>
     <!--Service-->
     <script src="Scripts/AngularPrj/Service/LoanCalculator.Service.js"></script>
     <script src="Scripts/AngularPrj/Service/AspNetUserService.js"></script>
@@ -59,7 +60,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#/ContactUs">Contact Us</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Sign In </a></li>
+                    <li id="signin"><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Sign In </a></li>
+                    <li id="myEmail" class="myEmail"><div my-email></div></li>
+                    <li id="logout"></li>
                 </ul>
             </div>
         </nav>
