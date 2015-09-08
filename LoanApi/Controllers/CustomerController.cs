@@ -1,43 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using LoanApi.Models;
 
 namespace LoanApi.Controllers
 {
     public class CustomerController : ApiController
     {
-        // GET api/customer
-        [Authorize]
-        public object Get()
-        {
-            return new { Name = "Name" };
-        }
 
-        [Authorize]
-        // GET api/customer/5
-        public object Get(int id)
+        private static readonly ICustomerRepository _customers = new CustomerRepository();
+        // GET api/<controller>
+        public IEnumerable<CustomerModel> Get()
         {
-            return new { Name = "Name" };
+            return _customers.GetAll();
         }
-
-        [Authorize]
-        // POST api/customer
-        public void Post([FromBody]string value)
+        // GET api/<controller>/5
+        public CustomerModel Get(int id)
         {
+            CustomerModel c = _customers.Get(id);
+            if (c == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+ 
+            return c;
         }
-
-        [Authorize]
-        // PUT api/customer/5
-        public void Put(int id, [FromBody]string value)
+        // POST api/<controller>
+        public CustomerModel Post(CustomerModel customer)
         {
+            return _customers.Add(customer);
         }
-
-        [Authorize]
-        // DELETE api/customer/5
-        public void Delete(int id)
+        // PUT api/<controller>/5
+        public CustomerModel Put(CustomerModel customer)
         {
+            if (!_customers.Update(customer))
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            return customer;
         }
+        // DELETE api/<controller>/5
+        public CustomerModel Delete(int id)
+        {
+            CustomerModel c = _customers.Get(id);
+            _customers.Remove(id);
+            return c;
+        }
+    
     }
 }

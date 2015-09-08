@@ -7,10 +7,10 @@
 			return $window.localStorage[key] || defaultValue;
 		},
 		remove: function (key) {
-		    delete $window.localStorage[key];
+		    localStorage.removeItem(key);
 		},
 		clear: function () {
-		    $window.localStorage = {};
+		    $window.localStorage.clear();
 		}
 	    /// Additional setObject and getObject Functionality
         //,
