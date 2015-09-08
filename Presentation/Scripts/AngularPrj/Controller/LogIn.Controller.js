@@ -21,9 +21,12 @@
                 //// Get Email Token in $localstorage
                 //* $localstorage.get('Email');
                 //* $localstorage.get('Token');
+                var email = $localstorage.get('Email');
+                $scope.emailAdd = email;
 
-                $('#myModal').modal('hide');
+                angular.element('#myModal').modal('hide');
 
+              //  angular.element('#signin').html($scope.emailAdd);
             }
             $scope.user.username = "";
             $scope.user.password = ""
