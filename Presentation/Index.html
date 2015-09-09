@@ -34,10 +34,12 @@
     <script src="Scripts/AngularPrj/Controller/LoanCalculator.Controller.js"></script>
     <script src="Scripts/AngularPrj/Controller/Login.Controller.js"></script>
     <script src="Scripts/AngularPrj/Controller/Registration.Controller.js"></script>
+    <script src="Scripts/AngularPrj/Controller/Logout.Controller.js"></script>
 
     <!--Directives-->
     <script src="Scripts/AngularPrj/Directives/LoanApp.Directives.js"></script>
     <script src="Scripts/AngularPrj/Directives/GetMyEmail.Directives.js"></script>
+
     <!--Service-->
     <script src="Scripts/AngularPrj/Service/LoanCalculator.Service.js"></script>
     <script src="Scripts/AngularPrj/Service/AspNetUserService.js"></script>
@@ -46,7 +48,7 @@
 </head>
 <body ng-app="LoanApp">
     <!--header-->
-    <header>
+    <header ng-controller="LogoutController">
         <nav class="navbar navbar-default">
             <div class="navbar-header ">
                 <a href="#/home"><img src="Images/cfs-logo.gif" /></a>

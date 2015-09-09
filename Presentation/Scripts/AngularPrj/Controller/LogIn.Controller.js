@@ -1,4 +1,4 @@
-﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', function ($scope, AspNetUser, $location, $localstorage) {
+﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
 
     $scope.signIn = function () {
         var user = {};
@@ -11,22 +11,15 @@
             "password": password
         };
 
-        AspNetUser.login(user).then(function (response) {
-            $location.path("/loanCalculator");
+        AspNetUser.login(user).then(function (response) { 
             if ($scope.user.username != "") {
                 //// Set Email and Token in $localstorage
                 $localstorage.set('Email', $scope.user.username);
                 $localstorage.set('Token', response.data.access_token);
-              
-                //// Get Email Token in $localstorage
-                //* $localstorage.get('Email');
-                //* $localstorage.get('Token');
 
                 angular.element('#myModal').modal('hide');
-
-                angular.element('#signin').html('');
-                angular.element('#logout').html('<a href="#" ng-click="LogOut()">Log out</a>');
-                angular.element('#myEmail').html('Welcome, ' + $localstorage.get('Email'));         
+                $window.location.reload();
+                $location.path("/loanCalculator");
             }
             $scope.user.username = "";
             $scope.user.password = ""
@@ -40,10 +33,5 @@
     $scope.ClearMessage = function () {
         $scope.IncorrectPassword = "";
     };
-    $scope.LogOut = function ()
-    {
-        $localstorage.$reset();
-        $localstorage.remove('Email');
-        $location.path("/Index");
-    };
+
 }]);

@@ -1,10 +1,5 @@
 ﻿/// <reference path="../Service/LocalStorage.Service.js" />
 // Retrieve email address of logged user
-
-
-//var email = $localstorage.get('Email');
-//alert(email)
-
 LoanApp.directive('myEmail', function ($localstorage) {
 
     if ($localstorage.get('Email') != null) {
