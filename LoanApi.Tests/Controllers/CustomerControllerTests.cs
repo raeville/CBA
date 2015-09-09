@@ -11,6 +11,7 @@ using LoanApi;
 using LoanApi.Models;
 using LoanApi.Controllers;
 
+
 namespace LoanApi.Tests.Controllers
 {
     [TestClass]
@@ -20,7 +21,7 @@ namespace LoanApi.Tests.Controllers
         [TestMethod]
         public void CustomerGet()
         {
-
+            
             // Arrange
             ValuesController controller = new ValuesController();
 
