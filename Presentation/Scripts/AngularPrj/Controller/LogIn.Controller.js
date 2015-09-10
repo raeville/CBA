@@ -1,6 +1,4 @@
-﻿/// <reference path="../../jquery-1.10.2.js" />
-
-LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
+﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
    
     $scope.signIn = function () {
         var user = {};
