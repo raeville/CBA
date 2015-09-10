@@ -13,7 +13,7 @@ describe('Local Storage Service Unit Tests', function () {
     var User;
     beforeEach(function () {
       var  user = {
-            "Email": "test5@cba.com",
+          "username": "test5@cba.com",
             "access_token": "2974LErhmJIlyeewjp34lmfZaBpl"
       }
       User = user;
@@ -26,49 +26,49 @@ describe('Local Storage Service Unit Tests', function () {
     it('should have a Local Storage service to be defined', function () {
         expect(localstorage).toBeDefined();
     });
-    //Email
-    it('should not have a existing Email upon starting up', function () {
-        localstorage.remove('Email');
-        expect(localstorage.get('Email')).toBeUndefined();
+    //username
+    it('should not have a existing username upon starting up', function () {
+        localstorage.remove('username');
+        expect(localstorage.get('username')).toBeUndefined();
     });
-    //Token
-    it('should not have a existing Token upon starting up', function () {
-        localstorage.remove('Token');
-        expect(localstorage.get('Token')).toBeUndefined();
+    //access_token
+    it('should not have a existing access_token upon starting up', function () {
+        localstorage.remove('access_token');
+        expect(localstorage.get('access_token')).toBeUndefined();
     });
-    //Email
-    it('should Set and Get an Email in the local storage', function () {
-        localstorage.set('Email', User.Email);
-        expect(localstorage.get('Email')).toBe(User.Email);
+    //username
+    it('should Set and Get an username in the local storage', function () {
+        localstorage.set('username', User.username);
+        expect(localstorage.get('username')).toBe(User.username);
     });
-    //Token
-    it('should Set and Get a Token in the local storage', function () {
-        localstorage.set('Token', User.access_token);
-        expect(localstorage.get('Token')).toBe(User.access_token);
+    //access_token
+    it('should Set and Get a access_token in the local storage', function () {
+        localstorage.set('access_token', User.access_token);
+        expect(localstorage.get('access_token')).toBe(User.access_token);
     });
-    //Email
-    it('should have an Email in local storage after calling Set Local Storage', function () {
-        localstorage.set('Email', User.Email);
-        expect(localstorage.get('Email')).toBe(User.Email);
+    //username
+    it('should have an username in local storage after calling Set Local Storage', function () {
+        localstorage.set('username', User.username);
+        expect(localstorage.get('username')).toBe(User.username);
     });
-    //Token
-    it('should have a Token in local storage after calling Set Local Storage', function () {
-        localstorage.set('Token', User.access_token);
-        expect(localstorage.get('Token')).toBe(User.access_token);
+    //access_token
+    it('should have a access_token in local storage after calling Set Local Storage', function () {
+        localstorage.set('access_token', User.access_token);
+        expect(localstorage.get('access_token')).toBe(User.access_token);
     });
-    //Email
-    it('should remove the Email from local storage after logging out', function () {
-        localstorage.set('Email', User.Email);
-        expect(localstorage.get('Email')).toBe(User.Email);
-        localstorage.remove('Email');
-        expect(localstorage.get('Email')).toBeUndefined();
+    //access_token
+    it('should remove the username from local storage after logging out', function () {
+        localstorage.set('username', User.username);
+        expect(localstorage.get('username')).toBe(User.username);
+        localstorage.remove('username');
+        expect(localstorage.get('username')).toBeUndefined();
     });
-    //Token
-    it('should remove the Token from local storage after logging out', function () {
-        localstorage.set('Token', User.access_token);
-        expect(localstorage.get('Token')).toBe(User.access_token);
-        localstorage.remove('Token');
-        expect(localstorage.get('Token')).toBeUndefined();
+    //access_token
+    it('should remove the access_token from local storage after logging out', function () {
+        localstorage.set('access_token', User.access_token);
+        expect(localstorage.get('access_token')).toBe(User.access_token);
+        localstorage.remove('access_token');
+        expect(localstorage.get('access_token')).toBeUndefined();
     });
 
 });
