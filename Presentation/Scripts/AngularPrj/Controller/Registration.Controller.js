@@ -1,9 +1,9 @@
 ﻿
-LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location', function ($scope, AspNetUser, $location) {
+LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location', '$window', function ($scope, AspNetUser, $location, $window) {
     // Do something with myService
 
     $scope.registerUser = function () {
-        var user = {};
+        var userData = {};
         var email = $scope.userData.inputEmail;
         var password = $scope.userData.inputPassword;
         var confirmpassword = $scope.userData.inputConfirmPassword;
@@ -14,12 +14,14 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             "ConfirmPassword": confirmpassword
         }
 
-        AspNetUser.registerUser(user).then(function (response) {
-            $location.path("/RegisterSuccessful");
+        AspNetUser.registerUser(userData).then(function (response) {
             $scope.userData.inputEmail = "";
             $scope.userData.inputPassword = "";
             $scope.userData.inputConfirmPassword = "";
             angular.element('#myModalReg').hide();
+            $location.path("/RegisterSuccessful");
+            $window.location.reload();
+           
         }).catch(function (response) {
             if ($scope.userData.inputEmail.length != 0 && $scope.userData.inputPassword.length != 0) { $scope.Message = response.modelState[""][1]; }
 
