@@ -19,9 +19,7 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             $scope.userData.inputEmail = "";
             $scope.userData.inputPassword = "";
             $scope.userData.inputConfirmPassword = "";
-
-            //angular.element('#myModalReg').modal('hide');
-
+            angular.element('#myModalReg').hide();
         }).catch(function (response) {
             if ($scope.userData.inputEmail.length != 0 && $scope.userData.inputPassword.length != 0) { $scope.Message = response.modelState[""][1]; }
 
