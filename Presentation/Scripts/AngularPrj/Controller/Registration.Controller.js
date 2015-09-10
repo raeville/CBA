@@ -8,7 +8,7 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
         var password = $scope.userData.inputPassword;
         var confirmpassword = $scope.userData.inputConfirmPassword;
 
-        var user = {
+        var userData = {
             "Email": email,
             "Password": password,
             "ConfirmPassword": confirmpassword
@@ -20,11 +20,11 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             $scope.userData.inputPassword = "";
             $scope.userData.inputConfirmPassword = "";
 
-            angular.element('#myModalReg').modal('hide');
+            //angular.element('#myModalReg').modal('hide');
 
         }).catch(function (response) {
             if ($scope.userData.inputEmail.length != 0 && $scope.userData.inputPassword.length != 0) { $scope.Message = response.modelState[""][1]; }
-           
+
         });
     };
     $scope.ClearMessage = function () {

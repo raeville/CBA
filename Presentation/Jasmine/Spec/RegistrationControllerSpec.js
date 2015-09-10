@@ -12,14 +12,14 @@ describe('Registration Controller', function () {
     var mockService;
     var q;
     var deferred;
-    var user;
+    var userData;
     var $rootScope;
-    
+
     beforeEach(function () {
-        user = {
-            "Email": "test5@cba.com",
-            "Password": "Password1!",
-            "ConfirmPassword": "Password1!"
+        userData = {
+            "inputEmail": "test5@cba.com",
+            "inputPassword": "Password1!",
+            "inputConfirmPassword": "Password1!"
         }
         mockService = {
             registerUser: function () {
@@ -32,7 +32,7 @@ describe('Registration Controller', function () {
     beforeEach(inject(['$rootScope', '$controller', '$q', function ($rootScope, $controller, $q) {
         q = $q;
         scope = $rootScope.$new();
-        scope.user = user;
+        scope.userData = userData;
 
         loginCtrl = $controller('RegistrationController', {
             $scope: scope,
@@ -41,13 +41,13 @@ describe('Registration Controller', function () {
     }]));
 
     it('should post to AspNetUser.register service when registerUser is called', function () {
-        spyOn(mockService, 'registerUser').and.callThrough();        
+        spyOn(mockService, 'registerUser').and.callThrough();
         scope.registerUser();
-        deferred.resolve(user);
+        deferred.resolve(userData);
         scope.$root.$digest();
         expect(mockService.registerUser).toHaveBeenCalled();
     });
 
 
-    
+
 });
