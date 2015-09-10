@@ -1,4 +1,6 @@
-﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
+﻿/// <reference path="../../jquery-1.10.2.js" />
+
+LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
    
     $scope.signIn = function () {
         var user = {};
@@ -12,6 +14,7 @@
             "access_token": access_token
         };
 
+        
         AspNetUser.login(user).then(function (response) { 
             if ($scope.user.username != "") {
                 //// Set Email and Token in $localstorage
@@ -22,7 +25,7 @@
                 else {
                     $localstorage.set('Token', response.data.access_token);
                 }
-             angular.element('#myModal').modal('hide');
+             angular.element('#myModal').hide();
                 $window.location.reload();
                 $location.path("/loanCalculator");
             }

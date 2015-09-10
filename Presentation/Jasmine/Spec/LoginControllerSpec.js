@@ -2,6 +2,7 @@
 /// <reference path="../../Scripts/angular.min.js" />
 /// <reference path="../../Scripts/angular-mocks.js" />
 /// <reference path="../../Scripts/AngularPrj/LoanApp.js" />
+/// <reference path="../../Scripts/jquery-1.10.2.js" />
 /// <reference path="../../Scripts/AngularPrj/Controller/Login.Controller.js" />
 /// <reference path="../../Scripts/AngularPrj/Service/LocalStorage.Service.js" />
 
