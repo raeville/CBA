@@ -27,7 +27,7 @@
                     $localstorage.set('access_token', response.data.access_token);
                 }
              angular.element('#myModal').hide();
-                //$window.location.reload();
+               $window.location.reload();
                 $location.path("/loanCalculator");
             }
             $scope.user.username = "";
