@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using LoanApi.Models;
+using System.Data.Entity;
 
 namespace LoanApi.Controllers
 {
@@ -51,6 +52,85 @@ namespace LoanApi.Controllers
                 return NotFound();
             }            
         }
+
+        //// POST api/<controller>
+        //public IHttpActionResult Post(CustomerModel customer)
+        //{
+            
+        //    try
+        //    {
+        //        using(CBAContextDb c = new CBAContextDb()){
+
+        //            CustomerModel newCustomer = new CustomerModel();
+        //            newCustomer.Id = customer.Id;
+        //            newCustomer.Email = customer.Email;
+        //            newCustomer.FirstName = customer.FirstName;
+        //            newCustomer.LastName = customer.LastName;
+        //            newCustomer.MiddleName = customer.MiddleName;
+        //            newCustomer.Gender = customer.Gender;
+        //            newCustomer.Address = customer.Address;
+        //            newCustomer.BirthDate = customer.BirthDate.Date;
+        //            newCustomer.MaritalStatus = customer.MaritalStatus;
+        //            newCustomer.SourceOfIncome = customer.SourceOfIncome;
+        //            newCustomer.IsDeleted = customer.IsDeleted;
+        //            newCustomer.CreateDate = customer.CreateDate;
+        //            newCustomer.UpdateDate = customer.UpdateDate;
+
+        //            c.Customers.Add(newCustomer);
+        //            c.SaveChanges();                            
+        //        }
+                               
+        //        //var customerSet = db.Query<CustomerModel>() as DbSet<CustomerModel>;
+        //        //customerSet.Add(newCustomer);
+
+        //       // db.Add(newCustomer);                                
+        //        return Ok();
+
+        //    }
+        //    catch (HttpResponseException e)
+        //    {
+
+        //        return NotFound();
+        //    }   
+        //}
+
+        //// PUT api/<controller>/5
+        //public IHttpActionResult Put(CustomerModel customer)
+        //{
+        //    try
+        //    {
+        //        CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id).FirstOrDefault();
+
+        //        if (c == null)
+        //        {
+        //            return NotFound();
+
+        //        }
+        //        else {
+
+        //            c.Id = customer.Id;
+        //            c.Email = customer.Email;
+        //            c.FirstName = customer.FirstName;
+        //            c.LastName = customer.LastName;
+        //            c.MiddleName = customer.MiddleName;
+        //            c.Gender = customer.Gender;
+        //            c.Address = customer.Address;
+        //            c.BirthDate = customer.BirthDate.Date;
+        //            c.MaritalStatus = customer.MaritalStatus;
+        //            c.SourceOfIncome = customer.SourceOfIncome;
+        //            c.IsDeleted = customer.IsDeleted;
+        //            c.CreateDate = customer.CreateDate;
+        //            c.UpdateDate = customer.UpdateDate;
+
+        //            return Ok();
+        //        }                                
+        //    }
+        //    catch (HttpResponseException e)
+        //    {
+
+        //        return NotFound();
+        //    }   
+        //}
                
     
     }
