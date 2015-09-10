@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,49 +14,44 @@ namespace LoanApi.Controllers
     public class CustomerController : ApiController
     {
 
-        //public ICustomerRepository _customers;
+        private IContextDb db;
 
-        //public CustomerController(ICustomerRepository customers)
-        //{
-        //    _customers = customers;
-        //}
+        public CustomerController(){
 
-        private static readonly ICustomerRepository _customers = new CustomerRepository();
+            db = new CBAContextDb();
+        }
+
+
+        public CustomerController(IContextDb _db)
+        {
+
+            db = _db;
+        }
+
         // GET api/<controller>
         public IEnumerable<CustomerModel> Get()
         {
-            return _customers.GetAll();
+            return db.Query<CustomerModel>().ToList();
         }
+
         // GET api/<controller>/5
         public IHttpActionResult Get(int id)
         {
-            CustomerModel c = _customers.Get(id);
-            if (c == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            return Ok(c);
-        }
-        // POST api/<controller>
-        public IHttpActionResult Post(CustomerModel customer)
-        {
-            CustomerModel c = _customers.Add(customer);
+            try {
 
-            return Ok(c);
+                CustomerModel customer = db.Query<CustomerModel>().Where(x=>x.Id == id).FirstOrDefault();
+
+                return Ok(customer);
+
+            }
+            catch (HttpResponseException e)
+            {
+
+                return NotFound();
+            }            
         }
-        // PUT api/<controller>/5
-        public IHttpActionResult Put(CustomerModel customer)
-        {
-            if (!_customers.Update(customer))
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return Ok(customer);
-        }
-        // DELETE api/<controller>/5
-        public IHttpActionResult Delete(int id)
-        {
-            CustomerModel c = _customers.Get(id);
-            _customers.Remove(id);
-            return Ok(c);
-        }
+               
     
     }
 }

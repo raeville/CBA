@@ -9,79 +9,67 @@ using System.Web.Http.Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LoanApi;
 using LoanApi.Models;
+using LoanApi.Tests.Models;
 using LoanApi.Controllers;
 
 
 namespace LoanApi.Tests.Controllers
 {
+     
+
+     public class TestData{
+          
+         public static IQueryable<CustomerModel> Customers {
+             get { 
+                var customers = new List<CustomerModel>();
+                 for(int i = 0; i < 10 ; i++){
+                     var customer = new List<CustomerModel>() { 
+                      new CustomerModel { Id = 1 }                 
+                     };                 
+                 }
+                 return customers.AsQueryable();
+             }
+         }
+        
+     
+     }
+
     [TestClass]
     public class CustomerControllerTests
     {
 
+       
         [TestMethod]
-        public void CustomerGet()
+        public void CustomerRetrieveAll()
         {
-            
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
             // Arrange
-            ValuesController controller = new ValuesController();
+            CustomerController controller = new CustomerController(db);
 
             // Act
-            IEnumerable<string> result = controller.Get();
+            IEnumerable<CustomerModel> result = controller.Get();
+
+            // Assert
+            Assert.IsNotNull(result);           
+        }
+
+        [TestMethod]
+        public void CustomerRetrieveById()
+        {
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
+            // Arrange
+            CustomerController controller = new CustomerController(db);
+
+            // Act
+            var result = controller.Get(1);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));
         }
-
-        [TestMethod]
-        public void CustomerGetById()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            string result = controller.Get(5);
-
-            // Assert
-            Assert.AreEqual("value", result);
-        }
-
-        [TestMethod]
-        public void CustomerPost()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            controller.Post("value");
-
-            // Assert
-        }
-
-        [TestMethod]
-        public void CustomerPut()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            controller.Put(5, "value");
-
-            // Assert
-        }
-
-        [TestMethod]
-        public void CustomerDelete()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            controller.Delete(5);
-
-            // Assert
-        }
+      
     }
 }
