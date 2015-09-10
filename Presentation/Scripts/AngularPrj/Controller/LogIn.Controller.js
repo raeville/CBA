@@ -1,10 +1,8 @@
-﻿/// <reference path="../../jquery-1.10.2.js" />
-
-LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
-
+﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localstorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
+   
     $scope.signIn = function () {
         var user = {};
-
+     
         var username = $scope.user.username;
         var password = $scope.user.password;
         var access_token = $scope.user.access_token;
@@ -14,8 +12,8 @@ LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$lo
             "access_token": access_token
         };
 
-
-        AspNetUser.login(user).then(function (response) {
+        
+        AspNetUser.login(user).then(function (response) { 
             if ($scope.user.username != "") {
                 //// Set Email and Token in $localstorage
                 $localstorage.set('Email', $scope.user.username);
@@ -25,7 +23,7 @@ LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$lo
                 else {
                     $localstorage.set('Token', response.data.access_token);
                 }
-                angular.element('#myModal').hide();
+             angular.element('#myModal').hide();
                 $window.location.reload();
                 $location.path("/loanCalculator");
             }
@@ -35,7 +33,7 @@ LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$lo
         }).catch(function (response) {
             if ($scope.user.username != "" && $scope.user.password != "")
             { $scope.IncorrectPassword = response.data.error_description; }
-
+        
         });
     };
     $scope.ClearMessage = function () {
