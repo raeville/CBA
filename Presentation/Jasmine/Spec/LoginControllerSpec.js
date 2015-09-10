@@ -20,7 +20,8 @@ describe('Login Controller', function () {
     beforeEach(function () {
         user = {
             "username": "test5@cba.com",
-            "password": "Password1!"
+            "password": "Password1!",
+            "access_token": "2974LErhmJIlyeewjp34lmfZaBpl"
         }
         service = {
             login:function () {
