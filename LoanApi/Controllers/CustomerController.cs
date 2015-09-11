@@ -53,46 +53,38 @@ namespace LoanApi.Controllers
             }            
         }
 
-        //// POST api/<controller>
-        //public IHttpActionResult Post(CustomerModel customer)
-        //{
-            
-        //    try
-        //    {
-        //        using(CBAContextDb c = new CBAContextDb()){
+        // POST api/<controller>
+        public IHttpActionResult Post(CustomerModel customer)
+        {
 
-        //            CustomerModel newCustomer = new CustomerModel();
-        //            newCustomer.Id = customer.Id;
-        //            newCustomer.Email = customer.Email;
-        //            newCustomer.FirstName = customer.FirstName;
-        //            newCustomer.LastName = customer.LastName;
-        //            newCustomer.MiddleName = customer.MiddleName;
-        //            newCustomer.Gender = customer.Gender;
-        //            newCustomer.Address = customer.Address;
-        //            newCustomer.BirthDate = customer.BirthDate.Date;
-        //            newCustomer.MaritalStatus = customer.MaritalStatus;
-        //            newCustomer.SourceOfIncome = customer.SourceOfIncome;
-        //            newCustomer.IsDeleted = customer.IsDeleted;
-        //            newCustomer.CreateDate = customer.CreateDate;
-        //            newCustomer.UpdateDate = customer.UpdateDate;
+            try
+            {
+                
+                 CustomerModel newCustomer = new CustomerModel();
+                 newCustomer.Id = customer.Id;
+                 newCustomer.Email = customer.Email;
+                 newCustomer.FirstName = customer.FirstName;
+                 newCustomer.LastName = customer.LastName;
+                 newCustomer.MiddleName = customer.MiddleName;
+                 newCustomer.Gender = customer.Gender;
+                 newCustomer.Address = customer.Address;
+                 newCustomer.BirthDate = customer.BirthDate.Date;
+                 newCustomer.MaritalStatus = customer.MaritalStatus;
+                 newCustomer.SourceOfIncome = customer.SourceOfIncome;
+                 newCustomer.IsDeleted = customer.IsDeleted;
+                 newCustomer.CreateDate = customer.CreateDate;
+                 newCustomer.UpdateDate = customer.UpdateDate;                                            
 
-        //            c.Customers.Add(newCustomer);
-        //            c.SaveChanges();                            
-        //        }
-                               
-        //        //var customerSet = db.Query<CustomerModel>() as DbSet<CustomerModel>;
-        //        //customerSet.Add(newCustomer);
+                db.Add(newCustomer);                                
+                return Ok();
 
-        //       // db.Add(newCustomer);                                
-        //        return Ok();
+            }
+            catch (HttpResponseException e)
+            {
 
-        //    }
-        //    catch (HttpResponseException e)
-        //    {
-
-        //        return NotFound();
-        //    }   
-        //}
+                return NotFound();
+            }   
+        }
 
         //// PUT api/<controller>/5
         //public IHttpActionResult Put(CustomerModel customer)
@@ -106,7 +98,8 @@ namespace LoanApi.Controllers
         //            return NotFound();
 
         //        }
-        //        else {
+        //        else
+        //        {
 
         //            c.Id = customer.Id;
         //            c.Email = customer.Email;
@@ -123,13 +116,13 @@ namespace LoanApi.Controllers
         //            c.UpdateDate = customer.UpdateDate;
 
         //            return Ok();
-        //        }                                
+        //        }
         //    }
         //    catch (HttpResponseException e)
         //    {
 
         //        return NotFound();
-        //    }   
+        //    }
         //}
                
     

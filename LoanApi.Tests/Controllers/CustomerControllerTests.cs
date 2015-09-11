@@ -98,36 +98,36 @@ namespace LoanApi.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        //[TestMethod]
-        //public void CustomerCreate()
-        //{
-        //    var db = new TestDb();
-        //    db.AddSet(TestData.Customers);
-            
-        //    // Arrange
-        //    CustomerController controller = new CustomerController(db);                   
+        [TestMethod]
+        public void CustomerCreate()
+        {
+            var db = new TestDb();
+            //db.AddSet(TestData.Customers);
 
-        //    CustomerModel testCustomer = new CustomerModel();
-        //    testCustomer.Id = 8;
-        //    testCustomer.Email = "User@cba.com";
-        //    testCustomer.FirstName = "User First Name";
-        //    testCustomer.MiddleName = "User Middle Name";
-        //    testCustomer.LastName = "User Last Name";            
-        //    testCustomer.Gender = "M";
-        //    testCustomer.Address = "The World";
-        //    testCustomer.BirthDate = DateTime.UtcNow.Date;
-        //    testCustomer.MaritalStatus = "M";
-        //    testCustomer.SourceOfIncome = "Employed";
-        //    testCustomer.IsDeleted = false;
-        //    testCustomer.CreateDate = DateTime.UtcNow.Date;
-        //    testCustomer.UpdateDate = DateTime.UtcNow.Date;
+            // Arrange
+            CustomerController controller = new CustomerController(db);
 
-        //    // Act
-        //    var result = controller.Post(testCustomer);
+            CustomerModel testCustomer = new CustomerModel();
+            testCustomer.Id = 8;
+            testCustomer.Email = "User@cba.com";
+            testCustomer.FirstName = "User First Name";
+            testCustomer.MiddleName = "User Middle Name";
+            testCustomer.LastName = "User Last Name";
+            testCustomer.Gender = "M";
+            testCustomer.Address = "The World";
+            testCustomer.BirthDate = DateTime.UtcNow.Date;
+            testCustomer.MaritalStatus = "M";
+            testCustomer.SourceOfIncome = "Employed";
+            testCustomer.IsDeleted = false;
+            testCustomer.CreateDate = DateTime.UtcNow.Date;
+            testCustomer.UpdateDate = DateTime.UtcNow.Date;
 
-        //    // Assert
-        //    Assert.IsNotNull(result);
-        //}
+            // Act
+            var result = controller.Post(testCustomer);
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
       
     }
 }

@@ -21,6 +21,11 @@ namespace LoanApi.Tests.Models
             return set[typeof(T)] as IQueryable<T>;
         }
 
+        void IContextDb.Add<T>(T objects)
+        {
+            set.Add(typeof(T), objects as IQueryable<T>);
+        }
+
         void IDisposable.Dispose()
         {
             
