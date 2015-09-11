@@ -22,7 +22,7 @@ describe('Login Controller', function () {
         user = {
             "username": "test5@cba.com",
             "password": "Password1!",
-            "access_token": "2974LErhmJIlyeewjp34lmfZaBpl"
+            "access_token": "2974RArhyMUlmeewjp34lmfDaBpl"
         }
         service = {
             login:function () {

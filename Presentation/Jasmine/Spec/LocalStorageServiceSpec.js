@@ -14,7 +14,7 @@ describe('Local Storage Service Unit Tests', function () {
     beforeEach(function () {
       var  user = {
           "username": "test5@cba.com",
-            "access_token": "2974LErhmJIlyeewjp34lmfZaBpl"
+          "access_token": "2974RArhyMUlmeewjp34lmfDaBpl"
       }
       User = user;
     });
