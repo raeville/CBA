@@ -7,20 +7,16 @@
         var password = $scope.user.password;
         var user = {
             "username": username,
-            "password": password,
-            "access_token": null
+            "password": password
         };
         AspNetUser.login(user).then(function (response) {
 
             if ($scope.user.username != "") {
                 //// Set Email and Token in $localstorage
                 $localstorage.set('username', $scope.user.username);
-                if (angular.isObject($scope.user.access_token) == true || $scope.user.access_token != null) {
-                    $localstorage.set('access_token', $scope.user.access_token);
-                }
-                else {
+                if (angular.isObject($scope.user.access_token) == true || $scope.user.access_token == null)
                     $localstorage.set('access_token', response.data.access_token);
-                }
+
                 angular.element('#myModal').hide();
                 $window.location.reload();
                 $location.path("/loanCalculator");
