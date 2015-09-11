@@ -17,6 +17,16 @@ namespace LoanApi.Models
             return Set<T>();
         }
 
+        void IContextDb.Add<T>(T t)
+        {
+            if (t is CustomerModel)
+            {
+                Customers.Add(t as CustomerModel);
+            }
+
+        }
+
+
         void IDisposable.Dispose()
         {
             base.Dispose();

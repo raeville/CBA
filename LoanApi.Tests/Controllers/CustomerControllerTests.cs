@@ -9,79 +9,219 @@ using System.Web.Http.Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LoanApi;
 using LoanApi.Models;
+using LoanApi.Tests.Models;
 using LoanApi.Controllers;
 
 
 namespace LoanApi.Tests.Controllers
 {
+     
+
+     public class TestData{
+          
+         public static IQueryable<CustomerModel> Customers {
+             get { 
+                
+                var customers = new List<CustomerModel> 
+            { 
+                new CustomerModel { 
+                    Id = 1, Email = "User@cba.com", 
+                    FirstName = "User First Name", 
+                    MiddleName = "User Middle Name", 
+                    LastName = "User Last Name",            
+                    Gender = "M", 
+                    Address = "The World", 
+                    BirthDate = DateTime.UtcNow.Date, 
+                    MaritalStatus = "M", 
+                    SourceOfIncome = "Employed",
+                    IsDeleted = false, 
+                    CreateDate = DateTime.UtcNow.Date, 
+                    UpdateDate = DateTime.UtcNow.Date                
+                }, 
+                new CustomerModel { 
+                    Id = 2, Email = "User@cba.com", 
+                    FirstName = "User First Name", 
+                    MiddleName = "User Middle Name", 
+                    LastName = "User Last Name",            
+                    Gender = "M", 
+                    Address = "The World", 
+                    BirthDate = DateTime.UtcNow.Date, 
+                    MaritalStatus = "M", 
+                    SourceOfIncome = "Employed",
+                    IsDeleted = false, 
+                    CreateDate = DateTime.UtcNow.Date, 
+                    UpdateDate = DateTime.UtcNow.Date                
+                },                 
+            }; 
+                
+                 return customers.AsQueryable();
+             }
+         }
+        
+     
+     }
+
     [TestClass]
     public class CustomerControllerTests
     {
 
+       
         [TestMethod]
-        public void CustomerGet()
+        public void CustomerRetrieveAll()
         {
-            
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
             // Arrange
-            ValuesController controller = new ValuesController();
+            CustomerController controller = new CustomerController(db);
 
             // Act
-            IEnumerable<string> result = controller.Get();
+            IEnumerable<CustomerModel> result = controller.Get();
+
+            // Assert
+            Assert.IsNotNull(result);           
+        }
+
+        [TestMethod]
+        public void CustomerRetrieveById()
+        {
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
+            // Arrange
+            CustomerController controller = new CustomerController(db);
+
+            // Act
+            var result = controller.Get(1);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));
         }
 
         [TestMethod]
-        public void CustomerGetById()
+        public void CustomerCreate()
         {
+            var db = new TestDb();
+           
             // Arrange
-            ValuesController controller = new ValuesController();
+            CustomerController controller = new CustomerController(db);
+
+            CustomerModel testCustomer = new CustomerModel();
+            testCustomer.Id = 8;
+            testCustomer.Email = "User@cba.com";
+            testCustomer.FirstName = "User First Name";
+            testCustomer.MiddleName = "User Middle Name";
+            testCustomer.LastName = "User Last Name";
+            testCustomer.Gender = "M";
+            testCustomer.Address = "The World";
+            testCustomer.BirthDate = DateTime.UtcNow.Date;
+            testCustomer.MaritalStatus = "M";
+            testCustomer.SourceOfIncome = "Employed";
+            testCustomer.IsDeleted = false;
+            testCustomer.CreateDate = DateTime.UtcNow.Date;
+            testCustomer.UpdateDate = DateTime.UtcNow.Date;
 
             // Act
-            string result = controller.Get(5);
+            var result = controller.Post(testCustomer);
 
             // Assert
-            Assert.AreEqual("value", result);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public void CustomerPost()
+        public void CustomerUpdate()
         {
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
             // Arrange
-            ValuesController controller = new ValuesController();
+            CustomerController controller = new CustomerController(db);
+
+            CustomerModel testCustomer = new CustomerModel();
+            testCustomer.Id = 1;
+            testCustomer.Email = "User@cba.com";
+            testCustomer.FirstName = "User First Name";
+            testCustomer.MiddleName = "User Middle Name";
+            testCustomer.LastName = "User Last Name";
+            testCustomer.Gender = "M";
+            testCustomer.Address = "The World";
+            testCustomer.BirthDate = DateTime.UtcNow.Date;
+            testCustomer.MaritalStatus = "M";
+            testCustomer.SourceOfIncome = "Employed";
+            testCustomer.IsDeleted = false;
+            testCustomer.CreateDate = DateTime.UtcNow.Date;
+            testCustomer.UpdateDate = DateTime.UtcNow.Date;
 
             // Act
-            controller.Post("value");
+            var result = controller.Put(testCustomer);
 
             // Assert
+            Assert.IsNotNull(result);
         }
 
+
         [TestMethod]
-        public void CustomerPut()
+        public void CustomerUpdateNotFound()
         {
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
             // Arrange
-            ValuesController controller = new ValuesController();
+            CustomerController controller = new CustomerController(db);
+
+            CustomerModel testCustomer = new CustomerModel();
+            testCustomer.Id = 8;
+            testCustomer.Email = "User@cba.com";
+            testCustomer.FirstName = "User First Name";
+            testCustomer.MiddleName = "User Middle Name";
+            testCustomer.LastName = "User Last Name";
+            testCustomer.Gender = "M";
+            testCustomer.Address = "The World";
+            testCustomer.BirthDate = DateTime.UtcNow.Date;
+            testCustomer.MaritalStatus = "M";
+            testCustomer.SourceOfIncome = "Employed";
+            testCustomer.IsDeleted = false;
+            testCustomer.CreateDate = DateTime.UtcNow.Date;
+            testCustomer.UpdateDate = DateTime.UtcNow.Date;
 
             // Act
-            controller.Put(5, "value");
+            var result = controller.Put(testCustomer);
 
             // Assert
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
         public void CustomerDelete()
         {
-            // Arrange
-            ValuesController controller = new ValuesController();
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
 
+            // Arrange
+            CustomerController controller = new CustomerController(db);
+           
             // Act
-            controller.Delete(5);
+            var result = controller.Delete(2);
 
             // Assert
+            Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void CustomerDeleteNotFound()
+        {
+            var db = new TestDb();
+            db.AddSet(TestData.Customers);
+
+            // Arrange
+            CustomerController controller = new CustomerController(db);
+
+            // Act
+            var result = controller.Delete(5);
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+      
     }
 }

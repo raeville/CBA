@@ -238,7 +238,6 @@
     <Compile Include="Models\BaseReport.cs" />
     <Compile Include="Models\CBAContextDb.cs" />
     <Compile Include="Models\CustomerModel.cs" />
-    <Compile Include="Models\CustomerRepository.cs" />
     <Compile Include="Models\IContextDb.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
