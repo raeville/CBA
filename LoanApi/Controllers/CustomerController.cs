@@ -32,7 +32,7 @@ namespace LoanApi.Controllers
         // GET api/<controller>
         public IEnumerable<CustomerModel> Get()
         {
-            return db.Query<CustomerModel>().ToList();
+            return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
         }
 
         // GET api/<controller>/5
@@ -41,7 +41,7 @@ namespace LoanApi.Controllers
 
             try {
 
-                CustomerModel customer = db.Query<CustomerModel>().Where(x=>x.Id == id).FirstOrDefault();
+                CustomerModel customer = db.Query<CustomerModel>().Where(x=>x.Id == id && x.IsDeleted == false).FirstOrDefault();
 
                 return Ok(customer);
 
@@ -91,7 +91,7 @@ namespace LoanApi.Controllers
         {
             try
             {
-                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id).FirstOrDefault();
+                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id && x.IsDeleted == false).FirstOrDefault();
 
                 if (c == null)
                 {
