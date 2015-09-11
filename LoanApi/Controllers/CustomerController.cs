@@ -86,44 +86,70 @@ namespace LoanApi.Controllers
             }   
         }
 
-        //// PUT api/<controller>/5
-        //public IHttpActionResult Put(CustomerModel customer)
-        //{
-        //    try
-        //    {
-        //        CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id).FirstOrDefault();
+        // PUT api/<controller>/5
+        public IHttpActionResult Put(CustomerModel customer)
+        {
+            try
+            {
+                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id).FirstOrDefault();
 
-        //        if (c == null)
-        //        {
-        //            return NotFound();
+                if (c == null)
+                {
+                    return NotFound();
 
-        //        }
-        //        else
-        //        {
+                }
+                else
+                {
 
-        //            c.Id = customer.Id;
-        //            c.Email = customer.Email;
-        //            c.FirstName = customer.FirstName;
-        //            c.LastName = customer.LastName;
-        //            c.MiddleName = customer.MiddleName;
-        //            c.Gender = customer.Gender;
-        //            c.Address = customer.Address;
-        //            c.BirthDate = customer.BirthDate.Date;
-        //            c.MaritalStatus = customer.MaritalStatus;
-        //            c.SourceOfIncome = customer.SourceOfIncome;
-        //            c.IsDeleted = customer.IsDeleted;
-        //            c.CreateDate = customer.CreateDate;
-        //            c.UpdateDate = customer.UpdateDate;
+                    c.Id = customer.Id;
+                    c.Email = customer.Email;
+                    c.FirstName = customer.FirstName;
+                    c.LastName = customer.LastName;
+                    c.MiddleName = customer.MiddleName;
+                    c.Gender = customer.Gender;
+                    c.Address = customer.Address;
+                    c.BirthDate = customer.BirthDate.Date;
+                    c.MaritalStatus = customer.MaritalStatus;
+                    c.SourceOfIncome = customer.SourceOfIncome;
+                    c.IsDeleted = customer.IsDeleted;
+                    c.CreateDate = customer.CreateDate;
+                    c.UpdateDate = customer.UpdateDate;
 
-        //            return Ok();
-        //        }
-        //    }
-        //    catch (HttpResponseException e)
-        //    {
+                    return Ok();
+                }
+            }
+            catch (HttpResponseException e)
+            {
 
-        //        return NotFound();
-        //    }
-        //}
+                return NotFound();
+            }
+        }
+
+
+        // DELETE api/<controller>/5
+        public IHttpActionResult Delete(int Id)
+        {
+            try
+            {
+                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == Id).FirstOrDefault();
+
+                if (c == null)
+                {
+                    return NotFound();
+
+                }
+                else
+                {                    
+                    c.IsDeleted = true;                    
+                    return Ok();
+                }
+            }
+            catch (HttpResponseException e)
+            {
+
+                return NotFound();
+            }
+        }
                
     
     }
