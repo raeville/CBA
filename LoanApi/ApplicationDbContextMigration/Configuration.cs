@@ -1,5 +1,6 @@
 namespace LoanApi.ApplicationDbContextMigration
 {
+    using LoanApi.Controllers;
     using LoanApi.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -20,8 +21,7 @@ namespace LoanApi.ApplicationDbContextMigration
         {
             var hashit = new PasswordHasher();
 
-            var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-
+            var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             //Admin
             if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
             {
@@ -32,9 +32,34 @@ namespace LoanApi.ApplicationDbContextMigration
                     EmailConfirmed = true,
                     PasswordHash = hashit.HashPassword("P@ssw0rd")
                 };
-
                 adduser.Create(admin);
             }
+            //Creating Role
+            var userRole = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            if (!userRole.RoleExists("Admin") || !userRole.RoleExists("LoanOfficer"))
+            {
+                userRole.Create(new IdentityRole { Name = "Admin" });
+                userRole.Create(new IdentityRole { Name = "LoanOfficer" });
+            }
+            //Assigning Role
+            var user = context.Users.Where(u => u.UserName.Equals("admin@cba.com", StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            if (user.UserName == "admin@cba.com")
+            {
+                var roles = context.Roles.ToList();
+                if (user != null)
+                {
+                    if (roles.Count != 0)
+                    {
+                        foreach (var role in roles)
+                        {
+                            adduser.AddToRole(user.Id, role.Name);
+                        }
+
+                    }
+
+                }
+            }
+
         }
     }
 }
