@@ -118,12 +118,19 @@
         <div class="form-group">
         <label class="col-md-4 control-label">Marital Status : </label>
         <div class="col-md-3">
-            <select name="maritalStatus" id="maritalStatus" ng-model="maritalStatus" multiple>
+            <!--<select name="maritalStatus" id="maritalStatus" ng-model="maritalStatus" multiple>
                 <option value="S">Single</option>
                 <option value="M">Married</option>
                 <option value="L">Legally Separated</option>
                 <option value="D">Divorced</option>
                 <option value="W">Widowed</option>
+            </select>-->
+
+            <select class="form-control" required 
+                    ng-model="maritalStatus" 
+                    name="maritalStatus" 
+                    ng-options="maritalStatus as maritalStatus.status for maritalStatus in maritalStatus" 
+                   >
             </select>
         </div>
         
