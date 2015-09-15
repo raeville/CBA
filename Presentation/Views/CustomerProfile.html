@@ -1,0 +1,64 @@
+﻿<div ng-init="init()" class="">
+    <form class="form-horizontal" name="LoanCalculatorForm">
+        <div class="form-group">
+            <label class="col-md-4 control-label">Amount of the Loan : </label>
+            <div class="col-md-3">
+                <input required type="text" class="form-control" name="amountLoan" placeholder="Amount of the Loan" ng-model="amountLoan" ng-pattern="/^(\d)+$/" />
+            </div>
+
+            <div class="col-md-3 text-left">
+                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.required">
+                    Amount of the Loan is Required!
+                </span>
+                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.pattern">
+                    Number is Required!
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Annual Interest (%) : </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="annualInterest" placeholder="Annual Interest" ng-model="annualInterest" required ng-pattern="/^(\d)+$/" />
+            </div>
+            <div class="col-md-3 text-left">
+                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
+                    Annual Interest is Required!
+                </span>
+                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
+                    Number is Required!
+                </span>
+            </div>
+
+        </div>
+      
+        <div class="form-group">
+            <label class="col-md-4 control-label">Repayment Period (years) : </label>
+            <div class="col-md-3">
+                <input required type="text" class="form-control" name="repaymentPeriod" placeholder="Repayment Period in years" ng-model="repaymentPeriod" ng-pattern="/^(\d)+$/" />
+            </div>
+            <div class="col-md-3 text-left">
+                <span style="color:red" ng-show="LoanCalculatorForm.repaymentPeriod.$error.required">
+                    Repayment Period is Required!
+                </span>
+                <span style="color:red" ng-show="LoanCalculatorForm.repaymentPeriod.$error.pattern">
+                    Number is Required!
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-4 text-right">
+            </div>
+            <div class="col-md-3 text-left">
+                <input type="button" class="btn btn-primary"  value="Calculate"
+                       ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
+                       ng-click="calculateLoan()">
+            </div>
+        </div>
+
+    </form>
+</div>	
+
+<h1></h1>

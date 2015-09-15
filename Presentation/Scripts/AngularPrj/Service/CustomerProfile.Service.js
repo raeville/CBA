@@ -1,0 +1,5 @@
+﻿LoanApp.service('CustomerProfileService', function () {
+
+
+
+});
