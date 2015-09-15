@@ -1,0 +1,7 @@
+{
+    "sourceofincome": 
+    [
+        { "id": 1, "source": "Business" },
+        { "id": 2, "source": "Employment" }
+    ]
+}

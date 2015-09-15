@@ -1,4 +1,4 @@
-﻿LoanApp.service('CustomerProfileService', function () {
+﻿LoanApp.service('CustomerProfileService', function ($http, loanApiConsUrl) {
 
 
 
