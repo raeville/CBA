@@ -20,12 +20,20 @@ namespace LoanApi.ApplicationDbContextMigration
         {
             var hashit = new PasswordHasher();
 
-            var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            //var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var userManager = new ApplicationUserManager(
+                new UserStore<ApplicationUser, ApplicationRole, string,
+                    ApplicationUserLogin, ApplicationUserRole,
+                    ApplicationUserClaim>(context));
 
-            //Admin
-            if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
+            var roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole, string, ApplicationUserRole>(context));
+
+            //Create user Admin if it does not exist
+            //if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
+            var admin = userManager.FindByName("admin@cba.com");
+            if (admin == null)
             {
-                var admin = new ApplicationUser()
+                admin = new ApplicationUser()
                 {
                     UserName = "admin@cba.com",
                     Email = "admin@cba.com",
@@ -33,7 +41,22 @@ namespace LoanApi.ApplicationDbContextMigration
                     PasswordHash = hashit.HashPassword("P@ssw0rd")
                 };
 
-                adduser.Create(admin);
+                userManager.Create(admin);
+            }
+
+            //Create Role Admin if it does not exist
+            var role = roleManager.FindByName("Admin");
+            if (role == null)
+            {
+                role = new ApplicationRole("Admin");
+                var roleresult = roleManager.Create(role);
+            }
+
+            // Add user admin to Role Admin if not already added
+            var rolesForUser = userManager.GetRoles(admin.Id);
+            if (!userManager.GetRoles(admin.Id).Contains(role.Name))
+            {
+                var result = userManager.AddToRole(admin.Id, role.Name);
             }
         }
     }

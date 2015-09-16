@@ -30,12 +30,14 @@ namespace LoanApi.Controllers
         }
 
         // GET api/<controller>
+        [Authorize]
         public IEnumerable<CustomerModel> Get()
         {
             return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
         }
 
         // GET api/<controller>/5
+        [Authorize]
         public IHttpActionResult Get(int id)
         {
 
@@ -54,6 +56,7 @@ namespace LoanApi.Controllers
         }
 
         // POST api/<controller>
+        [Authorize]
         public IHttpActionResult Post(CustomerModel customer)
         {
 
@@ -87,6 +90,7 @@ namespace LoanApi.Controllers
         }
 
         // PUT api/<controller>/5
+        [Authorize]
         public IHttpActionResult Put(CustomerModel customer)
         {
             try
@@ -127,6 +131,7 @@ namespace LoanApi.Controllers
 
 
         // DELETE api/<controller>/5
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Delete(int Id)
         {
             try
