@@ -125,8 +125,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="data\MaritalStatus.json" />
-    <Content Include="data\SourceOfIncome.json" />
+    <Content Include="data\maritalstatus.json" />
+    <Content Include="data\sourceofincome.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

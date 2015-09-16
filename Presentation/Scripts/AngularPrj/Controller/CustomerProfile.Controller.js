@@ -1,21 +1,15 @@
-﻿LoanApp.controller('CustomerProfileController', function ($scope, $location, CustomerProfileService) {
+﻿///<reference path="../../angular.min.js" />
+///<reference path="../LoanApp.js" />
+LoanApp.controller('CustomerProfileController',['$scope', '$location', 'CustomerProfileService', function ($scope, $location, CustomerProfileService) {
 
-    $scope.init = function () {        
+    $scope.init = function () {
+
+        $scope.maritalstatus = CustomerProfileService.getMaritalStatus();
+        $scope.sourceofincome = CustomerProfileService.getSourceOfIncome();
     }
 
-    //CustomerProfileService.getSourceOfIncome().then(function (data, s) {
-    //    $scope.sourceofincome = data.sourceofincome;
-    //}, function (err, s) {
-    //    alert(err);
-    //});
 
-
-    //CustomerProfileService.getMaritalStatus().then(function (data, s) {
-    //    $scope.maritalstatus = data;
-    //}, function (err, s) {
-    //    alert(err);
-    //});
   
 
     
-});
+}]);
