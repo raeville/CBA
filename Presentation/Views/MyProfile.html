@@ -8,14 +8,13 @@
         <div role="tabpanel" class="tab-pane fade" id="customerlist"><div ng-include="'Views/Customers.html'"></div></div>
     </div>
 
-<script type="text/javascript">
-    $('#myTab a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show'); 
-    });
-
-    $(function () {
-        $('#myTab a:last').tab('show');
-    })
-</script>
+    <script type="text/javascript">
+        angular.element('#myTab a').click(function (e) {
+            e.preventDefault();
+            angular.element(this).tab('show');
+        });
+        angular.element(function () {
+            angular.element('#myTab a:first').tab('show');
+        })
+    </script>
 </div>

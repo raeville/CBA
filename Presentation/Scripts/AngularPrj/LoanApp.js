@@ -37,6 +37,9 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         templateUrl: 'Views/RegisterSuccessful.html',
         controller: ''
     });
+
+  
+
     $routeProvider.when('/CustomerProfile', {
         templateUrl: 'Views/CustomerProfile.html',
         controller: 'CustomerProfileController'
