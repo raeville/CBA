@@ -13,8 +13,17 @@ LoanApp.controller('CustomerProfileController',['$scope', '$location', 'Customer
         //$scope.delete();
     }
 
-
+    $scope.Customers = [
+        { SI: '1', IsDeleted: 'False', FullName: 'R.R.V', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' },
+        { SI: '2', IsDeleted: 'False', FullName: 'J.A.M', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'M', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'false' },
+        { SI: '3', IsDeleted: 'False', FullName: 'C.E.U', Gender: 'M', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' }];
    
+    $scope.search = function (txtSearch) 
+    {
+        return $filter($scope.Customers, txtSearch);
+
+    }
+
 
     //Function to Load all Customer Records.   
     $scope.getAllCustomers = function () {
@@ -93,10 +102,6 @@ LoanApp.controller('CustomerProfileController',['$scope', '$location', 'Customer
         };
 
         var CustomersToUpdate= CustomerProfileService.putCustomer(customerdummy);
-    $scope.Customers = [
-            { SI: '1', IsDeleted: 'False', FullName: 'R.R.V', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' },
-            { SI: '2', IsDeleted: 'False', FullName: 'J.A.M', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'M', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'false' },
-            { SI: '3', IsDeleted: 'False', FullName: 'C.E.U', Gender: 'M', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' }];
 
         CustomersToUpdate.then(function (results) {
             $scope.updateConfirmation = results;
@@ -106,24 +111,20 @@ LoanApp.controller('CustomerProfileController',['$scope', '$location', 'Customer
         });
     }
   
-    $scope.init = function () {
-    }
-    $scope.search = function (txtSearch)
-    {
+
     //Function to Load all Employees Records.   
     $scope.delete = function () {
 
         var id = "13132";
         var deleteCustomersById = CustomerProfileService.deleteCustomer(id);
-        return $filter($scope.Customers, txtSearch);
-    }
-    
         deleteCustomersById.then(function (results) {
             $scope.confirmationConfirmation = results;
         }).catch(function (errorResults) {
             //to do for not found here
             $scope.error = 'failure loading Employee', errorResults;
-});
+        });
+       
     }
+                
     
 }]);
