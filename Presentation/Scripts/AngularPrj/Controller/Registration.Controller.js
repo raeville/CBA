@@ -21,7 +21,7 @@ LoanApp.controller('RegistrationController', ['$scope', 'AspNetUser', '$location
             $location.path("/RegisterSuccessful");
             $window.location.reload();           
         }).catch(function (response) {
-            if ($scope.userData.inputEmail.length != 0 && $scope.userData.inputPassword.length != 0) { $scope.Message = response.modelState[""][1]; }
+            if ($scope.userData.inputEmail.length != 0 && $scope.userData.inputPassword.length != 0) { $scope.Message = response.data.modelState[""][1]; }
         });
     };
     $scope.ClearMessage = function () {

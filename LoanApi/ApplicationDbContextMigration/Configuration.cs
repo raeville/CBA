@@ -1,5 +1,6 @@
 namespace LoanApi.ApplicationDbContextMigration
 {
+    using LoanApi.Controllers;
     using LoanApi.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -20,18 +21,9 @@ namespace LoanApi.ApplicationDbContextMigration
         {
             var hashit = new PasswordHasher();
 
-            //var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            var userManager = new ApplicationUserManager(
-                new UserStore<ApplicationUser, ApplicationRole, string,
-                    ApplicationUserLogin, ApplicationUserRole,
-                    ApplicationUserClaim>(context));
-
-            var roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole, string, ApplicationUserRole>(context));
-
-            //Create user Admin if it does not exist
-            //if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
-            var admin = userManager.FindByName("admin@cba.com");
-            if (admin == null)
+            var adduser = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            //Admin
+            if (!adduser.Users.Any(r => r.UserName == "admin@cba.com"))
             {
                 admin = new ApplicationUser()
                 {
@@ -40,24 +32,34 @@ namespace LoanApi.ApplicationDbContextMigration
                     EmailConfirmed = true,
                     PasswordHash = hashit.HashPassword("P@ssw0rd")
                 };
-
-                userManager.Create(admin);
+                adduser.Create(admin);
             }
-
-            //Create Role Admin if it does not exist
-            var role = roleManager.FindByName("Admin");
-            if (role == null)
+            //Creating Role
+            var userRole = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            if (!userRole.RoleExists("Admin") || !userRole.RoleExists("LoanOfficer"))
             {
-                role = new ApplicationRole("Admin");
-                var roleresult = roleManager.Create(role);
+                userRole.Create(new IdentityRole { Name = "Admin" });
+                userRole.Create(new IdentityRole { Name = "LoanOfficer" });
+            }
+            //Assigning Role
+            var user = context.Users.Where(u => u.UserName.Equals("admin@cba.com", StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            if (user.UserName == "admin@cba.com")
+            {
+                var roles = context.Roles.ToList();
+                if (user != null)
+                {
+                    if (roles.Count != 0)
+                    {
+                        foreach (var role in roles)
+                        {
+                            adduser.AddToRole(user.Id, role.Name);
+                        }
+
+                    }
+
+                }
             }
 
-            // Add user admin to Role Admin if not already added
-            var rolesForUser = userManager.GetRoles(admin.Id);
-            if (!userManager.GetRoles(admin.Id).Contains(role.Name))
-            {
-                var result = userManager.AddToRole(admin.Id, role.Name);
-            }
         }
     }
 }

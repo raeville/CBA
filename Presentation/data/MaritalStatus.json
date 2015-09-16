@@ -1,0 +1,10 @@
+{
+    "maritalstatus": 
+    [
+        { "value": 1, "status": "Single" },
+        { "value": 2, "status": "Married" },
+        { "value": 3, "status": "Legally Separated" },
+        { "value": 3, "status": "Divorced" },
+        { "value": 3, "status": "Widowed" }
+    ]
+}
