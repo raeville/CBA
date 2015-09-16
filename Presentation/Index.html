@@ -33,6 +33,7 @@
     <script src="Scripts/AngularPrj/Controller/Login.Controller.js"></script>
     <script src="Scripts/AngularPrj/Controller/Registration.Controller.js"></script>
     <script src="Scripts/AngularPrj/Controller/Logout.Controller.js"></script>
+    <script src="Scripts/AngularPrj/Controller/CustomerProfile.Controller.js"></script>
 
     <!--Directives-->
     <script src="Scripts/AngularPrj/Directives/LoanApp.Directives.js"></script>
@@ -42,6 +43,7 @@
     <script src="Scripts/AngularPrj/Service/LoanCalculator.Service.js"></script>
     <script src="Scripts/AngularPrj/Service/AspNetUserService.js"></script>
     <script src="Scripts/AngularPrj/Service/LocalStorage.Service.js"></script>
+    <script src="Scripts/AngularPrj/Service/CustomerProfile.Service.js"></script>
 </head>
 <body ng-app="LoanApp">
     <!--header-->
@@ -69,10 +71,10 @@
     <!-- navigation -->
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3"> 
                 <div class="list-group">
                     <a class="list-group-item active">Dashboard</a>
-                    <a href="#" class="list-group-item">My Profile</a>
+                    <a href="#/MyProfile" class="list-group-item">My Profile</a>
                     <a href="#" class="list-group-item">Loan Types</a>
                     <a href="#/loanCalculator" class="list-group-item">Calculator</a>
                     <a href="#" class="list-group-item">Application</a>
