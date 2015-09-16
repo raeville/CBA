@@ -27,10 +27,46 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
         return sourceOfIncome;
     }
 
+  
+    //Function to Read All Customers
+    this.getCustomers = function () {
+        return $http.get(URL + "/api/Customer");
+    };
+
+    //Function to Read Customers By id
+    this.getCustomerById = function (id) {
+        return $http.get(URL + "/api/Customer/" + id);
+    };
+
+    //Function to create new Customer
+    this.postCustomer = function (Customer) {
+        var request = $http({
+            method: "post",
+            url: URL + "api/Customer",
+            data: Customer
+        });
+        return request;
+    };
 
 
+    //Function  to Edit Customer 
+    this.putCustomer = function (Customer) {
+        var request = $http({
+            method: "put",
+            url: URL + "api/Customer",
+            data: Customer
+        });
+        return request;
+    };
 
-
+    //Function to Delete Customer based upon id
+    this.deleteCustomer = function (id) {
+        var request = $http({
+            method: "delete",
+            url: URL + "/api/Customer/" + id
+        });
+        return request;
+    };
 
 
 
