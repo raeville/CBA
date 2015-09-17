@@ -78,7 +78,8 @@ namespace LoanApi.Controllers
                  newCustomer.CreateDate = customer.CreateDate;
                  newCustomer.UpdateDate = customer.UpdateDate;                                            
 
-                db.Add(newCustomer);                                
+                db.Add(newCustomer); 
+                              
                 return Ok();
 
             }
@@ -118,7 +119,7 @@ namespace LoanApi.Controllers
                     c.IsDeleted = customer.IsDeleted;
                     c.CreateDate = customer.CreateDate;
                     c.UpdateDate = customer.UpdateDate;
-
+                    
                     return Ok();
                 }
             }

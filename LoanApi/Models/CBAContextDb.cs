@@ -22,6 +22,7 @@ namespace LoanApi.Models
             if (t is CustomerModel)
             {
                 Customers.Add(t as CustomerModel);
+                this.SaveChanges();
             }
 
         }
