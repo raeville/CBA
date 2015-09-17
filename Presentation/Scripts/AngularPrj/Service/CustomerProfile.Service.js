@@ -1,6 +1,6 @@
 ﻿///<reference path="../../angular.min.js" />
 ///<reference path="../LoanApp.js" />
-LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($http, loanApiConsUrl) {
+LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($http, loanApiConsUrl, $localStorage) {
     var URL = loanApiConsUrl;
 
     var maritalStatus = [ 
@@ -27,52 +27,38 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
         return sourceOfIncome;
     }
 
-    var token = "";
+    var token = $localstorage.get('access_token', '');
     //Function to Read All Customers
-    var getCustomers = function () {
+    var getAll = function () {
         return $http({ method: 'GET', url: URL + "/api/Customer", headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to Read Customers By id
-    var getCustomerById = function (id) {
-        return $http.get(URL + "/api/Customer/" + id);
+    var getById = function (id) {
+        return $http({ method: 'GET', url: URL + "/api/Customer" + id, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to create new Customer
-    var postCustomer = function (Customer) {
-        var request = $http({
-            method: "post",
-            url: URL + "api/Customer",
-            data: Customer
-        });
-        return request;
+    var post = function (Customer) {
+        return $http({ method: "post", url: URL + "api/Customer", data: Customer, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
 
     //Function  to Edit Customer 
-    var putCustomer = function (Customer) {
-        var request = $http({
-            method: "put",
-            url: URL + "api/Customer",
-            data: Customer
-        });
-        return request;
+    var put = function (Customer) {
+        request = $http({ method: "put", url: URL + "api/Customer", data: Customer, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to Delete Customer based upon id
     var deleteCustomer = function (id) {
-        var request = $http({
-            method: "delete",
-            url: URL + "/api/Customer/" + id
-        });
-        return request;
+        request = $http({ method: "delete", url: URL + "/api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     return {
-        getCustomers: authenticate,
-        getCustomerById: register,
-        postCustomer: authenticate,
-        putCustomer: register,
+        getCustomers: getAll,
+        getCustomerById: getById,
+        postCustomer: post,
+        putCustomer: put,
         deleteCustomer: authenticate,
         getMaritalStatus: register,
         getSourceOfIncome : getIncome
