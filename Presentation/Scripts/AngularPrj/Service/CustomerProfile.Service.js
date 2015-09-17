@@ -17,29 +17,29 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
     ];
 
 
-    this.getMaritalStatus = function () {
+    var getMaritalStatus = function () {
 
         return maritalStatus;
     }
 
-    this.getSourceOfIncome = function () {
+    var getSourceOfIncome = function () {
 
         return sourceOfIncome;
     }
 
-  
+    var token = "";
     //Function to Read All Customers
-    this.getCustomers = function () {
-        return $http.get(URL + "/api/Customer");
+    var getCustomers = function () {
+        return $http({ method: 'GET', url: URL + "/api/Customer", headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to Read Customers By id
-    this.getCustomerById = function (id) {
+    var getCustomerById = function (id) {
         return $http.get(URL + "/api/Customer/" + id);
     };
 
     //Function to create new Customer
-    this.postCustomer = function (Customer) {
+    var postCustomer = function (Customer) {
         var request = $http({
             method: "post",
             url: URL + "api/Customer",
@@ -50,7 +50,7 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
 
 
     //Function  to Edit Customer 
-    this.putCustomer = function (Customer) {
+    var putCustomer = function (Customer) {
         var request = $http({
             method: "put",
             url: URL + "api/Customer",
@@ -60,7 +60,7 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
     };
 
     //Function to Delete Customer based upon id
-    this.deleteCustomer = function (id) {
+    var deleteCustomer = function (id) {
         var request = $http({
             method: "delete",
             url: URL + "/api/Customer/" + id
@@ -68,6 +68,14 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
         return request;
     };
 
-
+    return {
+        getCustomers: authenticate,
+        getCustomerById: register,
+        postCustomer: authenticate,
+        putCustomer: register,
+        deleteCustomer: authenticate,
+        getMaritalStatus: register,
+        getSourceOfIncome : getIncome
+    }
 
 }]);
