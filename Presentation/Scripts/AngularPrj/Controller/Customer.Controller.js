@@ -4,8 +4,8 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
     $scope.init = function () {
 
-        $scope.maritalstatus = CustomerProfileService.getMaritalStatus();
-        $scope.sourceofincome = CustomerProfileService.getSourceOfIncome();
+        $scope.maritalstatus = CustomerService.getMaritalStatus();
+        $scope.sourceofincome = CustomerService.getSourceOfIncome();
         $scope.userNameAsLogin = $localStorage.get('username', '');
         //$scope.getAllCustomers();
         //$scope.getCustomer();
@@ -28,7 +28,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
     //Function to Load all Customer Records.   
     $scope.getAllCustomers = function () {
-        var Customers = CustomerProfileService.getCustomers();
+        var Customers = CustomerService.getCustomers();
 
         Customers.then(function (results) {
             $scope.Customers = results.data;
@@ -43,7 +43,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     $scope.getCustomer = function () {
 
         var id = "13132";
-        var CustomersById = CustomerProfileService.getCustomerById(id);
+        var CustomersById = CustomerService.getCustomerById(id);
 
         CustomersById.then(function (results) {
             $scope.CustomerByUser = results.data;
@@ -72,7 +72,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             UpdateDate: new Date()
         };
 
-        var CustomersToAdd = CustomerProfileService.postCustomer(customerdummy);
+        var CustomersToAdd = CustomerService.postCustomer(customerdummy);
 
         CustomersToAdd.then(function (results) {
             $scope.addConfirmation = results;
@@ -102,7 +102,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             UpdateDate: new Date()
         };
 
-        var CustomersToUpdate= CustomerProfileService.putCustomer(customerdummy);
+        var CustomersToUpdate = CustomerService.putCustomer(customerdummy);
 
         CustomersToUpdate.then(function (results) {
             $scope.updateConfirmation = results;
@@ -117,7 +117,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     $scope.delete = function () {
 
         var id = "13132";
-        var deleteCustomersById = CustomerProfileService.deleteCustomer(id);
+        var deleteCustomersById = CustomerService.deleteCustomer(id);
         deleteCustomersById.then(function (results) {
             $scope.confirmationConfirmation = results;
         }).catch(function (errorResults) {
