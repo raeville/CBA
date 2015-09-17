@@ -1,6 +1,6 @@
 ﻿///<reference path="../../angular.min.js" />
 ///<reference path="../LoanApp.js" />
-LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($http, loanApiConsUrl, $localStorage) {
+LoanApp.service('CustomerProfileService', ['$http', 'loanApiConsUrl', '$localstorage', function ($http, loanApiConsUrl, $localStorage) {
     var URL = loanApiConsUrl;
 
     var maritalStatus = [ 
@@ -27,7 +27,8 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
         return sourceOfIncome;
     }
 
-    var token = $localstorage.get('access_token', '');
+    var token = $localStorage.get('access_token', '');
+
     //Function to Read All Customers
     var getAll = function () {
         return $http({ method: 'GET', url: URL + "/api/Customer", headers: { 'Authorization': 'Bearer ' + token } });
