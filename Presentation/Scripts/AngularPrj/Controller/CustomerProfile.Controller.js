@@ -6,7 +6,7 @@ LoanApp.controller('CustomerProfileController',['$scope', '$location', 'Customer
 
         $scope.maritalstatus = CustomerProfileService.getMaritalStatus();
         $scope.sourceofincome = CustomerProfileService.getSourceOfIncome();
-        //$scope.getAllCustomers();
+        $scope.getAllCustomers();
         //$scope.getCustomer();
         //$scope.save();
         //$scope.update();

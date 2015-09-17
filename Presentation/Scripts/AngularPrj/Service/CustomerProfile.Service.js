@@ -1,6 +1,6 @@
 ﻿///<reference path="../../angular.min.js" />
 ///<reference path="../LoanApp.js" />
-LoanApp.service('CustomerProfileService', ['$http', 'loanApiConsUrl', '$localstorage', function ($http, loanApiConsUrl, $localStorage) {
+LoanApp.service('CustomerProfileService', ['$http', 'loanApiConsUrl', '$localStorage', function ($http, loanApiConsUrl, $localStorage) {
     var URL = loanApiConsUrl;
 
     var maritalStatus = [ 
