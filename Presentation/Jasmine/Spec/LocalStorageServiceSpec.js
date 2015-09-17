@@ -19,8 +19,8 @@ describe('Local Storage Service Unit Tests', function () {
       User = user;
     });
     
-    beforeEach(inject(['$localstorage', function ($localstorage) {
-        localstorage = $localstorage;
+    beforeEach(inject(['$localStorage', function ($localStorage) {
+        localstorage = $localStorage;
        }]));
 
     it('should have a Local Storage service to be defined', function () {

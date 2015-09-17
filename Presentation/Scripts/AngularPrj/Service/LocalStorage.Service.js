@@ -1,4 +1,4 @@
-﻿LoanApp.service('$localstorage', ['$window', function ($window) {
+﻿LoanApp.service('$localStorage', ['$window', function ($window) {
 	return {
 		set: function (key, value) {
 			$window.localStorage[key] = value;

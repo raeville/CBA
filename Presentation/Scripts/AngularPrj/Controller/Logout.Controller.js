@@ -1,7 +1,7 @@
-﻿LoanApp.controller('LogoutController', ['$scope', '$localstorage', '$window', function ($scope, $localstorage, $window) {
+﻿LoanApp.controller('LogoutController', ['$scope', '$window', '$localStorage', function ($scope, $localStorage, $window) {
     $scope.LogOut = function () {
-        $localstorage.remove('username');
-        $localstorage.remove('access_token');
+        $localStorage.remove('username');
+        $localStorage.remove('access_token');
         $window.location.reload();
     };
 }]);
