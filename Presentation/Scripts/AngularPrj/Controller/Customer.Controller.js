@@ -1,12 +1,13 @@
 ﻿///<reference path="../../angular.min.js" />
 ///<reference path="../LoanApp.js" />
-LoanApp.controller('CustomerProfileController',['$scope', '$location', 'CustomerProfileService', function ($scope, $location, CustomerProfileService) {
+LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerService', '$localStorage', function ($scope, $location, CustomerService, $localStorage) {
 
     $scope.init = function () {
 
         $scope.maritalstatus = CustomerProfileService.getMaritalStatus();
         $scope.sourceofincome = CustomerProfileService.getSourceOfIncome();
-        $scope.getAllCustomers();
+        $scope.userNameAsLogin = $localStorage.get('username', '');
+        //$scope.getAllCustomers();
         //$scope.getCustomer();
         //$scope.save();
         //$scope.update();

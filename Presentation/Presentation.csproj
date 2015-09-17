@@ -94,7 +94,7 @@
     <Content Include="Jasmine\Spec\SpecHelper.js" />
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
-    <Content Include="Scripts\AngularPrj\Controller\CustomerProfile.Controller.js" />
+    <Content Include="Scripts\AngularPrj\Controller\Customer.Controller.js" />
     <Content Include="Scripts\AngularPrj\Controller\LoanCalculator.Controller.js" />
     <Content Include="Scripts\AngularPrj\Controller\Logout.Controller.js" />
     <Content Include="Scripts\AngularPrj\Controller\Registration.Controller.js" />
@@ -102,7 +102,7 @@
     <Content Include="Scripts\AngularPrj\Directives\GetMyEmail.Directives.js" />
     <Content Include="Scripts\AngularPrj\Directives\LoanApp.Directives.js" />
     <Content Include="Scripts\AngularPrj\LoanApp.js" />
-    <Content Include="Scripts\AngularPrj\Service\CustomerProfile.Service.js" />
+    <Content Include="Scripts\AngularPrj\Service\Customer.Service.js" />
     <Content Include="Scripts\AngularPrj\Service\LoanCalculator.Service.js" />
     <Content Include="Scripts\AngularPrj\Service\AspNetUserService.js" />
     <Content Include="Scripts\AngularPrj\Service\LocalStorage.Service.js" />
