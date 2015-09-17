@@ -17,12 +17,12 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
     ];
 
 
-    var getMaritalStatus = function () {
+    var getMStatus = function () {
 
         return maritalStatus;
     }
 
-    var getSourceOfIncome = function () {
+    var getSIncome = function () {
 
         return sourceOfIncome;
     }
@@ -50,7 +50,7 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
     };
 
     //Function to Delete Customer based upon id
-    var deleteCustomer = function (id) {
+    var deleteF = function (id) {
         request = $http({ method: "delete", url: URL + "/api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
@@ -59,9 +59,9 @@ LoanApp.service('CustomerProfileService',['$http', 'loanApiConsUrl', function ($
         getCustomerById: getById,
         postCustomer: post,
         putCustomer: put,
-        deleteCustomer: authenticate,
-        getMaritalStatus: register,
-        getSourceOfIncome : getIncome
+        deleteCustomer: deleteF,
+        getMaritalStatus: getMStatus,
+        getSourceOfIncome: getSIncome
     }
 
 }]);
