@@ -41,10 +41,22 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
         CustomersById.then(function (results) {
             $scope.CustomerByUser = results.data;
-            $scope.firstName = $scope.CustomerByUser.firstName;
-            $scope.lastName = $scope.CustomerByUser.lastName;
-            $scope.middleName = $scope.CustomerByUser.middleName;
-            $scope.homeAddress = $scope.CustomerByUser.address;
+
+            if ($scope.CustomerByUser != '' || $scope.CustomerByUser != null) {
+
+                $scope.firstName = $scope.CustomerByUser.firstName;
+                $scope.lastName = $scope.CustomerByUser.lastName;
+                $scope.middleName = $scope.CustomerByUser.middleName;
+                $scope.homeAddress = $scope.CustomerByUser.address;
+            }
+
+            else {
+                $scope.firstName = '';
+                $scope.lastName = '';
+                $scope.middleName = '';
+                $scope.homeAddress = '';
+            }
+            
         }).catch(function (errorResults) {
             //to do for not found here
             $scope.error = 'failure loading Employee', errorResults;
