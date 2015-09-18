@@ -31,12 +31,12 @@ LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', 
 
     //Function to Read All Customers
     var getAll = function () {
-        return $http({ method: 'GET', url: URL + "/api/Customer", headers: { 'Authorization': 'Bearer ' + token } });
+        return $http({ method: 'GET', url: URL + "api/Customer", headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to Read Customers By id
     var getById = function (id) {
-        return $http({ method: 'GET', url: URL + "/api/Customer" + id, headers: { 'Authorization': 'Bearer ' + token } });
+        return $http({ method: 'GET', url: URL + "api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to create new Customer
@@ -52,7 +52,7 @@ LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', 
 
     //Function to Delete Customer based upon id
     var deleteF = function (id) {
-        request = $http({ method: "delete", url: URL + "/api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
+        request = $http({ method: "delete", url: URL + "api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     return {

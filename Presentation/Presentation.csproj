@@ -82,6 +82,7 @@
     <Content Include="Jasmine\lib\jasmine.js" />
     <Content Include="Jasmine\lib\jasmine_favicon.png" />
     <Content Include="Jasmine\SpecRunner.html" />
+    <Content Include="Jasmine\Spec\CustomerServiceSpec.js" />
     <Content Include="Jasmine\Spec\LocalStorageServiceSpec.js" />
     <Content Include="Jasmine\Spec\LogoutControllerSpec.js" />
     <Content Include="Jasmine\Spec\RegistrationControllerSpec.js" />
