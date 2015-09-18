@@ -30,7 +30,7 @@ namespace LoanApi.Controllers
         }
 
         // GET api/<controller>
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IEnumerable<CustomerModel> Get()
         {
             return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
