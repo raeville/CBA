@@ -3,12 +3,15 @@
 LoanApp.directive('myEmail',['$localStorage', function ($localStorage) {
 
     var message = "";
-    if ($localStorage.get('username') != null) {
+    var username = $localStorage.get('username');
+
+    if (username != null) {
 
         angular.element('#signin').html('');
         angular.element('#logout').html('<a href="#" ng-click="LogOut()">Log out</a>');
-        message = 'Welcome, ' + $localStorage.get('username');
+        message = 'Welcome, ' + username;
         angular.element('#MyProfile').html('<a href="#/MyProfile" ng-show="true" class="list-group-item">My Profile</a>');
+
     }
     return {
         template: message

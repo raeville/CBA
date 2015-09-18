@@ -1,7 +1,8 @@
-﻿<div>
+﻿
+<div>
     <ul class="nav nav-tabs" role="tablist" id="myTab">
         <li class="active"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
-        <li><a href="#customerlist" role="tab" data-toggle="tab">Customer List</a></li>
+        <li ng-show="showCustomer"><a href="#customerlist" role="tab" data-toggle="tab">Customer List</a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active" id="profile"><div ng-include="'Views/CustomerProfile.html'"></div></div>

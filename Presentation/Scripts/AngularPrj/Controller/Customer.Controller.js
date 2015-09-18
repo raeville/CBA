@@ -12,6 +12,15 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         username = $scope.emailAddress;
         $scope.getCustomer(username);
 
+        
+
+        var role = $localStorage.get('role');
+        if (role.indexOf("Admin") > 1) {
+            
+            $scope.showCustomer = true;
+        } else {
+            $scope.showCustomer = false;
+        }
         //$scope.getAllCustomers();        
         //$scope.save();
         //$scope.update();

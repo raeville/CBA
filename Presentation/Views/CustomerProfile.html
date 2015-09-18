@@ -160,7 +160,8 @@
             <div class="col-md-4 text-right">
             </div>
             <div class="col-md-2 text-left">
-                <input type="button" class="btn btn-primary" value="Update" />
+                <button type="submit" class="btn btn-primary" ng-disabled="!firstName || !lastName && !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome">
+                   Update </button>
                 <!--ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
                 ng-click="calculateLoan()">-->
             </div>
