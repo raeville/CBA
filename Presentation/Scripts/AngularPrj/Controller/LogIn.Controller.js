@@ -1,4 +1,4 @@
-﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location','$localStorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
+﻿LoanApp.controller('LoginController', ['$scope', 'AspNetUser', '$location', '$localStorage', '$window', function ($scope, AspNetUser, $location, $localstorage, $window) {
 
     $scope.signIn = function () {
         var user = {};
@@ -13,9 +13,9 @@
 
             if ($scope.user.username != "") {
                 //// Set Email and Token in $localstorage
-                $localstorage.set('username', $scope.user.username);
-                if (angular.isObject($scope.user.access_token) == true || $scope.user.access_token == null)
-                    $localstorage.set('access_token', response.data.access_token);
+                $localstorage.set('username', response.data.userName);
+                $localstorage.set('access_token', response.data.access_token);
+                $localstorage.set('role', response.data.roles);
 
                 angular.element('#myModal').hide();
                 $window.location.reload();

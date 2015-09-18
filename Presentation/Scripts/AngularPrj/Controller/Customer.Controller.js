@@ -6,7 +6,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     $scope.init = function () {
         $scope.maritalstatus = CustomerService.getMaritalStatus();
         $scope.sourceofincome = CustomerService.getSourceOfIncome();
-        $scope.userNameAsLogin = $localStorage.get('username', '');
+        //$scope.userNameAsLogin = $localStorage.get('username', '');
         $scope.emailAddress = $localStorage.get('username', '');
         username = $scope.emailAddress;
         $scope.getCustomer(username);
@@ -22,16 +22,16 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     }
 
     //Function to Load all Customer Records.   
-    $scope.getAllCustomers = function () {
-        var Customers = CustomerService.getCustomers();
+    //$scope.getAllCustomers = function () {
+    //    var Customers = CustomerService.getCustomers();
 
-        Customers.then(function (results) {
-            $scope.Customers = results.data;
-        }).catch(function (errorResults) {
-            //to do for not found here
-            $scope.error = 'failure loading Employee', errorResults;
-        });
-    }
+    //    Customers.then(function (results) {
+    //        $scope.Customers = results.data;
+    //    }).catch(function (errorResults) {
+    //        //to do for not found here
+    //        $scope.error = 'failure loading Employee', errorResults;
+    //    });
+    //}
 
     //Function to Load all Employees Records.   
     $scope.getCustomer = function (userName) {
