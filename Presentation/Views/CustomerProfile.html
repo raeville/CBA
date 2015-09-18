@@ -1,6 +1,7 @@
 ﻿<div ng-init="init()" class="" >
     <form class="form-horizontal" name="CustomerProfileForm">
         <div class="form-group">
+            <p></p>
             <label class="col-md-4 control-label">Email Address : </label>
             <div class="col-md-3">
                 <input required type="text" class="form-control" name="emailAddress" ng-disabled="true" ng-model="emailAddress" />
@@ -19,7 +20,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label">First Name : </label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="firstName" ng-model="firstName" />
+                <input type="text" class="form-control" name="firstName" ng-model="firstName" ng-maxlength="20" />
+                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.firstName.$error.maxlength)">First name must not exceed 20 characters.</span>
             </div>
             <!--<div class="col-md-3 text-left">
                 <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
@@ -35,7 +37,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Last Name : </label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="lastName" ng-model="lastName" />
+                <input type="text" class="form-control" name="lastName" ng-model="lastName" ng-maxlength="20" />
+                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.lastName.$error.maxlength)">Last name must not exceed 20 characters.</span>
             </div>
             <!--<div class="col-md-3 text-left">
                 <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
@@ -51,7 +54,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Middle Name : </label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="middleName" ng-model="middleName" />
+                <input type="text" class="form-control" name="middleName" ng-model="middleName" ng-maxlength="20" />
+                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.middleName.$error.maxlength)">Middle name must not exceed 20 characters.</span>
             </div>
             <!--<div class="col-md-3 text-left">
                 <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
@@ -86,7 +90,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Home Address : </label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="homeAddress" ng-model="homeAddress" />
+                <input type="text" class="form-control" name="homeAddress" ng-model="homeAddress" ng-maxlength="20" />
+                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.homeAddress.$error.maxlength)">Address must not exceed 20 characters.</span>
             </div>
             <!--<div class="col-md-3 text-left">
                 <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
@@ -102,7 +107,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label">Birth Date : </label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="birthDate" ng-model="birthDate" />
+                <input type="date" class="form-control" name="birthDate" ng-model="birthDate" />
             </div>
             <!--<div class="col-md-3 text-left">
                 <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
