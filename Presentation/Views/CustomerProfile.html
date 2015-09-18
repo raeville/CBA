@@ -160,10 +160,8 @@
             <div class="col-md-4 text-right">
             </div>
             <div class="col-md-2 text-left">
-                <button type="submit" class="btn btn-primary" ng-disabled="!firstName || !lastName && !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome">
-                   Update </button>
-                <input type="button" class="btn btn-primary" ng-hide="hideUpdateButton" value="Update" />
-                <input type="button" class="btn btn-primary" ng-hide="hideSaveButton" value="Save" />
+                <input type="button" class="btn btn-primary" ng-hide="hideUpdateButton" value="Update" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />
+                <input type="button" class="btn btn-primary" ng-hide="hideSaveButton" value="Save" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />
                 <!--ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
                 ng-click="calculateLoan()">-->
             </div>
