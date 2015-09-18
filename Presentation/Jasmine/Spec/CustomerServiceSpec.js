@@ -33,7 +33,7 @@ describe('CustomerService service', function () {
     it('should have a /api/Customer/id api GET call', function () {
         var username = "test";
         $httpBackend.expectGET(apiUrl + 'api/Customer?userName=' + username, { 'Authorization': 'Bearer ' + '2974RArhyMUlmeewjp34lmfDaBpl', 'Accept': 'application/json, text/plain, */*' }).respond(200, '');
-        customerService.getCustomerById(id);
+        customerService.getCustomerById(username);
         $httpBackend.flush();
     });
 
