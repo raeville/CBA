@@ -5,8 +5,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     var username = "";
     $scope.init = function () {
         $scope.maritalstatus = CustomerService.getMaritalStatus();
-        $scope.sourceofincome = CustomerService.getSourceOfIncome();
-        //$scope.userNameAsLogin = $localStorage.get('username', '');
+        $scope.sourceofincome = CustomerService.getSourceOfIncome();        
         $scope.emailAddress = $localStorage.get('username', '');
         username = $scope.emailAddress;
         $scope.getCustomer(username);
@@ -21,19 +20,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
     }
 
-    //Function to Load all Customer Records.   
-    //$scope.getAllCustomers = function () {
-    //    var Customers = CustomerService.getCustomers();
-
-    //    Customers.then(function (results) {
-    //        $scope.Customers = results.data;
-    //    }).catch(function (errorResults) {
-    //        //to do for not found here
-    //        $scope.error = 'failure loading Employee', errorResults;
-    //    });
-    //}
-
-    //Function to Load all Employees Records.   
+     //Function to Load all Employees Records.   
     $scope.getCustomer = function (userName) {
 
         //var id = "13132";
@@ -44,6 +31,9 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
             if ($scope.CustomerByUser != '' || $scope.CustomerByUser != null) {
 
+                $scope.hideUpdateButton = true;
+                $scope.hideSaveButton = false;
+
                 $scope.firstName = $scope.CustomerByUser.firstName;
                 $scope.lastName = $scope.CustomerByUser.lastName;
                 $scope.middleName = $scope.CustomerByUser.middleName;
@@ -51,6 +41,10 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             }
 
             else {
+
+                $scope.hideUpdateButton = false;
+                $scope.hideSaveButton = true;
+
                 $scope.firstName = '';
                 $scope.lastName = '';
                 $scope.middleName = '';
