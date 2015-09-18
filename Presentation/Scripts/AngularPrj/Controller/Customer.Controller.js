@@ -2,13 +2,17 @@
 ///<reference path="../LoanApp.js" />
 LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerService', '$localStorage', function ($scope, $location, CustomerService, $localStorage) {
 
-    $scope.init = function () {
+    var username = "";
 
+    $scope.init = function () {
+       
         $scope.maritalstatus = CustomerService.getMaritalStatus();
         $scope.sourceofincome = CustomerService.getSourceOfIncome();
-        $scope.userNameAsLogin = $localStorage.get('username', '');
-        //$scope.getAllCustomers();
-        //$scope.getCustomer();
+        $scope.emailAddress = $localStorage.get('username', '');
+        username = $scope.emailAddress;
+        $scope.getCustomer(username);
+
+        //$scope.getAllCustomers();        
         //$scope.save();
         //$scope.update();
         //$scope.delete();
@@ -40,13 +44,17 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
 
     //Function to Load all Employees Records.   
-    $scope.getCustomer = function () {
+    $scope.getCustomer = function (userName) {
 
-        var id = "13132";
-        var CustomersById = CustomerService.getCustomerById(id);
+        //var id = "13132";
+        var CustomersById = CustomerService.getCustomerById(userName);
 
         CustomersById.then(function (results) {
             $scope.CustomerByUser = results.data;
+            $scope.firstName = $scope.CustomerByUser.firstName;
+            $scope.lastName = $scope.CustomerByUser.lastName;
+            $scope.middleName = $scope.CustomerByUser.middleName;
+            $scope.homeAddress = $scope.CustomerByUser.address;
         }).catch(function (errorResults) {
             //to do for not found here
             $scope.error = 'failure loading Employee', errorResults;
