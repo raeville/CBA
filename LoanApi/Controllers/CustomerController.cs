@@ -38,12 +38,12 @@ namespace LoanApi.Controllers
 
         // GET api/<controller>/5
         [Authorize]
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(string userName)
         {
 
             try {
 
-                CustomerModel customer = db.Query<CustomerModel>().Where(x=>x.Id == id && x.IsDeleted == false).FirstOrDefault();
+                CustomerModel customer = db.Query<CustomerModel>().Where(x => x.Email == userName && x.IsDeleted == false).FirstOrDefault();
 
                 return Ok(customer);
 

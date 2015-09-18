@@ -86,13 +86,14 @@ namespace LoanApi.Tests.Controllers
         public void CustomerRetrieveById()
         {
             var db = new TestDb();
+            var username = "User@cba.com";
             db.AddSet(TestData.Customers);
 
             // Arrange
             CustomerController controller = new CustomerController(db);
 
             // Act
-            var result = controller.Get(1);
+            var result = controller.Get(username);
 
             // Assert
             Assert.IsNotNull(result);
