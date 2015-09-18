@@ -33,10 +33,10 @@ describe('Login Controller', function () {
         }
         response = {
             "data": {
-                "username": "test5@cba.com",
+                "userName": "test5@cba.com",
                 "password": "Password1!",
                 "access_token": "2974RArhyMUlmeewjp34lmfDaBpl",
-                "role": "Admin"
+                "roles": "Admin"
             }
         }
         service = {

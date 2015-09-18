@@ -13,9 +13,9 @@
 
             if ($scope.user.username != "") {
                 //// Set Email and Token in $localstorage
-                $localstorage.set('username', response.data.username);
+                $localstorage.set('username', response.data.userName);
                 $localstorage.set('access_token', response.data.access_token);
-                $localstorage.set('role', response.data.role);
+                $localstorage.set('role', response.data.roles);
 
                 angular.element('#myModal').hide();
                 $window.location.reload();
