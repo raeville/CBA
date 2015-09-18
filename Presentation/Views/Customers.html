@@ -1,42 +1,46 @@
-﻿<form class="form-horizontal" name="CustomersForm">
-    <h3></h3>
-    <div class="col-md-12">
-    </div>
-    <div class="form-group">
-        <div class="col-md-4">
-            <input type="text" class="form-control" ng-model="SearchCustomer" placeholder="Search Customer" />
+﻿<div ng-init="customersInit()">
+    <form class="form-horizontal" name="CustomersForm">
+        <h3></h3>
+        <div class="col-md-12">
         </div>
-         <div class="col-md-3">
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="text" class="form-control" ng-model="SearchCustomer" placeholder="Search Customer" />
+            </div>
+            <div class="col-md-3">
                 <button type="button" name="btnSearch" class="form-control btn btn-primary">Search</button>
             </div>
-        <div class="col-md-3 text-left">
-            <button type="button" name="btnUpdate" class="form-control btn btn-primary">Update</button>
+            <div class="col-md-3 text-left">
+                <button type="button" name="btnUpdate" class="form-control btn btn-primary">Update</button>
+            </div>
         </div>
-        </div>   
-    <div class="form-group col-md-12">
-        <table class="table col-md-4 table-bordered table-hover table-responsive" ng-controller="CustomerProfileController">
-            <tr class="active">
-                <th>SI#</th>
-                <th>IsDeleted</th>
-                <th>Full Name</th>
-                <th>Gender</th>
-                <th>Birth Date</th>
-                <th>Marital Status</th>
-                <th>Address</th>
-                <th>Source of Income</th>
-                <th>Active/InActive</th>
-            </tr>
-            <tr ng-repeat="Customer in Customers | filter: SearchCustomer" class="warning">
-                <td>{{Customer.SI}}</td>
-                <td>{{Customer.IsDeleted}}</td>
-                <td>{{Customer.FullName}}</td>
-                <td>{{Customer.Gender}}</td>
-                <td>{{Customer.BirthDate}}</td>
-                <td>{{Customer.MaritalStatus}}</td>
-                <td>{{Customer.Address}}</td>
-                <td>{{Customer.SourceOfIncome}}</td>
-                <td class="text-center"><input type="checkbox" ng-checked="{{Customer.IsActive}}" /></td>
-            </tr>
-        </table>
-    </div>
-</form>
+        <div class="form-group col-md-12">
+            <table class="table col-md-4 table-bordered table-hover table-responsive" ng-controller="CustomerController">
+                <tr class="active">
+                    <th>SI#</th>
+                    <th>IsDeleted</th>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Marital Status</th>
+                    <th>Address</th>
+                    <th>Source of Income</th>
+                    <th>Active/InActive</th>
+                </tr>
+                <tr ng-repeat="Customer in Customers | filter: SearchCustomer" class="warning">
+                    <td>{{Customer.id}}</td>
+                    <td>{{Customer.isDeleted}}</td>
+                    <td>{{Customer.lastName}}</td>
+                    <td>{{Customer.gender}}</td>
+                    <td>{{Customer.birthDate}}</td>
+                    <td>{{Customer.maritalStatus}}</td>
+                    <td>{{Customer.address}}</td>
+                    <td>{{Customer.sourceOfIncome}}</td>
+                    <td class="text-center"><input type="checkbox" id="isActive" /></td>
+                    <!--ng-checked="{{Customer.IsActive}}"-->
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+

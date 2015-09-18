@@ -1,12 +1,22 @@
 ﻿///<reference path="../../angular.min.js" />
 ///<reference path="../LoanApp.js" />
 LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerService', '$localStorage', function ($scope, $location, CustomerService, $localStorage) {
+    $scope.customersInit = function () {
+        var Customers = CustomerService.getCustomers();
 
+        Customers.then(function (results) {
+            $scope.Customers = results.data;
+        }).catch(function (errorResults) {
+            //to do for not found here
+            $scope.error = 'failure loading Employee', errorResults;
+        });
+    }
     $scope.init = function () {
 
         $scope.maritalstatus = CustomerService.getMaritalStatus();
         $scope.sourceofincome = CustomerService.getSourceOfIncome();
         $scope.userNameAsLogin = $localStorage.get('username', '');
+       
         //$scope.getAllCustomers();
         //$scope.getCustomer();
         //$scope.save();
@@ -14,10 +24,10 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         //$scope.delete();
     }
 
-    $scope.Customers = [
-        { SI: '1', IsDeleted: 'False', FullName: 'R.R.V', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' },
-        { SI: '2', IsDeleted: 'False', FullName: 'J.A.M', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'M', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'false' },
-        { SI: '3', IsDeleted: 'False', FullName: 'C.E.U', Gender: 'M', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' }];
+    //$scope.Customers = [
+    //    { SI: '1', IsDeleted: 'False', FullName: 'R.R.V', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' },
+    //    { SI: '2', IsDeleted: 'False', FullName: 'J.A.M', Gender: 'F', BirthDate: '1/1/2001', MaritalStatus: 'M', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'false' },
+    //    { SI: '3', IsDeleted: 'False', FullName: 'C.E.U', Gender: 'M', BirthDate: '1/1/2001', MaritalStatus: 'S', Address: 'Cebu City', SourceOfIncome: 'Business/Charcoal', IsActive: 'true' }];
    
     $scope.search = function (txtSearch) 
     {
