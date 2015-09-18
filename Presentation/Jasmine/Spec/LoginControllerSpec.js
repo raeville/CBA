@@ -7,7 +7,14 @@
 /// <reference path="../../Scripts/AngularPrj/Service/LocalStorage.Service.js" />
 
 describe('Login Controller', function () {
-    beforeEach(module('LoanApp'));
+    beforeEach(function () {
+        module(function ($provide) {
+            $provide.service('response', function () {
+                this.data = { "role" : "Admin" };
+            });
+        });
+        module('LoanApp');
+    });
 
     var loginCtrl;
     var scope;
@@ -16,13 +23,21 @@ describe('Login Controller', function () {
     var q;
     var deferred;
     var user;
+    var response;
     var $rootScope;
 
     beforeEach(function () {
         user = {
             "username": "test5@cba.com",
-            "password": "Password1!",
-            "access_token": "2974RArhyMUlmeewjp34lmfDaBpl"
+            "password": "Password1!"
+        }
+        response = {
+            "data": {
+                "userName": "test5@cba.com",
+                "password": "Password1!",
+                "access_token": "2974RArhyMUlmeewjp34lmfDaBpl",
+                "roles": "Admin"
+            }
         }
         service = {
             login:function () {
@@ -46,7 +61,7 @@ describe('Login Controller', function () {
     it('should post to AspNetUser.login service when signIn is called', function () {
         spyOn(service, 'login').and.callThrough();
         scope.signIn();
-        deferred.resolve(user);
+        deferred.resolve(response);
         scope.$root.$digest();
         expect(service.login).toHaveBeenCalled();
     });
