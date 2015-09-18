@@ -36,7 +36,7 @@ LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', 
 
     //Function to Read Customers By id
     var getById = function (userName) {
-        return $http({ method: 'GET', url: URL + "/api/Customer?userName=" + userName, headers: { 'Authorization': 'Bearer ' + token } });
+        return $http({ method: 'GET', url: URL + "api/Customer?userName=" + userName, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to create new Customer
