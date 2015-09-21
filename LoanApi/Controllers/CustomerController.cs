@@ -106,8 +106,8 @@ namespace LoanApi.Controllers
                 else
                 {
 
-                    c.Id = customer.Id;
-                    c.Email = customer.Email;
+                    //c.Id = customer.Id;
+                    //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
                     c.MiddleName = customer.MiddleName;
@@ -119,6 +119,8 @@ namespace LoanApi.Controllers
                     c.IsDeleted = customer.IsDeleted;
                     c.CreateDate = customer.CreateDate;
                     c.UpdateDate = customer.UpdateDate;
+
+                    db.SaveChanges(c);
                     
                     return Ok();
                 }

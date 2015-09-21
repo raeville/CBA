@@ -133,7 +133,7 @@ namespace LoanApi.Tests.Controllers
         public void CustomerUpdate()
         {
             var db = new TestDb();
-            db.AddSet(TestData.Customers);
+            //db.AddSet(TestData.Customers);
 
             // Arrange
             CustomerController controller = new CustomerController(db);
@@ -151,7 +151,7 @@ namespace LoanApi.Tests.Controllers
             testCustomer.SourceOfIncome = "Employed";
             testCustomer.IsDeleted = false;
             testCustomer.CreateDate = DateTime.UtcNow.Date;
-            testCustomer.UpdateDate = DateTime.UtcNow.Date;
+            testCustomer.UpdateDate = DateTime.UtcNow.Date;                        
 
             // Act
             var result = controller.Put(testCustomer);

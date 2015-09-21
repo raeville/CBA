@@ -3,15 +3,14 @@
 LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerService', '$localStorage', function ($scope, $location, CustomerService, $localStorage) {
     // Customers Profile 
     var username = "";
+
     $scope.init = function () {
         $scope.maritalstatus = CustomerService.getMaritalStatus();
         $scope.sourceofincome = CustomerService.getSourceOfIncome();
         $scope.emailAddress = $localStorage.get('username', '');
         username = $scope.emailAddress;
         $scope.getCustomer(username);
-
         
-
         var role = $localStorage.get('role');
         if (role.indexOf("Admin") > 1) {
             
@@ -23,11 +22,6 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         //$scope.save();
         //$scope.update();
         //$scope.delete();
-    }
-
-    $scope.search = function (txtSearch) {
-        return $filter($scope.Customers, txtSearch);
-
     }
 
     //Function to Load all Employees Records.   
@@ -48,6 +42,17 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             $scope.lastName = $scope.CustomerByUser.lastName;
             $scope.middleName = $scope.CustomerByUser.middleName;
             $scope.homeAddress = $scope.CustomerByUser.address;
+            if ($scope.CustomerByUser.gender == 'M') {
+                $scope.gender = 'Male';
+            }
+            else {
+                $scope.gender = 'Female';
+            }
+            
+            $scope.birthDate = $scope.CustomerByUser.birthDate;
+
+            //$scope.maritalStatus = $scope.maritalStatus[0];
+    
             }
 
             else {
@@ -78,7 +83,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             LastName: "User Last Name",
             Gender: "M",
             Address: "The World",
-            BirthDate: new Date(),
+            BirthDate: "6/25/1985",
             MaritalStatus: "M",
             SourceOfIncome: "Employed",
             IsDeleted: false,
@@ -100,14 +105,14 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     $scope.update = function () {
 
         var customerdummy = {
-            Id: 13132,
-            Email: "User@cba.com",
-            FirstName: "User First Name",
-            MiddleName: "U",
-            LastName: "User Last Name",
+            Id: 2,
+            Email: "juan.dela.cruz@cba.com",
+            FirstName: "Juan II",
+            MiddleName: "De La",
+            LastName: "Cruz",
             Gender: "M",
-            Address: "The World",
-            BirthDate: new Date(),
+            Address: "Philippines",
+            BirthDate: "9/18/1985",
             MaritalStatus: "M",
             SourceOfIncome: "Employed",
             IsDeleted: false,
@@ -144,6 +149,20 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         var customersList = CustomerService.getCustomers();
         customersList.then(function (results) {
             $scope.Customers = results.data;
+
+            angular.forEach($scope.Customers, function (value, key) {
+                if (value.gender == "M") {
+                    value.gender = 'Male';
+                } else {
+                    vvalue.gender = 'Female';
+                }
+
+                if (value.maritalStatus == 'M') {
+                    value.maritalStatus = 'Married';
+                }
+                    
+            });
+
         }).catch(function (errorResults) {
             //to do for not found here
             $scope.error = 'failure loading Employee', errorResults;

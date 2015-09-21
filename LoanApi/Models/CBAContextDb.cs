@@ -27,6 +27,14 @@ namespace LoanApi.Models
 
         }
 
+        void IContextDb.SaveChanges<T>(T t)
+        {
+            if (t is CustomerModel)
+            {                
+                this.SaveChanges(); 
+            }
+
+        }
 
         void IDisposable.Dispose()
         {

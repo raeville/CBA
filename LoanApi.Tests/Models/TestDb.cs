@@ -26,6 +26,12 @@ namespace LoanApi.Tests.Models
             set.Add(typeof(T), objects as IQueryable<T>);
         }
 
+        void IContextDb.SaveChanges<T>(T objects)
+        {
+            set.Add(typeof(T), objects as IQueryable<T>);            
+        }
+      
+
         void IDisposable.Dispose()
         {
             
