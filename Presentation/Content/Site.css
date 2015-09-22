@@ -29,6 +29,25 @@ ul li {
 }
 
 
+.buffer-top-50px
+{
+    margin-top: 50px;
+}
+
+.buffer-top-30px {
+    margin-top: 30px;
+}
+
+.buffer-top-0px
+{
+    margin-bottom: 0px;
+}
+
+.buffer-bottom-5px
+{
+    margin-bottom: 5px;
+}
+
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
     background-color: #023167;
     border-color: #023167;

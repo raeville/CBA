@@ -74,6 +74,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\AboutUs\jeremy_renner.png" />
+    <Content Include="Images\AboutUs\rebecca_ferguson.png" />
+    <Content Include="Images\AboutUs\tom_cruise.png" />
     <Content Include="Images\cfs-logo.gif" />
     <Content Include="Jasmine\lib\boot.js" />
     <Content Include="Jasmine\lib\console.js" />
@@ -157,6 +160,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Index.html" />
+    <Content Include="Views\AboutUs.html" />
     <Content Include="Views\Customers.html" />
     <Content Include="Views\FinacialService.html" />
     <Content Include="Views\CustomerProfile.html" />

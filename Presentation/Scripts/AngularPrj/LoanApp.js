@@ -9,10 +9,6 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         templateUrl: 'Views/ContactUs.html',
         controller: ''
     });
-    //$routeProvider.when('/home', {
-    //    templateUrl: 'Views/Index.html',
-    //    controller: 'HomeController'
-    //});
     $routeProvider.when('/loanCalculator', {
         templateUrl: 'Views/LoanCalculator.html',
         controller: 'LoanCalculatorController'
@@ -42,11 +38,14 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
         controller: 'CustomerController'
     });
     $routeProvider.when('/Index', {
-        templateUrl: 'Views/Index.html',
+        templateUrl: 'Index.html',
         controller: ''
     });
-
-    //$routeProvider.otherwise({ redirectTo: '/home' });
+    $routeProvider.when('/AboutUs', {
+        templateUrl: 'Views/AboutUs.html',
+        controller: ''
+    });
+    //$routeProvider.otherwise({ redirectTo: '/Index' });
     //$locationProvider.html5Mode(true);
 }]);
 
