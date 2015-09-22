@@ -78,6 +78,7 @@
     <Content Include="Images\AboutUs\rebecca_ferguson.png" />
     <Content Include="Images\AboutUs\tom_cruise.png" />
     <Content Include="Images\cfs-logo.gif" />
+    <Content Include="Images\ContactUs\envelope.jpg" />
     <Content Include="Jasmine\lib\boot.js" />
     <Content Include="Jasmine\lib\console.js" />
     <Content Include="Jasmine\lib\jasmine-html.js" />
