@@ -31,5 +31,12 @@
     };
     $scope.ClearMessage = function () {
         $scope.IncorrectPassword = "";
+        angular.element('#myModal').on('hidden.bs.modal', function (e) { angular.element(this).find('input').val('').end() });
+    };
+    $scope.RegisterHere = function () {
+        $scope.IncorrectPassword = "";
+        angular.element('#myModal').modal('hide');
+        angular.element('#myModalReg').modal('show');
+        angular.element('#myModal').on('hidden.bs.modal', function (e) { angular.element(this).find('input').val('').end() })
     };
 }]);
