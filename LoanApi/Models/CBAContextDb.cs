@@ -11,6 +11,7 @@ namespace LoanApi.Models
         public CBAContextDb(): base("name=DefaultConnection") {}
 
         public DbSet<CustomerModel> Customers { get; set; }
+        public DbSet<LoanTypeModel> LoanTypes { get; set; }
 
         IQueryable<T> IContextDb.Query<T>()
         {
@@ -19,21 +20,45 @@ namespace LoanApi.Models
 
         void IContextDb.Add<T>(T t)
         {
-            if (t is CustomerModel)
+            try
             {
-                Customers.Add(t as CustomerModel);
+                if (t is CustomerModel)
+                {
+                    Customers.Add(t as CustomerModel);
+                  }
+                else if (t is LoanTypeModel)
+                {
+                    LoanTypes.Add(t as LoanTypeModel);
+                    
+                }
                 this.SaveChanges();
             }
-
-        }
+            catch (Exception)
+            {
+                           
+            }
+           
+       }
 
         void IContextDb.SaveChanges<T>(T t)
         {
-            if (t is CustomerModel)
-            {                
-                this.SaveChanges(); 
+            try
+            {
+                this.SaveChanges();
+                //if (t is CustomerModel)
+                //{
+                //    this.SaveChanges();
+                //}
+                //else if (t is LoanTypeModel)
+                //{
+                //    this.SaveChanges();
+                //}
             }
+            catch (Exception)
+            {
 
+            }
+           
         }
 
         void IDisposable.Dispose()
