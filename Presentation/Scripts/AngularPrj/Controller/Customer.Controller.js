@@ -33,7 +33,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         CustomersById.then(function (results) {
             $scope.CustomerByUser = results.data;
 
-            if ($scope.CustomerByUser != '' || $scope.CustomerByUser != null) {
+            if ($scope.CustomerByUser != '' && $scope.CustomerByUser != null) {
 
                 $scope.hideUpdateButton = true;
                 $scope.hideSaveButton = false;
@@ -42,12 +42,13 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             $scope.lastName = $scope.CustomerByUser.lastName;
             $scope.middleName = $scope.CustomerByUser.middleName;
             $scope.homeAddress = $scope.CustomerByUser.address;
-            if ($scope.CustomerByUser.gender == 'M') {
-                $scope.gender = 'Male';
-            }
-            else {
-                $scope.gender = 'Female';
-            }
+            $scope.gender = $scope.CustomerByUser.gender;
+            //if ($scope.CustomerByUser.gender == 'M') {
+            //    $scope.gender = 'Male';
+            //}
+            //else {
+            //    $scope.gender = 'Female';
+            //}
             
             $scope.birthDate = $scope.CustomerByUser.birthDate;
 
@@ -57,8 +58,8 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
             else {
 
-                $scope.hideUpdateButton = false;
-                $scope.hideSaveButton = true;
+                $scope.hideUpdateButton = true;
+                $scope.hideSaveButton = false;
 
                 $scope.firstName = '';
                 $scope.lastName = '';
@@ -73,19 +74,29 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     }
 
     //Function to Save Record   
-    $scope.save = function () {
-
+    $scope.save = function () {        
+        var username = $localStorage.get('username');
         var customerdummy = {
-            Id: 1,
-            Email: "User@cba.com",
-            FirstName: "User First Name",
-            MiddleName: "U",
-            LastName: "User Last Name",
-            Gender: "M",
-            Address: "The World",
-            BirthDate: "6/25/1985",
-            MaritalStatus: "M",
-            SourceOfIncome: "Employed",
+       //     Id: 1,
+            //Email: "User@cba.com",
+            //FirstName: "User First Name",
+            //MiddleName: "U",
+            //LastName: "User Last Name",
+            //Gender: "M",
+            //Address: "The World",
+            //BirthDate: "6/25/1985",
+            //MaritalStatus: "M",
+            //SourceOfIncome: "Employed",
+            
+            Email:          username,
+            FirstName:      $scope.firstName,
+            MiddleName:     $scope.middleName,
+            LastName:       $scope.lastName,
+            Gender:         $scope.gender,
+            Address:        $scope.homeAddress,
+            BirthDate:      $scope.birthDate,
+            MaritalStatus:  $scope.maritalStatus,
+            SourceOfIncome: "Business",
             IsDeleted: false,
             CreateDate: new Date(),
             UpdateDate: new Date()
