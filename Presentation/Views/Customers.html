@@ -1,0 +1,46 @@
+﻿<div ng-init="customersInit()" ng-controller="CustomerController">
+    <form class="form-horizontal" name="CustomersForm">
+        <h3></h3>
+        <div class="col-md-12">
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="text" class="form-control" ng-model="SearchCustomer" placeholder="Search Customer" />
+            </div>
+            <div class="col-md-3">
+                <button type="button" name="btnSearch" ng-hide="true" class="form-control btn btn-primary">Search</button>
+            </div>
+            <div class="col-md-3 text-left">
+                <button type="button" name="btnUpdate" ng-hide="true" class="form-control btn btn-primary">Update</button>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <table class="table col-md-4 table-bordered table-hover table-responsive">
+                <tr class="active">
+                    <th>SI#</th>
+                    <th>Active/InActive</th>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Marital Status</th>
+                    <th>Address</th>
+                    <th>Source of Income</th>
+
+                </tr>
+                <tr ng-repeat="Customer in Customers | filter: SearchCustomer" class="warning">
+                    <td>{{Customer.id}}</td>
+                    <td class="text-center"><input type="checkbox" ng-disabled="true" id="isActive" /></td>
+                    <!--ng-checked="{{Customer.IsActive}}"-->
+                    <td>{{Customer.firstName + ' ' + Customer.middleName + ' ' + Customer.lastName}}</td>
+                    <td>{{Customer.gender}}</td>
+                    <td>{{birthDate | date:'yyyy-MM-dd'}}</td>
+                    <td>{{Customer.maritalStatus}}</td>
+                    <td>{{Customer.address}}</td>
+                    <td>{{Customer.sourceOfIncome}}</td>
+
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+

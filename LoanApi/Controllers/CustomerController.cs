@@ -30,18 +30,20 @@ namespace LoanApi.Controllers
         }
 
         // GET api/<controller>
+        [Authorize(Roles = "Admin")]
         public IEnumerable<CustomerModel> Get()
         {
             return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
         }
 
         // GET api/<controller>/5
-        public IHttpActionResult Get(int id)
+        [Authorize]
+        public IHttpActionResult Get(string userName)
         {
 
             try {
 
-                CustomerModel customer = db.Query<CustomerModel>().Where(x=>x.Id == id && x.IsDeleted == false).FirstOrDefault();
+                CustomerModel customer = db.Query<CustomerModel>().Where(x => x.Email == userName && x.IsDeleted == false).FirstOrDefault();
 
                 return Ok(customer);
 
@@ -54,14 +56,18 @@ namespace LoanApi.Controllers
         }
 
         // POST api/<controller>
+        [Authorize]
         public IHttpActionResult Post(CustomerModel customer)
         {
 
             try
             {
+                 var c = db.Query<CustomerModel>().ToList().LastOrDefault();
+                 //int lastndx;
+                 //lastndx = c;
                 
                  CustomerModel newCustomer = new CustomerModel();
-                 newCustomer.Id = customer.Id;
+                 newCustomer.Id = c.Id + 1;
                  newCustomer.Email = customer.Email;
                  newCustomer.FirstName = customer.FirstName;
                  newCustomer.LastName = customer.LastName;
@@ -75,7 +81,8 @@ namespace LoanApi.Controllers
                  newCustomer.CreateDate = customer.CreateDate;
                  newCustomer.UpdateDate = customer.UpdateDate;                                            
 
-                db.Add(newCustomer);                                
+                db.Add(newCustomer); 
+                              
                 return Ok();
 
             }
@@ -87,6 +94,7 @@ namespace LoanApi.Controllers
         }
 
         // PUT api/<controller>/5
+        [Authorize]
         public IHttpActionResult Put(CustomerModel customer)
         {
             try
@@ -101,8 +109,8 @@ namespace LoanApi.Controllers
                 else
                 {
 
-                    c.Id = customer.Id;
-                    c.Email = customer.Email;
+                   c.Id = customer.Id;
+                    //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
                     c.MiddleName = customer.MiddleName;
@@ -115,6 +123,8 @@ namespace LoanApi.Controllers
                     c.CreateDate = customer.CreateDate;
                     c.UpdateDate = customer.UpdateDate;
 
+                    db.SaveChanges(c);
+                    
                     return Ok();
                 }
             }
@@ -127,6 +137,7 @@ namespace LoanApi.Controllers
 
 
         // DELETE api/<controller>/5
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Delete(int Id)
         {
             try

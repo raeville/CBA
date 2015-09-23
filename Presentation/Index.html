@@ -33,6 +33,7 @@
     <script src="Scripts/AngularPrj/Controller/Login.Controller.js"></script>
     <script src="Scripts/AngularPrj/Controller/Registration.Controller.js"></script>
     <script src="Scripts/AngularPrj/Controller/Logout.Controller.js"></script>
+    <script src="Scripts/AngularPrj/Controller/Customer.Controller.js"></script>
 
     <!--Directives-->
     <script src="Scripts/AngularPrj/Directives/LoanApp.Directives.js"></script>
@@ -41,7 +42,9 @@
     <!--Service-->
     <script src="Scripts/AngularPrj/Service/LoanCalculator.Service.js"></script>
     <script src="Scripts/AngularPrj/Service/AspNetUserService.js"></script>
-    <script src="Scripts/AngularPrj/Service/LocalStorage.Service.js"></script>
+    <script src="Scripts/AngularPrj/Service/localStorage.Service.js"></script>
+    <script src="Scripts/AngularPrj/Service/Customer.Service.js"></script>
+   
 </head>
 <body ng-app="LoanApp">
     <!--header-->
@@ -57,7 +60,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#/AboutUs">About Us</a></li>
                     <li><a href="#/ContactUs">Contact Us</a></li>
                     <li id="signin"><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cog loginlink" aria-hidden="true"></span> Sign In </a></li>
                     <li id="myEmail" class="myEmail"><div my-email></div></li>
@@ -69,19 +72,18 @@
     <!-- navigation -->
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3"> 
                 <div class="list-group">
                     <a class="list-group-item active">Dashboard</a>
-                    <a href="#" class="list-group-item">My Profile</a>
                     <a href="#" class="list-group-item">Loan Types</a>
                     <a href="#/loanCalculator" class="list-group-item">Calculator</a>
                     <a href="#" class="list-group-item">Application</a>
+                    <span id="MyProfile"></span>
                 </div>
             </div>
 
             <div class="col-md-9">
                 <!-- this is where content will be injected -->
-
                 <div ng-view></div>
             </div>
         </div>
@@ -90,7 +92,7 @@
         <ul class="list-inline text-center">
             <li><a href="#/FinacialService"><small> <u>Financial Service guide page</u></small></a><span>|</span> </li>
             <li><a href="#/TermOfUse"><small><u>Terms of use</u></small></a><span>|</span> </li>
-            <li><a href="#/PrivacyPolicy"><small><u>Privacy Us</u></small> </a></li>
+            <li><a href="#/PrivacyPolicy"><small><u>Privacy</u></small> </a></li>
             <br />
             <li><a><small>Copyright © 2015 all rights reserved.</small></a></li>
         </ul>
@@ -101,7 +103,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <button type="button" class="close" ng-click="ClearMessage()" onclick="$('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" ng-click="ClearMessage()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Sign In to  <img src="Images/cfs-logo.gif" /></h4>
                     </div>
                     <div class="modal-body">
@@ -133,20 +135,19 @@
                     </div>
                     <div class="modal-footer">
 
-                        Don't have an account? <a href="" data-dismiss="modal" ng-click="ClearMessage()" onclick="$('#myModal').modal('hide'), $('#myModalReg').modal('show'), $('#myModal').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })">Register here</a>
+                        Don't have an account? <a href="" data-dismiss="modal" ng-click="RegisterHere()">Register here</a>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-
     <!-- Modal -->
-    <form data-toggle="validator" role="form" ng-controller="RegistrationController" name="modalForm">
+    <form data-toggle="validator" ng-controller="RegistrationController" name="modalForm">
         <div class="modal fade" id="myModalReg" tabindex="1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <button type="button" class="close" ng-click="ClearMessage()" onclick="$('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() })" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" ng-click="ClearMessage()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Create free account to start using <img src="Images/cfs-logo.gif" /></h4>
                     </div>
                     <div class="form-group">
@@ -155,7 +156,7 @@
                                 <label class="col-md-6 col-md-offset-3">Email address</label>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 col-md-offset-3"><input type="email" required id="inputEmail" name="inputEmail" ng-model="userData.inputEmail" class="form-control" placeholder="you@example.com" /></div>                           
+                                <div class="col-md-6 col-md-offset-3"><input type="email" required id="inputEmail" name="inputEmail" ng-model="userData.inputEmail" class="form-control" placeholder="you@example.com" /></div>
                             </div>
                             <h1></h1>
                             <div class="row">
@@ -163,7 +164,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col-md-6 col-md-offset-3"><input required type="password" id="inputPassword" name="inputPassword" ng-model="userData.inputPassword" class=" form-control" placeholder="Password" ng-minlength="6" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/"></div>
-                                <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+                                <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$dirty && modalForm.inputPassword.$error.pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
                                 <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="modalForm.inputPassword.$error.required && modalForm.inputPassword.$dirty">Password is required!</span>
                                 <span style="color:red" class="col-md-6 col-md-offset-3" ng-show="!modalForm.inputPassword.$error.required && (modalForm.inputPassword.$error.minlength || modalForm.inputPassword.$error.maxlength) && modalForm.inputPassword.$dirty">Passwords must be between 6 and 20 characters.</span>
                             </div>
@@ -191,7 +192,7 @@
                     </div>
                     <div class="modal-footer">
 
-                        Already have an account? <a href="" data-dismiss="modal" ng-click="ClearMessage()" onclick="$('#myModalReg').modal('hide'), $('#myModal').modal('show'), $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('input').val('').end() }), $('#myModalReg').on('hidden.bs.modal', function (e) { $(this).find('Message').val('').end() })">Sign here</a>
+                        Already have an account? <a href="" data-dismiss="modal" ng-click="SignHere()">Sign up</a>
                     </div>
                 </div>
             </div>

@@ -79,16 +79,15 @@ namespace LoanApi.Controllers
         [Route("ManageInfo")]
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
         {
-            IdentityUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-
+            ApplicationUser user =
+                await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
             {
                 return null;
             }
 
             List<UserLoginInfoViewModel> logins = new List<UserLoginInfoViewModel>();
-
-            foreach (IdentityUserLogin linkedAccount in user.Logins)
+            foreach (ApplicationUserLogin linkedAccount in user.Logins)
             {
                 logins.Add(new UserLoginInfoViewModel
                 {
@@ -126,7 +125,7 @@ namespace LoanApi.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -259,13 +258,13 @@ namespace LoanApi.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, "");
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -369,7 +368,7 @@ namespace LoanApi.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

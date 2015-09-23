@@ -31,11 +31,11 @@ describe('Logout Controller Test', function () {
         }
     });
 
-    beforeEach(inject(['$rootScope', '$controller', '$localstorage', function ($rootScope, $controller, $localstorage) {
+    beforeEach(inject(['$rootScope', '$controller', '$localStorage', function ($rootScope, $controller, $localStorage) {
         scope = $rootScope.$new();
         LogoutController = $controller('LogoutController', {
             $scope: scope,
-            $localstorage: localStorage,
+            $localStorage: localStorage,
             $window: window
         });
     }]));
