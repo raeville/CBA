@@ -1,5 +1,5 @@
 ﻿a {
-    text-decoration: none;   
+    text-decoration: none;
 }
 
 ul li {
@@ -9,28 +9,27 @@ ul li {
 
 .navbar {
     background-color: #FC0703;
-   
 }
+
 .navbar-toggle {
-    background-color:#FC0703;
-    padding:17px;
+    background-color: #FC0703;
+    padding: 17px;
 }
 
-.navbar-default .navbar-toggle:focus{
-     background-color: #FC0703;
-
-}
-.navbar-default .navbar-toggle:hover{
-     background-color: #ff5600;
+.navbar-default .navbar-toggle:focus {
+    background-color: #FC0703;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color: #ffffff;     
+.navbar-default .navbar-toggle:hover {
+    background-color: #ff5600;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
 }
 
 
-.buffer-top-50px
-{
+.buffer-top-50px {
     margin-top: 50px;
 }
 
@@ -38,13 +37,15 @@ ul li {
     margin-top: 30px;
 }
 
-.buffer-top-0px
-{
+.buffer-top-30px h4 {
+    margin-bottom:5px
+}
+
+.buffer-top-0px {
     margin-bottom: 0px;
 }
 
-.buffer-bottom-5px
-{
+.buffer-bottom-5px {
     margin-bottom: 5px;
 }
 
@@ -61,47 +62,43 @@ ul li {
     color: #ffffff;
 }
 
-footer
-{
+footer {
     background-color: #FC0703;
-    border-top:1px solid transparent;
-    border: 1px solid #ddd;      
+    border-top: 1px solid transparent;
+    border: 1px solid #ddd;
     padding: 8px;
     bottom: 0;
-    position: fixed;
     width: 100%;
-
-  
 }
+
     footer a {
         color: white;
-        
     }
+
     footer ul {
         text-align: center;
-     
-      }
+    }
 
 
-footer a:hover
-{
-    color: #333;
-    text-decoration:none;
-}
+    footer a:hover {
+        color: #333;
+        text-decoration: none;
+    }
 
-footer span {
-    color: white;
-    padding-left: 10px;
-}
+    footer span {
+        color: white;
+        padding-left: 10px;
+    }
 
 .modal-header {
-    background-color: #023167;   
+    background-color: #023167;
     color: white;
 }
 
-.close, .close:hover, .close:focus{
+.close, .close:hover, .close:focus {
     color: white;
 }
+
 .btn:hover, .btn:focus {
     color: white;
     font-weight: bold;
@@ -121,8 +118,9 @@ ul {
 }
 
 .width_btn {
-    width: auto; 
+    width: auto;
 }
+
 .incpass {
     color: red;
 }
@@ -131,4 +129,3 @@ ul {
     color: yellow;
     margin: 15px 5px 5px 5px;
 }
-
