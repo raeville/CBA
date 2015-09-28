@@ -1,7 +1,14 @@
-﻿using LoanApi.Models;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using LoanApi.Models;
+using System.Data.Entity;
 namespace LoanApi.Controllers
 {
 
@@ -9,7 +16,6 @@ namespace LoanApi.Controllers
     {
 
         private IContextDb db;
-        //
         // GET: /LoanType/
         public LoanTypeController()
         {
