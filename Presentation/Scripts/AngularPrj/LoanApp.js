@@ -35,7 +35,7 @@ LoanApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     });  
     $routeProvider.when('/MyProfile', {
         templateUrl: 'Views/MyProfile.html',
-        controller: 'CustomerController'
+        controller: ''
     });
     $routeProvider.when('/Index', {
         templateUrl: 'Index.html',
