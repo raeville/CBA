@@ -1,19 +1,19 @@
 ﻿///<reference path="../../angular.min.js" />
 ///<reference path="../LoanApp.js" />
-LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', function ($http, loanApiConsUrl, $localStorage) {
+LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', function ( $http, loanApiConsUrl, $localStorage) {
     var URL = loanApiConsUrl;
 
     var maritalStatus = [ 
-        { "value": 1, "status": "Single" },
-        { "value": 2, "status": "Married" },
-        { "value": 3, "status": "Legally Separated" },
-        { "value": 3, "status": "Divorced" },
-        { "value": 3, "status": "Widowed" }
+        { "value": "S", "status": "Single" },
+        { "value": "M", "status": "Married" },
+        { "value": "L", "status": "Legally Separated" },
+        { "value": "D", "status": "Divorced" },
+        { "value": "W", "status": "Widowed" }
     ];
 
     var sourceOfIncome = [
-        { "id": 1, "source": "Business" },
-        { "id": 2, "source": "Employment" }
+        { "id": "Business", "source": "Business" },
+        { "id": "Employment", "source": "Employment" }
     ];
 
 
