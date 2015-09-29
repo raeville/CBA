@@ -35,27 +35,16 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
             if ($scope.CustomerByUser != '' && $scope.CustomerByUser != null) {
 
-                $scope.hideUpdateButton = true;
-                $scope.hideSaveButton = false;
-
-            $scope.firstName = $scope.CustomerByUser.firstName;
-            $scope.lastName = $scope.CustomerByUser.lastName;
-            $scope.middleName = $scope.CustomerByUser.middleName;
-            $scope.homeAddress = $scope.CustomerByUser.address;
-            $scope.gender = $scope.CustomerByUser.gender;
-            //if ($scope.CustomerByUser.gender == 'M') {
-            //    $scope.gender = 'Male';
-            //}
-            //else {
-            //    $scope.gender = 'Female';
-            //}
-            
-            $scope.birthDate = new Date($scope.CustomerByUser.birthDate);
-
-            $scope.maritalStatus = $scope.CustomerByUser.maritalStatus;
-            $scope.sourceOfIncome = $scope.CustomerByUser.sourceOfIncome;
-            $scope.hideUpdateButton = false;
-            $scope.hideSaveButton = true;
+                $scope.firstName = $scope.CustomerByUser.firstName;
+                $scope.lastName = $scope.CustomerByUser.lastName;
+                $scope.middleName = $scope.CustomerByUser.middleName;
+                $scope.homeAddress = $scope.CustomerByUser.address;
+                $scope.gender = $scope.CustomerByUser.gender;        
+                $scope.birthDate = new Date($scope.CustomerByUser.birthDate);
+                $scope.maritalStatus = $scope.CustomerByUser.maritalStatus;
+                $scope.sourceOfIncome = $scope.CustomerByUser.sourceOfIncome;
+                $scope.hideUpdateButton = false;
+                $scope.hideSaveButton = true;
     
             }
 
@@ -79,18 +68,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     //Function to Save Record   
     $scope.save = function () {        
         var username = $localStorage.get('username');
-        var customerdummy = {
-       //     Id: 1,
-            //Email: "User@cba.com",
-            //FirstName: "User First Name",
-            //MiddleName: "U",
-            //LastName: "User Last Name",
-            //Gender: "M",
-            //Address: "The World",
-            //BirthDate: "6/25/1985",
-            //MaritalStatus: "M",
-            //SourceOfIncome: "Employed",
-            
+        var customerSaved = {           
             Email:          username,
             FirstName:      $scope.firstName,
             MiddleName:     $scope.middleName,
@@ -98,11 +76,11 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Gender:         $scope.gender,
             Address:        $scope.homeAddress,
             BirthDate:      new Date($scope.birthDate),
-            MaritalStatus:  $scope.maritalstatus.value,
-            SourceOfIncome: $scope.sourceOfIncome.source
+            MaritalStatus:  $scope.maritalstatus,
+            SourceOfIncome: $scope.sourceOfIncome
         };
 
-        var CustomersToAdd = CustomerService.postCustomer(customerdummy);
+        var CustomersToAdd = CustomerService.postCustomer(customerSaved);
 
         CustomersToAdd.then(function (results) {
             $scope.addConfirmation = results;
@@ -115,21 +93,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     //Function to Save Record   
     $scope.update = function () {
 
-        var customerdummy = {
-            //Id: 2,
-            //Email: "juan.dela.cruz@cba.com",
-            //FirstName: "Juan II",
-            //MiddleName: "De La",
-            //LastName: "Cruz",
-            //Gender: "M",
-            //Address: "Philippines",
-            //BirthDate: "9/18/1985",
-            //MaritalStatus: "M",
-            //SourceOfIncome: "Employed",
-            //IsDeleted: false,
-            //CreateDate: new Date(),
-            //UpdateDate: new Date()
-
+        var customerUpdated = {
             Email: username,
             FirstName: $scope.firstName,
             MiddleName: $scope.middleName,
@@ -137,11 +101,11 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Gender: $scope.gender,
             Address: $scope.homeAddress,
             BirthDate: $scope.birthDate,
-            MaritalStatus: $scope.maritalStatus.value,
-            SourceOfIncome: $scope.sourceOfIncome.source
+            MaritalStatus: $scope.maritalStatus,
+            SourceOfIncome: $scope.sourceOfIncome
         };
 
-        var CustomersToUpdate = CustomerService.putCustomer(customerdummy);
+        var CustomersToUpdate = CustomerService.putCustomer(customerUpdated);
 
         CustomersToUpdate.then(function (results) {
             $scope.updateConfirmation = results;
