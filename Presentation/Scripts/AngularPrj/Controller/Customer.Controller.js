@@ -96,7 +96,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Address:        $scope.homeAddress,
             BirthDate:      $scope.birthDate,
             MaritalStatus:  $scope.maritalStatus,
-            SourceOfIncome: "Business",
+            SourceOfIncome: $scope.sourceOfIncome,
             IsDeleted: false,
             CreateDate: new Date(),
             UpdateDate: new Date()
@@ -116,16 +116,29 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     $scope.update = function () {
 
         var customerdummy = {
-            Id: 2,
-            Email: "juan.dela.cruz@cba.com",
-            FirstName: "Juan II",
-            MiddleName: "De La",
-            LastName: "Cruz",
-            Gender: "M",
-            Address: "Philippines",
-            BirthDate: "9/18/1985",
-            MaritalStatus: "M",
-            SourceOfIncome: "Employed",
+            //Id: 2,
+            //Email: "juan.dela.cruz@cba.com",
+            //FirstName: "Juan II",
+            //MiddleName: "De La",
+            //LastName: "Cruz",
+            //Gender: "M",
+            //Address: "Philippines",
+            //BirthDate: "9/18/1985",
+            //MaritalStatus: "M",
+            //SourceOfIncome: "Employed",
+            //IsDeleted: false,
+            //CreateDate: new Date(),
+            //UpdateDate: new Date()
+
+            Email: username,
+            FirstName: $scope.firstName,
+            MiddleName: $scope.middleName,
+            LastName: $scope.lastName,
+            Gender: $scope.gender,
+            Address: $scope.homeAddress,
+            BirthDate: $scope.birthDate,
+            MaritalStatus: $scope.maritalStatus,
+            SourceOfIncome: $scope.sourceOfIncome,
             IsDeleted: false,
             CreateDate: new Date(),
             UpdateDate: new Date()

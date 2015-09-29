@@ -75,8 +75,8 @@ namespace LoanApi.Controllers
                  newCustomer.MaritalStatus = customer.MaritalStatus;
                  newCustomer.SourceOfIncome = customer.SourceOfIncome;
                  newCustomer.IsDeleted = customer.IsDeleted;
-                 newCustomer.CreateDate = customer.CreateDate;
-                 newCustomer.UpdateDate = customer.UpdateDate;                                            
+                 newCustomer.CreateDate = DateTime.Now;
+                 newCustomer.UpdateDate = DateTime.Now;                                            
 
                 db.Add(newCustomer); 
                               
@@ -106,7 +106,7 @@ namespace LoanApi.Controllers
                 else
                 {
 
-                    c.Id = customer.Id;
+                    //c.Id = customer.Id;
                     //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
@@ -116,9 +116,7 @@ namespace LoanApi.Controllers
                     c.BirthDate = customer.BirthDate.Date;
                     c.MaritalStatus = customer.MaritalStatus;
                     c.SourceOfIncome = customer.SourceOfIncome;
-                    c.IsDeleted = customer.IsDeleted;
-                    c.CreateDate = customer.CreateDate;
-                    c.UpdateDate = customer.UpdateDate;
+                    c.UpdateDate = DateTime.Now;
 
                     db.SaveChanges(c);
                     
