@@ -52,8 +52,8 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             
             $scope.birthDate = new Date($scope.CustomerByUser.birthDate);
 
-            //$scope.maritalStatus = $scope.options[0].id;
-
+            $scope.maritalStatus = $scope.CustomerByUser.maritalStatus;
+            $scope.sourceOfIncome = $scope.CustomerByUser.sourceOfIncome;
             $scope.hideUpdateButton = false;
             $scope.hideSaveButton = true;
     
@@ -97,8 +97,8 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             LastName:       $scope.lastName,
             Gender:         $scope.gender,
             Address:        $scope.homeAddress,
-            BirthDate:      $scope.birthDate,
-            MaritalStatus:  $scope.maritalStatus,
+            BirthDate:      new Date($scope.birthDate),
+            MaritalStatus:  $scope.maritalstatus.value,
             SourceOfIncome: $scope.sourceOfIncome.source
         };
 
@@ -137,7 +137,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Gender: $scope.gender,
             Address: $scope.homeAddress,
             BirthDate: $scope.birthDate,
-            MaritalStatus: $scope.maritalStatus,
+            MaritalStatus: $scope.maritalStatus.value,
             SourceOfIncome: $scope.sourceOfIncome.source
         };
 

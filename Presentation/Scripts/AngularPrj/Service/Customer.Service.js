@@ -12,8 +12,8 @@ LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', 
     ];
 
     var sourceOfIncome = [
-        { "id": "Business", "source": "Business" },
-        { "id": "Employment", "source": "Employment" }
+        { "value": "Business", "source": "Business" },
+        { "value": "Employment", "source": "Employment" }
     ];
 
 
