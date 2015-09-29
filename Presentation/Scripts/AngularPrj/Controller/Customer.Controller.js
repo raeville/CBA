@@ -52,7 +52,10 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             
             $scope.birthDate = new Date($scope.CustomerByUser.birthDate);
 
-            $scope.maritalStatus = $scope.options[0].id;
+            //$scope.maritalStatus = $scope.options[0].id;
+
+            $scope.hideUpdateButton = false;
+            $scope.hideSaveButton = true;
     
             }
 
