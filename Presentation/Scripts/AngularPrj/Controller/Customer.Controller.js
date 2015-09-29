@@ -57,6 +57,10 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
                 $scope.lastName = '';
                 $scope.middleName = '';
                 $scope.homeAddress = '';
+                $scope.gender = '';
+                $scope.birthDate = new Date();
+                $scope.maritalStatus = '';;
+                $scope.sourceOfIncome = '';;
             }
             
         }).catch(function (errorResults) {
@@ -76,7 +80,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Gender:         $scope.gender,
             Address:        $scope.homeAddress,
             BirthDate:      new Date($scope.birthDate),
-            MaritalStatus:  $scope.maritalstatus,
+            MaritalStatus:  $scope.maritalstatus[0].value,
             SourceOfIncome: $scope.sourceOfIncome
         };
 
