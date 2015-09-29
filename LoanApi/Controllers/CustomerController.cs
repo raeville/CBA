@@ -62,7 +62,7 @@ namespace LoanApi.Controllers
 
             try
             {
-                 var c = db.Query<CustomerModel>().ToList().LastOrDefault();
+                 //var c = db.Query<CustomerModel>().ToList().LastOrDefault();
                 
                  CustomerModel newCustomer = new CustomerModel();
                  newCustomer.Email = customer.Email;
@@ -106,7 +106,7 @@ namespace LoanApi.Controllers
                 else
                 {
 
-                   c.Id = customer.Id;
+                    //c.Id = customer.Id;
                     //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
