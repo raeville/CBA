@@ -88,6 +88,11 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
         CustomersToAdd.then(function (results) {
             $scope.addConfirmation = results;
+
+            if (results.statusText == 'OK') {
+                $scope.hideUpdateButton = false;
+                $scope.hideSaveButton = true;
+            }
         }).catch(function (errorResults) {
             //to do for not found here
             $scope.error = 'failure loading Employee', errorResults;
