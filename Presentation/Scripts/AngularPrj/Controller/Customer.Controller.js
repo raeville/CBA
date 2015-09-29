@@ -15,9 +15,9 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         var role = $localStorage.get('role');
         if (role.indexOf("Admin") > 1) {
             
-            $scope.showCustomer = true;
-        } else {
             $scope.showCustomer = false;
+        } else {
+            $scope.showCustomer = true;
         }
     }
 
