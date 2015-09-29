@@ -74,7 +74,7 @@ namespace LoanApi.Controllers
                  newCustomer.BirthDate = customer.BirthDate.Date;
                  newCustomer.MaritalStatus = customer.MaritalStatus;
                  newCustomer.SourceOfIncome = customer.SourceOfIncome;
-                 newCustomer.IsDeleted = customer.IsDeleted;
+                 newCustomer.IsDeleted = false;
                  newCustomer.CreateDate = DateTime.Now;
                  newCustomer.UpdateDate = DateTime.Now;                                            
 
@@ -96,7 +96,7 @@ namespace LoanApi.Controllers
         {
             try
             {
-                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id && x.IsDeleted == false).FirstOrDefault();
+                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Email == customer.Email && x.IsDeleted == false).FirstOrDefault();
 
                 if (c == null)
                 {

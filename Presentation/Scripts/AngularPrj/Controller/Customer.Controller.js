@@ -96,10 +96,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Address:        $scope.homeAddress,
             BirthDate:      $scope.birthDate,
             MaritalStatus:  $scope.maritalStatus,
-            SourceOfIncome: $scope.sourceOfIncome,
-            IsDeleted: false,
-            CreateDate: new Date(),
-            UpdateDate: new Date()
+            SourceOfIncome: $scope.sourceOfIncome.source
         };
 
         var CustomersToAdd = CustomerService.postCustomer(customerdummy);
@@ -138,10 +135,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             Address: $scope.homeAddress,
             BirthDate: $scope.birthDate,
             MaritalStatus: $scope.maritalStatus,
-            SourceOfIncome: $scope.sourceOfIncome,
-            IsDeleted: false,
-            CreateDate: new Date(),
-            UpdateDate: new Date()
+            SourceOfIncome: $scope.sourceOfIncome.source
         };
 
         var CustomersToUpdate = CustomerService.putCustomer(customerdummy);
