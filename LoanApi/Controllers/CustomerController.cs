@@ -106,7 +106,7 @@ namespace LoanApi.Controllers
                 else
                 {
 
-                    //c.Id = customer.Id;
+                    c.Id = customer.Id;
                     //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
