@@ -18,16 +18,11 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         } else {
             $scope.showCustomer = false;
         }
-        //$scope.getAllCustomers();        
-        //$scope.save();
-        //$scope.update();
-        //$scope.delete();
     }
 
-    //Function to Load all Employees Records.   
+    //Function to Load Customer Record by username.   
     $scope.getCustomer = function (userName) {
-
-        //var id = "13132";
+        
         var CustomersById = CustomerService.getCustomerById(userName);
 
         CustomersById.then(function (results) {
@@ -99,7 +94,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         });
     }
 
-    //Function to Save Record   
+    //Function to Update Record   
     $scope.update = function () {
 
         var customerUpdated = {
@@ -124,42 +119,4 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         });
     }
   
-    //Function to Load all Employees Records.   
-    $scope.delete = function () {
-
-        var id = "13132";
-        var deleteCustomersById = CustomerService.deleteCustomer(id);
-        deleteCustomersById.then(function (results) {
-            $scope.confirmationConfirmation = results;
-        }).catch(function (errorResults) {
-            //to do for not found here
-            $scope.error = 'failure loading Employee', errorResults;
-        });
-       
-    }
-                
-    //Customers List
-    $scope.customersInit = function () {
-        var customersList = CustomerService.getCustomers();
-        customersList.then(function (results) {
-            $scope.Customers = results.data;
-
-            angular.forEach($scope.Customers, function (value, key) {
-                if (value.gender == "M") {
-                    value.gender = 'Male';
-                } else {
-                    vvalue.gender = 'Female';
-                }
-
-                if (value.maritalStatus == 'M') {
-                    value.maritalStatus = 'Married';
-                }
-                    
-            });
-
-        }).catch(function (errorResults) {
-            //to do for not found here
-            $scope.error = 'failure loading Employee', errorResults;
-        });
-    }
 }]);
