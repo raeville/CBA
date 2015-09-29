@@ -132,6 +132,7 @@
     <Content Include="packages.config" />
     <Content Include="data\maritalstatus.json" />
     <Content Include="data\sourceofincome.json" />
+    <Content Include="Scripts\AngularPrj\Controller\CustomerList.Controller.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
