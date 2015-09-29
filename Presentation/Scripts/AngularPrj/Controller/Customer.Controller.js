@@ -5,6 +5,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     var username = "";
 
     $scope.init = function () {
+        $scope.hideSuccessConfirmation = true;
         $scope.maritalstatus = CustomerService.getMaritalStatus();
         $scope.sourceofincome = CustomerService.getSourceOfIncome();
         $scope.emailAddress = $localStorage.get('username', '');
@@ -29,6 +30,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             $scope.CustomerByUser = results.data;
 
             if ($scope.CustomerByUser != '' && $scope.CustomerByUser != null) {
+                $scope.hideSuccessConfirmation = true;
 
                 $scope.firstName = $scope.CustomerByUser.firstName;
                 $scope.lastName = $scope.CustomerByUser.lastName;
@@ -44,7 +46,7 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             }
 
             else {
-
+                $scope.hideSuccessConfirmation = true;
                 $scope.hideUpdateButton = true;
                 $scope.hideSaveButton = false;
 
@@ -67,6 +69,8 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
     //Function to Save Record   
     $scope.save = function () {        
         var username = $localStorage.get('username');
+        $scope.hideSuccessConfirmation = true;
+
         var customerSaved = {           
             Email:          username,
             FirstName:      $scope.firstName,
@@ -87,16 +91,18 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             if (results.statusText == 'OK') {
                 $scope.hideUpdateButton = false;
                 $scope.hideSaveButton = true;
+                $scope.hideSuccessConfirmation = false;
             }
         }).catch(function (errorResults) {
             //to do for not found here
+            $scope.hideSuccessConfirmation = true;
             $scope.error = 'failure loading Employee', errorResults;
         });
     }
 
     //Function to Update Record   
     $scope.update = function () {
-
+        $scope.hideSuccessConfirmation = true;
         var customerUpdated = {
             Email: username,
             FirstName: $scope.firstName,
@@ -113,7 +119,12 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
 
         CustomersToUpdate.then(function (results) {
             $scope.updateConfirmation = results;
+
+            if (results.statusText == 'OK') {           
+                $scope.hideSuccessConfirmation = false;
+            }           
         }).catch(function (errorResults) {
+            $scope.hideSuccessConfirmation = true;
             //to do for not found here
             $scope.error = 'failure loading Employee', errorResults;
         });

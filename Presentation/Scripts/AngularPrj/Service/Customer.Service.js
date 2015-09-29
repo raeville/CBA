@@ -47,12 +47,12 @@ LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', 
 
     //Function  to Edit Customer 
     var put = function (Customer) {
-        request = $http({ method: "put", url: URL + "api/Customer", data: Customer, headers: { 'Authorization': 'Bearer ' + token } });
+        return $http({ method: "put", url: URL + "api/Customer", data: Customer, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     //Function to Delete Customer based upon id
     var deleteF = function (id) {
-        request = $http({ method: "delete", url: URL + "api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
+        return $http({ method: "delete", url: URL + "api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
     };
 
     return {
