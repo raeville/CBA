@@ -50,9 +50,9 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
             //    $scope.gender = 'Female';
             //}
             
-            $scope.birthDate = $scope.CustomerByUser.birthDate;
+            $scope.birthDate = new Date($scope.CustomerByUser.birthDate);
 
-            //$scope.maritalStatus = $scope.maritalStatus[0];
+            $scope.maritalStatus = $scope.options[0].id;
     
             }
 

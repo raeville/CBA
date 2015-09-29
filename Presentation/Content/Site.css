@@ -127,6 +127,21 @@ ul {
 }
 
 .myEmail {
-    color: yellow;
+    color: white;
+    font-weight: bold;
     margin: 15px 5px 5px 5px;
 }
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #ccc;
+}
+
+.nav .caret {
+    border-top-color: white;
+}
+
+.dropdown-menu {
+    background-color: white;
+}
+
+
