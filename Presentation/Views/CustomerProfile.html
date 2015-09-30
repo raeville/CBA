@@ -12,7 +12,7 @@
             <label class="col-md-4 control-label">First Name : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="firstName" ng-model="firstName" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.firstName.$error.maxlength)">First name must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.firstName.$error.maxlength)">First name must not exceed 20 characters.</span>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
             <label class="col-md-4 control-label">Last Name : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="lastName" ng-model="lastName" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.lastName.$error.maxlength)">Last name must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.lastName.$error.maxlength)">Last name must not exceed 20 characters.</span>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             <label class="col-md-4 control-label">Middle Name : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="middleName" ng-model="middleName" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.middleName.$error.maxlength)">Middle name must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.middleName.$error.maxlength)">Middle name must not exceed 20 characters.</span>
             </div>
         </div>
 
@@ -46,7 +46,7 @@
             <label class="col-md-4 control-label">Home Address : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="homeAddress" ng-model="homeAddress" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.homeAddress.$error.maxlength)">Address must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.homeAddress.$error.maxlength)">Address must not exceed 20 characters.</span>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
                 <input type="button" class="btn btn-primary" ng-hide="hideSaveButton" value="Save" ng-click="save()" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />             
                 
             </div>
-            <div class="col-md-5 text-left" style="padding-left:30px; padding-top:10px" ng-hide="hideSuccessConfirmation">
+            <div class="col-md-5 text-left saved" ng-hide="hideSuccessConfirmation">
                 <p class="text-success">Successfully Saved.</p>
             </div>
             
