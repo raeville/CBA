@@ -27,16 +27,13 @@
                 </tr>
                 <tr ng-repeat="Customer in Customers | filter: SearchCustomer" class="warning">
                     <td>{{Customer.id}}</td>
-                    <td class="text-center"><input type="checkbox" id="isActive" ng-model="Customer.isDeleted" ng-checked="Customer.isDeleted" /></td>
-                   <!-- ng-click="checkIndex(Customer)"-->
-                    <!--ng-checked="{{Customer.IsActive}}"-->
+                    <td class="text-center"><input type="checkbox" id="isActive" ng-model="Customer.isDeleted" ng-checked="Customer.isDeleted" ng-click="checkIndex(Customer)" /></td>
                     <td>{{Customer.firstName + ' ' + Customer.middleName + ' ' + Customer.lastName}}</td>
                     <td>{{Customer.gender}}</td>
                     <td>{{birthDate | date:'yyyy-MM-dd'}}</td>
                     <td>{{Customer.maritalStatus}}</td>
                     <td>{{Customer.address}}</td>
                     <td>{{Customer.sourceOfIncome}}</td>
-
                 </tr>
             </table>
         </div>

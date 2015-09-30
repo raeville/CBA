@@ -1,56 +1,47 @@
 ﻿LoanApp.controller('CustomerListController', ['$scope', 'CustomerService', function ($scope, CustomerService) {
 
-	//Customer List
+    //Customer List
     $scope.customersListInit = function () {
-		CustomerService.getCustomers().then(function (results) {
-			$scope.Customers = results.data;
+        CustomerService.getCustomers().then(function (results) {
+            $scope.Customers = results.data;
+            angular.forEach($scope.Customers, function (value, key) {
+                if (value.gender == "M") {
+                    value.gender = 'Male';
+                } else {
+                    vvalue.gender = 'Female';
+                }
+                if (value.maritalStatus == 'M') {
+                    value.maritalStatus = 'Married';
+                }
+            });
 
-			angular.forEach($scope.Customers, function (value, key) {
-				if (value.gender == "M") {
-					value.gender = 'Male';
-				} else {
-					vvalue.gender = 'Female';
-				}
+        }).catch(function (errorResults) {
 
-				if (value.maritalStatus == 'M') {
-					value.maritalStatus = 'Married';
-				}
+            $scope.error = 'failure loading Customer List', errorResults;
+        });
+    }
 
-			});
-
-		}).catch(function (errorResults) {
-			//to do for not found here
-			$scope.error = 'failure loading Customer List', errorResults;
-		});
-	}
-   
     //Delete Customer.
-   
-    $scope.delete = function (customers) {
-        if (customers.length.count != 0)
-        {
-            
-            angular.forEach(customers, function (_customers) {
-                CustomerService.deleteCustomer(_customers).then(function (results) {
+    $scope.delete = function () {
+        if ($scope.checkIndexs.count != 0) {
+            angular.forEach($scope.checkIndexs, function (customer) {
+                CustomerService.deleteCustomer(customer).then(function (results) {
                     $scope.confirmationConfirmation = results;
                 }).catch(function (errorResults) {
                     $scope.error = 'failure loading Customer List', errorResults;
                 });
-             });
-
-            
-
-	    }
-	}
-	//$scope.checkIndexs = [];
-	//$scope.checkIndex = function (customers) {
-	//    if ($scope.checkIndexs.indexOf(customers) === -1) {
-	//        if (customers.isDeleted == true) {
-	//            $scope.checkIndexs.push(customers);
-	//        }	       
-	//    }	     
-	//    else {
-	//        $scope.checkIndexs.splice($scope.checkIndexs.indexOf(customers), 1)
-	//        }
-	//};
+            });
+        }
+    }
+    $scope.checkIndexs = [];
+    $scope.checkIndex = function (customers) {
+        if ($scope.checkIndexs.indexOf(customers) === -1) {
+            $scope.checkIndexs.push(customers);
+            var a = $scope.checkIndexs.indexOf(customers);
+        }
+        else {
+            $scope.checkIndexs.splice($scope.checkIndexs.indexOf(customers), 1)
+            $scope.checkIndexs.push(customers);
+        }
+    };
 }]);

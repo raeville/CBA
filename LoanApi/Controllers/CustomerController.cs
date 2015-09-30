@@ -30,7 +30,7 @@ namespace LoanApi.Controllers
         }
 
         // GET api/<controller>
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IEnumerable<CustomerModel> Get()
         {
           //  return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
@@ -92,7 +92,7 @@ namespace LoanApi.Controllers
         }
 
         // PUT api/<controller>/5
-       // [Authorize]
+        [Authorize]
         public IHttpActionResult Put(CustomerModel customer)
         {
             try
@@ -106,7 +106,6 @@ namespace LoanApi.Controllers
                 }
                 else
                 {
-
                     //c.Id = customer.Id;
                     //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
@@ -131,11 +130,9 @@ namespace LoanApi.Controllers
             }
         }
 
-
         // DELETE api/<controller>/5
-   //     [Authorize(Roles = "Admin")]
-        public IHttpActionResult Delete(CustomerModel customer)
-        {
+        [Authorize(Roles = "Admin")]
+        public IHttpActionResult Delete(CustomerModel customer)        {
 
             try
             {
@@ -144,7 +141,6 @@ namespace LoanApi.Controllers
                 if (c == null)
                 {
                     return NotFound();
-
                 }
                 else
                 {
@@ -158,10 +154,6 @@ namespace LoanApi.Controllers
 
                 return NotFound();
             }
-        }
-
-        
-               
-    
+        }    
     }
 }
