@@ -122,7 +122,7 @@ ul {
     width: auto;
 }
 
-.incpass {
+.fontRed {
     color: red;
 }
 
@@ -144,4 +144,20 @@ ul {
     background-color: white;
 }
 
+.saved {
+    padding-left:30px; 
+    padding-top:10px
+}
+
+.margintop0 {
+    margin-top: 0;
+}
+
+.margin3p {
+    margin-right:3%
+}
+
+.pad25 {
+    padding-top:25%
+}
 

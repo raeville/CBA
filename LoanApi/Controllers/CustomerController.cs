@@ -63,7 +63,7 @@ namespace LoanApi.Controllers
 
             try
             {
-                 var c = db.Query<CustomerModel>().ToList().LastOrDefault();
+                 //var c = db.Query<CustomerModel>().ToList().LastOrDefault();
                 
                  CustomerModel newCustomer = new CustomerModel();
                  newCustomer.Email = customer.Email;
@@ -75,9 +75,9 @@ namespace LoanApi.Controllers
                  newCustomer.BirthDate = customer.BirthDate.Date;
                  newCustomer.MaritalStatus = customer.MaritalStatus;
                  newCustomer.SourceOfIncome = customer.SourceOfIncome;
-                 newCustomer.IsDeleted = customer.IsDeleted;
-                 newCustomer.CreateDate = customer.CreateDate;
-                 newCustomer.UpdateDate = customer.UpdateDate;                                            
+                 newCustomer.IsDeleted = false;
+                 newCustomer.CreateDate = DateTime.Now;
+                 newCustomer.UpdateDate = DateTime.Now;                                            
 
                 db.Add(newCustomer); 
                               
@@ -97,7 +97,7 @@ namespace LoanApi.Controllers
         {
             try
             {
-                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id && x.IsDeleted == false).FirstOrDefault();
+                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Email == customer.Email && x.IsDeleted == false).FirstOrDefault();
 
                 if (c == null)
                 {
@@ -107,7 +107,7 @@ namespace LoanApi.Controllers
                 else
                 {
 
-                   c.Id = customer.Id;
+                    //c.Id = customer.Id;
                     //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
@@ -117,9 +117,7 @@ namespace LoanApi.Controllers
                     c.BirthDate = customer.BirthDate.Date;
                     c.MaritalStatus = customer.MaritalStatus;
                     c.SourceOfIncome = customer.SourceOfIncome;
-                    c.IsDeleted = customer.IsDeleted;
-                    c.CreateDate = customer.CreateDate;
-                    c.UpdateDate = customer.UpdateDate;
+                    c.UpdateDate = DateTime.Now;
 
                     db.SaveChanges(c);
                     

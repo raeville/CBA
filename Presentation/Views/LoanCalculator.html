@@ -7,10 +7,10 @@
             </div>
 
             <div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.required">
+                <span class="fontRed" ng-show="LoanCalculatorForm.amountLoan.$error.required">
                     Amount of the Loan is Required!
                 </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.pattern">
+                <span class="fontRed" ng-show="LoanCalculatorForm.amountLoan.$error.pattern">
                     Number is Required!
                 </span>
             </div>
@@ -22,10 +22,10 @@
                 <input type="text" class="form-control" name="annualInterest" placeholder="Annual Interest" ng-model="annualInterest" required ng-pattern="/^(\d)+$/" />
             </div>
             <div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
+                <span class="fontRed" ng-show="LoanCalculatorForm.annualInterest.$error.required">
                     Annual Interest is Required!
                 </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
+                <span class="fontRed" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
                     Number is Required!
                 </span>
             </div>
@@ -38,10 +38,10 @@
                 <input required type="text" class="form-control" name="repaymentPeriod" placeholder="Repayment Period in years" ng-model="repaymentPeriod" ng-pattern="/^(\d)+$/" />
             </div>
             <div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.repaymentPeriod.$error.required">
+                <span class="fontRed" ng-show="LoanCalculatorForm.repaymentPeriod.$error.required">
                     Repayment Period is Required!
                 </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.repaymentPeriod.$error.pattern">
+                <span class="fontRed" ng-show="LoanCalculatorForm.repaymentPeriod.$error.pattern">
                     Number is Required!
                 </span>
             </div>
