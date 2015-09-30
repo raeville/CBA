@@ -51,8 +51,8 @@ LoanApp.service('CustomerService', ['$http', 'loanApiConsUrl', '$localStorage', 
     };
 
     //Function to Delete Customer based upon id
-    var deleteF = function (id) {
-        return $http({ method: "delete", url: URL + "api/Customer/" + id, headers: { 'Authorization': 'Bearer ' + token } });
+    var deleteF = function (Customer) {
+        return $http({ method: "delete", url: URL + "api/Customer", data: Customer, headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' } });
     };
 
     return {
