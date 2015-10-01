@@ -73,7 +73,7 @@ footer {
 }
 
     footer a {
-        color: white;
+        color: #ffffff;
     }
 
     footer ul {
@@ -87,21 +87,21 @@ footer {
     }
 
     footer span {
-        color: white;
+        color: #ffffff;
         padding-left: 10px;
     }
 
 .modal-header {
     background-color: #023167;
-    color: white;
+    color: #ffffff;
 }
 
 .close, .close:hover, .close:focus {
-    color: white;
+    color: #ffffff;
 }
 
 .btn:hover, .btn:focus {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -123,11 +123,11 @@ ul {
 }
 
 .fontRed {
-    color: red;
+    color: #ff0000;
 }
 
 .myEmail {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     margin: 15px 5px 5px 5px;
 }
@@ -137,11 +137,11 @@ ul {
 }
 
 .nav .caret {
-    border-top-color: white;
+    border-top-color: #ffffff;
 }
 
 .dropdown-menu {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .saved {
@@ -160,4 +160,5 @@ ul {
 .pad25 {
     padding-top:25%
 }
+
 

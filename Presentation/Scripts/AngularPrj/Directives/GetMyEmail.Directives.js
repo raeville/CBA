@@ -17,7 +17,7 @@ LoanApp.directive('myEmail',['$localStorage', function ($localStorage) {
         if (role.indexOf("Admin") > 1) {
             emaildropdown = emaildropdown1 + '<li><a href="#/Customers">Administer User</a></li>' +
                                              '<li role="separator" class="divider"></li>' +
-                                             '<li><a href="#" ng-click="LogOut()">Log Out</a></li></ul></div>';           
+                                             '<li><a href="#" ng-click="LogOut()">Log Out</a></li></ul></div>';                     
         } else {
             emaildropdown = emaildropdown1 + '<li role="separator" class="divider"></li>' +
                                              '<li><a href="#" ng-click="LogOut()">Log Out</a></li></ul></div>';
