@@ -21,7 +21,7 @@ describe('Customer List Controller', function () {
     var deferred;
     var user;
     var response;
-    var $rootScope;
+   var $rootScope;
     var _date = new Date();
     beforeEach(function () {
         user = {
@@ -30,7 +30,7 @@ describe('Customer List Controller', function () {
         }
         response = {
             "data": {
-                "Id": 1,
+                "id": 1,
                 "Email": "User@cba.com",
                 "FirstName": "User First Name",
                 "MiddleName": "User Middle Name",
@@ -40,9 +40,10 @@ describe('Customer List Controller', function () {
                 "BirthDate": _date.toUTCString(),
                 "MaritalStatus": "S",
                 "SourceOfIncome": "Business",
-                "IsDeleted": "0",
+                "isDeleted": "0",
                 "CreateDate": _date.toUTCString(),
-                "UpdateDate": _date.toUTCString()
+                "UpdateDate": _date.toUTCString(),
+                "OrgDelStatus" : "1"
             }
         }
         service = {
@@ -61,7 +62,7 @@ describe('Customer List Controller', function () {
         q = $q;
         scope = $rootScope.$new();
         scope.user = user;
-
+        scope.Customers = response;
         CustomerListCtrl = $controller('CustomerListController', {
             $scope: scope,
             CustomerService: service
@@ -81,12 +82,5 @@ describe('Customer List Controller', function () {
         deferred.resolve(response);
         scope.$root.$digest();
         expect(service.deleteCustomer).toHaveBeenCalled();
-    });
-    it('should Add Index to $scope.checkIndex when checkIndex is called', function () {
-        spyOn(scope, 'checkIndex').and.callThrough();
-        scope.checkIndex(response)
-        deferred.resolve(response);
-        scope.$root.$digest();
-        expect(scope.checkIndex).toHaveBeenCalled();
     });
 });

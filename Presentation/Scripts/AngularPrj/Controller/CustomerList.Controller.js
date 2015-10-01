@@ -35,19 +35,20 @@
     }
 
     //Delete Customer.
-
+   
     $scope.delete = function () {
-        $scope.checkIndexs = [];
-        if ($scope.Customers.count != 0) {
-            angular.forEach($scope.Customers, function (value, key) {
-                if (value.isDeleted != value.OrgDelStatus) {
-                     $scope.checkIndexs.push(value);
+        $scope.ids = [];
+        if ($scope.Customers != null) {
+            angular.forEach($scope.Customers, function (customer) {
+                if (customer.isDeleted != customer.OrgDelStatus) {
+                    $scope.ids.push(customer.id);
                 }
             });
-            if ($scope.checkIndexs.count != 0) {
+            if ($scope.ids != 0) {
                 {
-                    CustomerService.deleteCustomer($scope.checkIndexs).then(function (results) {
+                    CustomerService.deleteCustomer($scope.ids).then(function (results) {
                         $scope.confirmationConfirmation = results;
+                      //  alert("Deleted Successfully!!");
                     }).catch(function (errorResults) {
                         $scope.error = 'failure loading Customer List', errorResults;
                     });
