@@ -8,10 +8,22 @@
                 if (value.gender == "M") {
                     value.gender = 'Male';
                 } else {
-                    vvalue.gender = 'Female';
+                    value.gender = 'Female';
                 }
-                if (value.maritalStatus == 'M') {
+                if (value.maritalStatus == 'S') {
+                    value.maritalStatus = 'Single';
+                }
+                else if (value.maritalStatus == 'M') {
                     value.maritalStatus = 'Married';
+                }
+                else if (value.maritalStatus == 'L') {
+                    value.maritalStatus = 'Legally Separated';
+                }
+                else if (value.maritalStatus == 'D') {
+                    value.maritalStatus = 'Divorced';
+                }
+                else if (value.maritalStatus == 'W') {
+                    value.maritalStatus = 'Widowed';
                 }
             });
 
@@ -24,12 +36,10 @@
     //Delete Customer.
     $scope.delete = function () {
         if ($scope.checkIndexs.count != 0) {
-            angular.forEach($scope.checkIndexs, function (customer) {
-                CustomerService.deleteCustomer(customer).then(function (results) {
-                    $scope.confirmationConfirmation = results;
-                }).catch(function (errorResults) {
-                    $scope.error = 'failure loading Customer List', errorResults;
-                });
+            CustomerService.deleteCustomer($scope.checkIndexs).then(function (results) {
+                $scope.confirmationConfirmation = results;
+            }).catch(function (errorResults) {
+                $scope.error = 'failure loading Customer List', errorResults;
             });
         }
     }

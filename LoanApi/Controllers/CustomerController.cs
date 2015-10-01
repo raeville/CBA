@@ -17,7 +17,8 @@ namespace LoanApi.Controllers
 
         private IContextDb db;
 
-        public CustomerController(){
+        public CustomerController()
+        {
 
             db = new CBAContextDb();
         }
@@ -33,7 +34,7 @@ namespace LoanApi.Controllers
         [Authorize(Roles = "Admin")]
         public IEnumerable<CustomerModel> Get()
         {
-          //  return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
+            //  return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
             return db.Query<CustomerModel>().ToList();
         }
 
@@ -42,7 +43,8 @@ namespace LoanApi.Controllers
         public IHttpActionResult Get(string userName)
         {
 
-            try {
+            try
+            {
 
                 CustomerModel customer = db.Query<CustomerModel>().Where(x => x.Email == userName && x.IsDeleted == false).FirstOrDefault();
 
@@ -53,7 +55,7 @@ namespace LoanApi.Controllers
             {
 
                 return NotFound();
-            }            
+            }
         }
 
         // POST api/<controller>
@@ -63,24 +65,24 @@ namespace LoanApi.Controllers
 
             try
             {
-                 //var c = db.Query<CustomerModel>().ToList().LastOrDefault();
-                
-                 CustomerModel newCustomer = new CustomerModel();
-                 newCustomer.Email = customer.Email;
-                 newCustomer.FirstName = customer.FirstName;
-                 newCustomer.LastName = customer.LastName;
-                 newCustomer.MiddleName = customer.MiddleName;
-                 newCustomer.Gender = customer.Gender;
-                 newCustomer.Address = customer.Address;
-                 newCustomer.BirthDate = customer.BirthDate.Date;
-                 newCustomer.MaritalStatus = customer.MaritalStatus;
-                 newCustomer.SourceOfIncome = customer.SourceOfIncome;
-                 newCustomer.IsDeleted = false;
-                 newCustomer.CreateDate = DateTime.Now;
-                 newCustomer.UpdateDate = DateTime.Now;                                            
+                //var c = db.Query<CustomerModel>().ToList().LastOrDefault();
 
-                db.Add(newCustomer); 
-                              
+                CustomerModel newCustomer = new CustomerModel();
+                newCustomer.Email = customer.Email;
+                newCustomer.FirstName = customer.FirstName;
+                newCustomer.LastName = customer.LastName;
+                newCustomer.MiddleName = customer.MiddleName;
+                newCustomer.Gender = customer.Gender;
+                newCustomer.Address = customer.Address;
+                newCustomer.BirthDate = customer.BirthDate.Date;
+                newCustomer.MaritalStatus = customer.MaritalStatus;
+                newCustomer.SourceOfIncome = customer.SourceOfIncome;
+                newCustomer.IsDeleted = false;
+                newCustomer.CreateDate = DateTime.Now;
+                newCustomer.UpdateDate = DateTime.Now;
+
+                db.Add(newCustomer);
+
                 return Ok();
 
             }
@@ -88,7 +90,7 @@ namespace LoanApi.Controllers
             {
 
                 return NotFound();
-            }   
+            }
         }
 
         // PUT api/<controller>/5
@@ -119,7 +121,7 @@ namespace LoanApi.Controllers
                     c.UpdateDate = DateTime.Now;
 
                     db.SaveChanges(c);
-                    
+
                     return Ok();
                 }
             }
@@ -132,20 +134,23 @@ namespace LoanApi.Controllers
 
         // DELETE api/<controller>/5
         [Authorize(Roles = "Admin")]
-        public IHttpActionResult Delete(CustomerModel customer)        {
+        public IHttpActionResult Delete(IEnumerable<CustomerModel> customers)
+        {
 
             try
             {
-                CustomerModel c = db.Query<CustomerModel>().Where(i => i.Id == customer.Id).FirstOrDefault();
-
-                if (c == null)
+                if (customers == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    c.IsDeleted = customer.IsDeleted;
-                    db.SaveChanges(c);
+                    foreach (var item in customers)
+                    {
+                        CustomerModel customer = db.Query<CustomerModel>().Where(i => i.Id == item.Id).FirstOrDefault();
+                        customer.IsDeleted = item.IsDeleted;
+                        db.SaveChanges(customer);
+                    }
                     return Ok();
                 }
             }
@@ -154,6 +159,6 @@ namespace LoanApi.Controllers
 
                 return NotFound();
             }
-        }    
+        }
     }
 }
