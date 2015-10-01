@@ -11,13 +11,12 @@ LoanApp.controller('CustomerController', ['$scope', '$location', 'CustomerServic
         $scope.emailAddress = $localStorage.get('username', '');
         username = $scope.emailAddress;
         $scope.getCustomer(username);
-        
+
         var role = $localStorage.get('role');
-        if (role.indexOf("Admin") > 1) {
-        }
-        else {
+        if (role.indexOf("Admin") < 1) {
             angular.element('#custlist').html("");
-        }
+        }       
+    
     }
 
     //Function to Load Customer Record by username.   
