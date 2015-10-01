@@ -134,8 +134,8 @@ namespace LoanApi.Controllers
 
         // DELETE api/<controller>/5
         [Authorize(Roles = "Admin")]
-        public IHttpActionResult Delete(IEnumerable<CustomerModel> customers)
-        {
+        public IHttpActionResult Delete(int[] customers)
+          {
 
             try
             {
@@ -147,8 +147,8 @@ namespace LoanApi.Controllers
                 {
                     foreach (var item in customers)
                     {
-                        CustomerModel customer = db.Query<CustomerModel>().Where(i => i.Id == item.Id).FirstOrDefault();
-                        customer.IsDeleted = item.IsDeleted;
+                        CustomerModel customer = db.Query<CustomerModel>().Where(i => i.Id == item).FirstOrDefault();
+                        customer.IsDeleted = !customer.IsDeleted;
                         db.SaveChanges(customer);
                     }
                     return Ok();
