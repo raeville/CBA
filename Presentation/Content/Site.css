@@ -41,6 +41,10 @@ ul li {
     margin-bottom:5px
 }
 
+    .buffer-top-30px > h4 > h6 {
+        margin-top: 0;
+    }
+
 .buffer-top-0px {
     margin-bottom: 0px;
 }
@@ -68,11 +72,12 @@ footer {
     border: 1px solid #ddd;
     padding: 8px;
     bottom: 0;
+    position:fixed;
     width: 100%;
 }
 
     footer a {
-        color: white;
+        color: #ffffff;
     }
 
     footer ul {
@@ -86,21 +91,21 @@ footer {
     }
 
     footer span {
-        color: white;
+        color: #ffffff;
         padding-left: 10px;
     }
 
 .modal-header {
     background-color: #023167;
-    color: white;
+    color: #ffffff;
 }
 
 .close, .close:hover, .close:focus {
-    color: white;
+    color: #ffffff;
 }
 
 .btn:hover, .btn:focus {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -121,11 +126,39 @@ ul {
     width: auto;
 }
 
-.incpass {
-    color: red;
+.fontRed {
+    color: #ff0000;
 }
 
 .myEmail {
-    color: yellow;
+    color: #ffffff;
+    font-weight: bold;
     margin: 15px 5px 5px 5px;
 }
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #ccc;
+}
+
+.nav .caret {
+    border-top-color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+}
+
+.saved {
+    padding-left:30px; 
+    padding-top:10px
+}
+
+.margin3p {
+    margin-right:3%
+}
+
+.pad25 {
+    padding-top:25%
+}
+
+

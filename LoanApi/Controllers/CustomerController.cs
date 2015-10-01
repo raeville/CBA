@@ -17,7 +17,8 @@ namespace LoanApi.Controllers
 
         private IContextDb db;
 
-        public CustomerController(){
+        public CustomerController()
+        {
 
             db = new CBAContextDb();
         }
@@ -33,7 +34,8 @@ namespace LoanApi.Controllers
         [Authorize(Roles = "Admin")]
         public IEnumerable<CustomerModel> Get()
         {
-            return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
+            //  return db.Query<CustomerModel>().Where(x=>x.IsDeleted == false).ToList();
+            return db.Query<CustomerModel>().ToList();
         }
 
         // GET api/<controller>/5
@@ -41,7 +43,8 @@ namespace LoanApi.Controllers
         public IHttpActionResult Get(string userName)
         {
 
-            try {
+            try
+            {
 
                 CustomerModel customer = db.Query<CustomerModel>().Where(x => x.Email == userName && x.IsDeleted == false).FirstOrDefault();
 
@@ -52,7 +55,7 @@ namespace LoanApi.Controllers
             {
 
                 return NotFound();
-            }            
+            }
         }
 
         // POST api/<controller>
@@ -62,27 +65,24 @@ namespace LoanApi.Controllers
 
             try
             {
-                 var c = db.Query<CustomerModel>().ToList().LastOrDefault();
-                 //int lastndx;
-                 //lastndx = c;
-                
-                 CustomerModel newCustomer = new CustomerModel();
-                 newCustomer.Id = c.Id + 1;
-                 newCustomer.Email = customer.Email;
-                 newCustomer.FirstName = customer.FirstName;
-                 newCustomer.LastName = customer.LastName;
-                 newCustomer.MiddleName = customer.MiddleName;
-                 newCustomer.Gender = customer.Gender;
-                 newCustomer.Address = customer.Address;
-                 newCustomer.BirthDate = customer.BirthDate.Date;
-                 newCustomer.MaritalStatus = customer.MaritalStatus;
-                 newCustomer.SourceOfIncome = customer.SourceOfIncome;
-                 newCustomer.IsDeleted = customer.IsDeleted;
-                 newCustomer.CreateDate = customer.CreateDate;
-                 newCustomer.UpdateDate = customer.UpdateDate;                                            
+                //var c = db.Query<CustomerModel>().ToList().LastOrDefault();
 
-                db.Add(newCustomer); 
-                              
+                CustomerModel newCustomer = new CustomerModel();
+                newCustomer.Email = customer.Email;
+                newCustomer.FirstName = customer.FirstName;
+                newCustomer.LastName = customer.LastName;
+                newCustomer.MiddleName = customer.MiddleName;
+                newCustomer.Gender = customer.Gender;
+                newCustomer.Address = customer.Address;
+                newCustomer.BirthDate = customer.BirthDate.Date;
+                newCustomer.MaritalStatus = customer.MaritalStatus;
+                newCustomer.SourceOfIncome = customer.SourceOfIncome;
+                newCustomer.IsDeleted = false;
+                newCustomer.CreateDate = DateTime.Now;
+                newCustomer.UpdateDate = DateTime.Now;
+
+                db.Add(newCustomer);
+
                 return Ok();
 
             }
@@ -90,7 +90,7 @@ namespace LoanApi.Controllers
             {
 
                 return NotFound();
-            }   
+            }
         }
 
         // PUT api/<controller>/5
@@ -99,7 +99,7 @@ namespace LoanApi.Controllers
         {
             try
             {
-                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == customer.Id && x.IsDeleted == false).FirstOrDefault();
+                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Email == customer.Email && x.IsDeleted == false).FirstOrDefault();
 
                 if (c == null)
                 {
@@ -108,8 +108,7 @@ namespace LoanApi.Controllers
                 }
                 else
                 {
-
-                   c.Id = customer.Id;
+                    //c.Id = customer.Id;
                     //c.Email = customer.Email;
                     c.FirstName = customer.FirstName;
                     c.LastName = customer.LastName;
@@ -119,12 +118,10 @@ namespace LoanApi.Controllers
                     c.BirthDate = customer.BirthDate.Date;
                     c.MaritalStatus = customer.MaritalStatus;
                     c.SourceOfIncome = customer.SourceOfIncome;
-                    c.IsDeleted = customer.IsDeleted;
-                    c.CreateDate = customer.CreateDate;
-                    c.UpdateDate = customer.UpdateDate;
+                    c.UpdateDate = DateTime.Now;
 
                     db.SaveChanges(c);
-                    
+
                     return Ok();
                 }
             }
@@ -134,24 +131,26 @@ namespace LoanApi.Controllers
                 return NotFound();
             }
         }
-
 
         // DELETE api/<controller>/5
         [Authorize(Roles = "Admin")]
-        public IHttpActionResult Delete(int Id)
-        {
+        public IHttpActionResult Delete(int[] customers)
+          {
+
             try
             {
-                CustomerModel c = db.Query<CustomerModel>().Where(x => x.Id == Id).FirstOrDefault();
-
-                if (c == null)
+                if (customers == null)
                 {
                     return NotFound();
-
                 }
                 else
-                {                    
-                    c.IsDeleted = true;                    
+                {
+                    foreach (var item in customers)
+                    {
+                        CustomerModel customer = db.Query<CustomerModel>().Where(i => i.Id == item).FirstOrDefault();
+                        customer.IsDeleted = !customer.IsDeleted;
+                        db.SaveChanges(customer);
+                    }
                     return Ok();
                 }
             }
@@ -161,7 +160,5 @@ namespace LoanApi.Controllers
                 return NotFound();
             }
         }
-               
-    
     }
 }

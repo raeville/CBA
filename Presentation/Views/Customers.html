@@ -1,8 +1,6 @@
-﻿<div ng-init="customersInit()" ng-controller="CustomerController">
-    <form class="form-horizontal" name="CustomersForm">
+﻿<div ng-init="customersListInit()" ng-controller="CustomerListController">
+    <form class="form-horizontal col-md-12" name="CustomersForm">
         <h3></h3>
-        <div class="col-md-12">
-        </div>
         <div class="form-group">
             <div class="col-md-4">
                 <input type="text" class="form-control" ng-model="SearchCustomer" placeholder="Search Customer" />
@@ -11,7 +9,7 @@
                 <button type="button" name="btnSearch" ng-hide="true" class="form-control btn btn-primary">Search</button>
             </div>
             <div class="col-md-3 text-left">
-                <button type="button" name="btnUpdate" ng-hide="true" class="form-control btn btn-primary">Update</button>
+                <button type="button" name="btnUpdate" ng-click="delete(Customers)" class="form-control btn btn-primary">Update</button>
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -29,15 +27,13 @@
                 </tr>
                 <tr ng-repeat="Customer in Customers | filter: SearchCustomer" class="warning">
                     <td>{{Customer.id}}</td>
-                    <td class="text-center"><input type="checkbox" ng-disabled="true" id="isActive" /></td>
-                    <!--ng-checked="{{Customer.IsActive}}"-->
+                    <td class="text-center"><input type="checkbox" id="isActive" ng-model="Customer.isDeleted" ng-checked="Customer.isDeleted"/></td>
                     <td>{{Customer.firstName + ' ' + Customer.middleName + ' ' + Customer.lastName}}</td>
                     <td>{{Customer.gender}}</td>
                     <td>{{birthDate | date:'yyyy-MM-dd'}}</td>
                     <td>{{Customer.maritalStatus}}</td>
                     <td>{{Customer.address}}</td>
                     <td>{{Customer.sourceOfIncome}}</td>
-
                 </tr>
             </table>
         </div>

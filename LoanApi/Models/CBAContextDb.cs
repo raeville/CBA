@@ -44,15 +44,9 @@ namespace LoanApi.Models
         {
             try
             {
+
                 this.SaveChanges();
-                //if (t is CustomerModel)
-                //{
-                //    this.SaveChanges();
-                //}
-                //else if (t is LoanTypeModel)
-                //{
-                //    this.SaveChanges();
-                //}
+
             }
             catch (Exception)
             {

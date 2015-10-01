@@ -6,66 +6,30 @@
             <div class="col-md-3">
                 <input required type="text" class="form-control" name="emailAddress" ng-disabled="true" ng-model="emailAddress" />
             </div>
-
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.required">
-                    Amount of the Loan is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.amountLoan.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label">First Name : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="firstName" ng-model="firstName" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.firstName.$error.maxlength)">First name must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.firstName.$error.maxlength)">First name must not exceed 20 characters.</span>
             </div>
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label">Last Name : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="lastName" ng-model="lastName" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.lastName.$error.maxlength)">Last name must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.lastName.$error.maxlength)">Last name must not exceed 20 characters.</span>
             </div>
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label">Middle Name : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="middleName" ng-model="middleName" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.middleName.$error.maxlength)">Middle name must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.middleName.$error.maxlength)">Middle name must not exceed 20 characters.</span>
             </div>
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
@@ -76,32 +40,14 @@
                 <label for="gender">Female</label>
                 <input type="radio" ng-model="gender" value="F" />
             </div>
-
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.repaymentPeriod.$error.required">
-                    Repayment Period is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.repaymentPeriod.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label">Home Address : </label>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="homeAddress" ng-model="homeAddress" ng-maxlength="20" />
-                <span style="color:red" ng-show="!$error.required && (CustomerProfileForm.homeAddress.$error.maxlength)">Address must not exceed 20 characters.</span>
+                <span class="fontRed" ng-show="!$error.required && (CustomerProfileForm.homeAddress.$error.maxlength)">Address must not exceed 20 characters.</span>
             </div>
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
@@ -109,15 +55,6 @@
             <div class="col-md-3">
                 <input type="date" class="form-control" placeholder="{{birthDate | date:'yyyy-MM-dd'}}" name="birthDate" ng-model="birthDate" />
             </div>
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
@@ -127,23 +64,9 @@
                         ng-model="maritalStatus"
                         name="maritalStatus"
                         ng-options="status.value as status.status for status in maritalstatus">
-                    <!--<option value="">
-                        Married
-                    </option>-->
-
                 </select>
 
             </div>
-
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
@@ -152,38 +75,26 @@
                 <select class="form-control"
                         ng-model="sourceOfIncome"
                         name="sourceOfIncome"
-                        ng-options="sourceofincome as sourceofincome.source for sourceofincome in sourceofincome">
-                    <!--<option value="">
-                        Employed
-                    </option>-->
+                        ng-options="income.value as income.source for income in sourceofincome">
                 </select>
             </div>
-
-            <!--<div class="col-md-3 text-left">
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.required">
-                    Annual Interest is Required!
-                </span>
-                <span style="color:red" ng-show="LoanCalculatorForm.annualInterest.$error.pattern">
-                    Number is Required!
-                </span>
-            </div>-->
-
         </div>
 
         <div class="form-group">
             <div class="col-md-4 text-right">
             </div>
-            <div class="col-md-2 text-left">
-                <input type="button" class="btn btn-primary" ng-hide="hideUpdateButton" value="Update" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />
-                <input type="button" class="btn btn-primary" ng-hide="hideSaveButton" value="Save" ng-click="save()" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />
-                <!--ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
-                ng-click="calculateLoan()">-->
+            <div class="col-md-1 text-left">
+                <input type="button" class="btn btn-primary" ng-hide="hideUpdateButton" value="Update" ng-click="update()" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />
+                <input type="button" class="btn btn-primary" ng-hide="hideSaveButton" value="Save" ng-click="save()" ng-disabled="!firstName || !lastName || !middleName || !gender || !homeAddress || !birthDate || !maritalStatus || !sourceOfIncome" />             
+                
             </div>
+            <div class="col-md-5 text-left saved" ng-hide="hideSuccessConfirmation">
+                <p class="text-success">Successfully Saved.</p>
+            </div>
+            
+            <div class="col-md-2 text-left">
 
-            <div class="col-md-6 text-left">
-                <input type="button" class="btn btn-danger" ng-hide="true" value="close" />
-                <!--ng-disabled="!amountLoan || !annualInterest || !repaymentPeriod "
-                ng-click="calculateLoan()">-->
+                <input type="button" class="btn btn-danger" ng-hide="true" value="close" />              
             </div>
         </div>
 
