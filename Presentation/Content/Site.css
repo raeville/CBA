@@ -41,6 +41,10 @@ ul li {
     margin-bottom:5px
 }
 
+    .buffer-top-30px > h4 > h6 {
+        margin-top: 0;
+    }
+
 .buffer-top-0px {
     margin-bottom: 0px;
 }
@@ -147,10 +151,6 @@ ul {
 .saved {
     padding-left:30px; 
     padding-top:10px
-}
-
-.margintop0 {
-    margin-top: 0;
 }
 
 .margin3p {
