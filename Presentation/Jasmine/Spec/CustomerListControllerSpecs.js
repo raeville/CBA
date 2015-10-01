@@ -82,7 +82,7 @@ describe('Customer List Controller', function () {
         scope.$root.$digest();
         expect(service.deleteCustomer).toHaveBeenCalled();
     });
-    it('should check Index to  $scope.checkIndex when checkIndex is called', function () {
+    it('should Add Index to $scope.checkIndex when checkIndex is called', function () {
         spyOn(scope, 'checkIndex').and.callThrough();
         scope.checkIndex(response)
         deferred.resolve(response);
